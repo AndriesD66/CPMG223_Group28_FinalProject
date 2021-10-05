@@ -16,5 +16,17 @@ namespace CMPG_Group28_FinalProject
         {
             InitializeComponent();
         }
+            public static bool LoggedIn=false;
+        private void frmHome_Load(object sender, EventArgs e)
+        {
+            Login newLogForm = new Login(LoggedIn);
+            if (!LoggedIn)
+            {
+                newLogForm.MdiParent = this;
+                newLogForm.Show();
+                newLogForm.Activate();
+            }
+            button1.Enabled = LoggedIn;
+        }
     }
 }
