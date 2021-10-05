@@ -16,7 +16,7 @@ namespace CMPG_Group28_FinalProject
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new frmHome());
         }
     }
 }
