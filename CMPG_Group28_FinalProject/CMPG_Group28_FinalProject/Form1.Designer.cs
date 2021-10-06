@@ -36,6 +36,9 @@ namespace CMPG_Group28_FinalProject
             this.btnView = new System.Windows.Forms.Button();
             this.pnlHome = new System.Windows.Forms.Panel();
             this.btnBook = new System.Windows.Forms.Button();
+            this.btnEnterExit = new System.Windows.Forms.Button();
+            this.btnPmnt = new System.Windows.Forms.Button();
+            this.btnReport = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.pnlHome.SuspendLayout();
             this.SuspendLayout();
@@ -85,6 +88,9 @@ namespace CMPG_Group28_FinalProject
             // 
             // pnlHome
             // 
+            this.pnlHome.Controls.Add(this.btnReport);
+            this.pnlHome.Controls.Add(this.btnPmnt);
+            this.pnlHome.Controls.Add(this.btnEnterExit);
             this.pnlHome.Controls.Add(this.btnBook);
             this.pnlHome.Controls.Add(this.btnView);
             this.pnlHome.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -104,6 +110,42 @@ namespace CMPG_Group28_FinalProject
             this.btnBook.Text = "Book A Class";
             this.btnBook.UseVisualStyleBackColor = true;
             this.btnBook.Click += new System.EventHandler(this.btnBook_Click);
+            // 
+            // btnEnterExit
+            // 
+            this.btnEnterExit.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnEnterExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEnterExit.Location = new System.Drawing.Point(0, 88);
+            this.btnEnterExit.Name = "btnEnterExit";
+            this.btnEnterExit.Size = new System.Drawing.Size(800, 44);
+            this.btnEnterExit.TabIndex = 5;
+            this.btnEnterExit.Text = "Client access";
+            this.btnEnterExit.UseVisualStyleBackColor = true;
+            this.btnEnterExit.Click += new System.EventHandler(this.btnEnterExit_Click);
+            // 
+            // btnPmnt
+            // 
+            this.btnPmnt.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnPmnt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPmnt.Location = new System.Drawing.Point(0, 132);
+            this.btnPmnt.Name = "btnPmnt";
+            this.btnPmnt.Size = new System.Drawing.Size(800, 44);
+            this.btnPmnt.TabIndex = 6;
+            this.btnPmnt.Text = "Log a Payment";
+            this.btnPmnt.UseVisualStyleBackColor = true;
+            this.btnPmnt.Click += new System.EventHandler(this.btnPmnt_Click);
+            // 
+            // btnReport
+            // 
+            this.btnReport.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReport.Location = new System.Drawing.Point(0, 176);
+            this.btnReport.Name = "btnReport";
+            this.btnReport.Size = new System.Drawing.Size(800, 44);
+            this.btnReport.TabIndex = 7;
+            this.btnReport.Text = "Request Reports";
+            this.btnReport.UseVisualStyleBackColor = true;
+            this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
             // 
             // frmHome
             // 
@@ -135,6 +177,9 @@ namespace CMPG_Group28_FinalProject
         private System.Windows.Forms.Button btnView;
         private System.Windows.Forms.Panel pnlHome;
         private System.Windows.Forms.Button btnBook;
+        private System.Windows.Forms.Button btnEnterExit;
+        private System.Windows.Forms.Button btnPmnt;
+        private System.Windows.Forms.Button btnReport;
     }
 }
 

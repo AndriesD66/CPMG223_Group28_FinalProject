@@ -20,6 +20,9 @@ namespace CMPG_Group28_FinalProject
             Login newLogForm = new Login();
             Clients view = new Clients();
             Bookings book = new Bookings();
+            Access acc = new Access();
+            Payment pmnt = new Payment();
+            Reports rpt = new Reports();
         private void frmHome_Load(object sender, EventArgs e)
         {
             
@@ -32,17 +35,34 @@ namespace CMPG_Group28_FinalProject
             newLogForm.FormClosed += new FormClosedEventHandler(newLogForm_FromClosed);
             view.FormClosed += new FormClosedEventHandler(view_FormClosed);
             book.FormClosed += new FormClosedEventHandler(book_FormClosed);
-            
+            acc.FormClosed += new FormClosedEventHandler(acc_FormClosed);
+            pmnt.FormClosed += new FormClosedEventHandler(pmnt_FormClosed);
+            rpt.FormClosed += new FormClosedEventHandler(rpt_FormClosed);
         }
         private void newLogForm_FromClosed(object sender, FormClosedEventArgs e)
         {
-            pnlHome.Visible = true;
+            if (LoggedIn)
+            {
+                pnlHome.Visible = true;
+            }
         }
         private void view_FormClosed(object sender, FormClosedEventArgs e)
         {
             pnlHome.Visible = true;
         }
         private void book_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            pnlHome.Visible = true;
+        }
+        private void acc_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            pnlHome.Visible = true;
+        }
+        private void pmnt_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            pnlHome.Visible = true;
+        }
+        private void rpt_FormClosed(object sender, FormClosedEventArgs e)
         {
             pnlHome.Visible = true;
         }
@@ -59,6 +79,27 @@ namespace CMPG_Group28_FinalProject
             book.MdiParent = this;
             pnlHome.Visible = false;
             book.Show();
+        }
+
+        private void btnEnterExit_Click(object sender, EventArgs e)
+        {
+            acc.MdiParent = this;
+            pnlHome.Visible = false;
+            acc.Show();
+        }
+
+        private void btnPmnt_Click(object sender, EventArgs e)
+        {
+            pmnt.MdiParent = this;
+            pnlHome.Visible = false;
+            pmnt.Show();
+        }
+
+        private void btnReport_Click(object sender, EventArgs e)
+        {
+            rpt.MdiParent = this;
+            pnlHome.Visible = false;
+            rpt.Show();
         }
     }
 }
