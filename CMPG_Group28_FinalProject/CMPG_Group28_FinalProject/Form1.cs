@@ -17,16 +17,48 @@ namespace CMPG_Group28_FinalProject
             InitializeComponent();
         }
             public static bool LoggedIn=false;
+            Login newLogForm = new Login();
+            Clients view = new Clients();
+            Bookings book = new Bookings();
         private void frmHome_Load(object sender, EventArgs e)
         {
-            Login newLogForm = new Login(LoggedIn);
+            
             if (!LoggedIn)
             {
+                pnlHome.Visible = false; ;
                 newLogForm.MdiParent = this;
                 newLogForm.Show();
-                newLogForm.Activate();
             }
-            button1.Enabled = LoggedIn;
+            newLogForm.FormClosed += new FormClosedEventHandler(newLogForm_FromClosed);
+            view.FormClosed += new FormClosedEventHandler(view_FormClosed);
+            book.FormClosed += new FormClosedEventHandler(book_FormClosed);
+            
+        }
+        private void newLogForm_FromClosed(object sender, FormClosedEventArgs e)
+        {
+            pnlHome.Visible = true;
+        }
+        private void view_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            pnlHome.Visible = true;
+        }
+        private void book_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            pnlHome.Visible = true;
+        }
+
+        private void btnView_Click(object sender, EventArgs e)
+        {
+            view.MdiParent = this;
+            pnlHome.Visible = false;
+            view.Show();
+        }
+
+        private void btnBook_Click(object sender, EventArgs e)
+        {
+            book.MdiParent = this;
+            pnlHome.Visible = false;
+            book.Show();
         }
     }
 }
