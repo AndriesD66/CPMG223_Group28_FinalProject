@@ -105,6 +105,7 @@ namespace CMPG_Group28_FinalProject
             this.btnExit.TabIndex = 2;
             this.btnExit.Text = "Save";
             this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // tbExit
             // 

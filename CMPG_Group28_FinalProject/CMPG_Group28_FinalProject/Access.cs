@@ -45,10 +45,16 @@ namespace CMPG_Group28_FinalProject
                 if (MemberID == tbEnter.Text)
                 {
                     MessageBox.Show("Member " + MemberID + " entered the gym");
+                    MemberID = "";
+                    tbEnter.Clear();
+                    tbEnter.Focus();
                 }
                 else
                 {
                     MessageBox.Show("Member not found");
+                    MemberID = "";
+                    tbEnter.Clear();
+                    tbEnter.Focus();
                 }
                 conn.Close();
             }
@@ -57,12 +63,49 @@ namespace CMPG_Group28_FinalProject
                 MessageBox.Show(ae.ToString());
             }
         }
-
         private void Access_Load(object sender, EventArgs e)
         {
             conn = new SqlConnection(conStr);
             conn.Open();
             conn.Close();
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string sql = "Select * from Member Where MemberId = '" + tbEnter.Text.Trim() + "'";
+                comm = new SqlCommand(sql, conn);
+                conn.Open();
+                read = comm.ExecuteReader();
+                if (read.HasRows)
+                {
+                    while (read.Read())
+                    {
+                        MemberID = Convert.ToString(read.GetValue(0));
+                    }
+                }
+                read.Close();
+                if (MemberID == tbEnter.Text)
+                {
+                    MessageBox.Show("Member " + MemberID + " left the gym");
+                    MemberID = "";
+                    tbExit.Clear();
+                    tbExit.Focus();
+                }
+                else
+                {
+                    MessageBox.Show("Member not found");
+                    MemberID = "";
+                    tbExit.Clear();
+                    tbExit.Focus();
+                }
+                conn.Close();
+            }
+            catch (Exception ae)
+            {
+                MessageBox.Show(ae.ToString());
+            }
         }
     }
 }
