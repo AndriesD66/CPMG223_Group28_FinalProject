@@ -30,7 +30,7 @@ namespace CMPG_Group28_FinalProject
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbBooking = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.cmbClass = new System.Windows.Forms.ComboBox();
             this.dtClass = new System.Windows.Forms.DateTimePicker();
@@ -58,13 +58,13 @@ namespace CMPG_Group28_FinalProject
             this.label1.TabIndex = 0;
             this.label1.Text = "Client ID: ";
             // 
-            // textBox1
+            // tbBooking
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(69, 18);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 1;
+            this.tbBooking.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbBooking.Location = new System.Drawing.Point(69, 18);
+            this.tbBooking.Name = "tbBooking";
+            this.tbBooking.Size = new System.Drawing.Size(100, 20);
+            this.tbBooking.TabIndex = 1;
             // 
             // label2
             // 
@@ -118,6 +118,7 @@ namespace CMPG_Group28_FinalProject
             this.btnBook.TabIndex = 6;
             this.btnBook.Text = "Book a class";
             this.btnBook.UseVisualStyleBackColor = true;
+            this.btnBook.Click += new System.EventHandler(this.btnBook_Click);
             // 
             // groupBox1
             // 
@@ -125,7 +126,7 @@ namespace CMPG_Group28_FinalProject
             this.groupBox1.Controls.Add(this.btnBook);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.tbBooking);
             this.groupBox1.Controls.Add(this.dtClass);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -166,6 +167,7 @@ namespace CMPG_Group28_FinalProject
             this.btnDelBooking.TabIndex = 2;
             this.btnDelBooking.Text = "Delete class";
             this.btnDelBooking.UseVisualStyleBackColor = true;
+            this.btnDelBooking.Click += new System.EventHandler(this.btnDelBooking_Click);
             // 
             // tbDelBooking
             // 
@@ -221,7 +223,7 @@ namespace CMPG_Group28_FinalProject
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbBooking;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cmbClass;
         private System.Windows.Forms.DateTimePicker dtClass;

@@ -17,6 +17,7 @@ namespace CMPG_Group28_FinalProject
         {
             InitializeComponent();
         }
+        string MemberID;
 
         string conStr = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\andre\OneDrive - NORTH-WEST UNIVERSITY\Documents\GitHub\CPMG223_Group28_FinalProject\CMPG_Group28_FinalProject\CMPG_Group28_FinalProject\GYM_DB.mdf;Integrated Security=True";
         SqlConnection conn;
@@ -35,6 +36,106 @@ namespace CMPG_Group28_FinalProject
             adap.Fill(dtbl);
             dgvClass.DataSource = dtbl;
             conn.Close();
+        }
+
+        private void btnDelBooking_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                conn = new SqlConnection(conStr);
+                conn.Open();
+                string sql = "Select * from Booking";
+                string del = "Delete from Booking Where BookingID = " + Convert.ToInt32(tbDelBooking.Text.Trim()) + "";
+                adap = new SqlDataAdapter(sql, conn);
+                comm = new SqlCommand(del, conn);
+                int deleted = comm.ExecuteNonQuery();
+                adap = new SqlDataAdapter(sql, conn);
+                DataTable dtbl = new DataTable();
+                adap.Fill(dtbl);
+                dgvClass.DataSource = dtbl;
+                MessageBox.Show(deleted.ToString() + " item(s) have been deleted");
+                conn.Close();
+            }
+            catch (Exception ae)
+            {
+                MessageBox.Show(ae.ToString());
+            }
+        }
+
+        private void btnBook_Click(object sender, EventArgs e)
+        {
+            int BookingID = 0;
+            string ClassType = "";
+            DateTime bookDate;
+            DateTime bookTime;
+            try
+            {
+                string sql = "Select * from Member Where MemberID = '" + tbBooking.Text.Trim() + "'";
+                comm = new SqlCommand(sql, conn);
+                conn.Open();
+                read = comm.ExecuteReader();
+                if (read.HasRows)
+                {
+                    while (read.Read())
+                    {
+                        MemberID = Convert.ToString(read.GetValue(0));
+                    }
+                }
+                read.Close();
+                if (MemberID == tbBooking.Text)
+                {
+                    MemberID = tbBooking.Text;
+                    bookDate = dtClass.Value.Date;
+                    bookTime = DateTime.Now;
+                    if (cmbClass.SelectedIndex!=-1)
+                    {
+                        ClassType = cmbClass.GetItemText(cmbClass.SelectedItem);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please select what type of class you want to book");
+                        tbBooking.Clear();
+                        tbBooking.Focus();
+                    }
+                    sql = "Select Top 1 BookingID From Booking Order By BookingID Desc";
+                    comm = new SqlCommand(sql, conn);
+                    read = comm.ExecuteReader();
+                    if (read.HasRows)
+                    {
+                        while (read.Read())
+                        {
+                            BookingID = Convert.ToInt32(read.GetValue(0));
+                        }
+                        MessageBox.Show("Booking ID: " + BookingID.ToString());
+                    }
+                    read.Close();
+                    BookingID++;
+                    sql = "Insert Booking(BookingID, MemberID, ClassType, BookingTime, BookingDate) Values (" + BookingID + ", '" + MemberID + "', '" + ClassType + "', '" + bookTime + "', '" + bookDate + "')";
+                    comm = new SqlCommand(sql, conn);
+                    comm.ExecuteNonQuery();
+                    sql = "Select * from Booking";
+                    adap = new SqlDataAdapter(sql, conn);
+                    DataTable dt = new DataTable();
+                    adap.Fill(dt);
+                    dgvClass.DataSource = dt;
+                }
+                else
+                {
+                    MessageBox.Show("Member not found");
+                    MemberID = "";
+                    tbBooking.Clear();
+                    tbBooking.Focus();
+                }
+                MemberID = "";
+                tbBooking.Clear();
+                tbBooking.Focus();
+                conn.Close();
+                read.Close();
+            }
+            catch (Exception ae)
+            {
+                MessageBox.Show(ae.ToString());
+            }
         }
     }
 }

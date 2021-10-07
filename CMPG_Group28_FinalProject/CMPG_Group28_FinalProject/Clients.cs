@@ -68,7 +68,7 @@ namespace CMPG_Group28_FinalProject
                 conn = new SqlConnection(conStr);
                 conn.Open();
                 string sql = "Select * from Member";
-                string del = @"Delete from Member Where MemberID = " + Convert.ToInt32(tbDelete.Text.Trim()) + "";
+                string del = "Delete from Member Where MemberID = " + Convert.ToInt32(tbDelete.Text.Trim()) + "";
                 adap = new SqlDataAdapter(sql, conn);
                 comm = new SqlCommand(del, conn);
                 int deleted = comm.ExecuteNonQuery();
