@@ -30,13 +30,13 @@ namespace CMPG_Group28_FinalProject
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.tbEnter = new System.Windows.Forms.TextBox();
-            this.tbExit = new System.Windows.Forms.TextBox();
-            this.btnExit = new System.Windows.Forms.Button();
             this.btnEnter = new System.Windows.Forms.Button();
+            this.tbEnter = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnExit = new System.Windows.Forms.Button();
+            this.tbExit = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -54,6 +54,35 @@ namespace CMPG_Group28_FinalProject
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Client enters";
             // 
+            // btnEnter
+            // 
+            this.btnEnter.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEnter.Location = new System.Drawing.Point(64, 42);
+            this.btnEnter.Name = "btnEnter";
+            this.btnEnter.Size = new System.Drawing.Size(75, 23);
+            this.btnEnter.TabIndex = 2;
+            this.btnEnter.Text = "Save";
+            this.btnEnter.UseVisualStyleBackColor = true;
+            this.btnEnter.Click += new System.EventHandler(this.btnEnter_Click);
+            // 
+            // tbEnter
+            // 
+            this.tbEnter.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbEnter.Location = new System.Drawing.Point(64, 16);
+            this.tbEnter.Name = "tbEnter";
+            this.tbEnter.Size = new System.Drawing.Size(100, 20);
+            this.tbEnter.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(6, 23);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(53, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Client ID: ";
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.btnExit);
@@ -67,15 +96,23 @@ namespace CMPG_Group28_FinalProject
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Client exits";
             // 
-            // label1
+            // btnExit
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(6, 23);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Client ID: ";
+            this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExit.Location = new System.Drawing.Point(65, 42);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(75, 23);
+            this.btnExit.TabIndex = 2;
+            this.btnExit.Text = "Save";
+            this.btnExit.UseVisualStyleBackColor = true;
+            // 
+            // tbExit
+            // 
+            this.tbExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbExit.Location = new System.Drawing.Point(65, 16);
+            this.tbExit.Name = "tbExit";
+            this.tbExit.Size = new System.Drawing.Size(100, 20);
+            this.tbExit.TabIndex = 1;
             // 
             // label2
             // 
@@ -87,42 +124,6 @@ namespace CMPG_Group28_FinalProject
             this.label2.TabIndex = 0;
             this.label2.Text = "Client ID: ";
             // 
-            // tbEnter
-            // 
-            this.tbEnter.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbEnter.Location = new System.Drawing.Point(64, 16);
-            this.tbEnter.Name = "tbEnter";
-            this.tbEnter.Size = new System.Drawing.Size(100, 20);
-            this.tbEnter.TabIndex = 1;
-            // 
-            // tbExit
-            // 
-            this.tbExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbExit.Location = new System.Drawing.Point(65, 16);
-            this.tbExit.Name = "tbExit";
-            this.tbExit.Size = new System.Drawing.Size(100, 20);
-            this.tbExit.TabIndex = 1;
-            // 
-            // btnExit
-            // 
-            this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExit.Location = new System.Drawing.Point(65, 42);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(75, 23);
-            this.btnExit.TabIndex = 2;
-            this.btnExit.Text = "Save";
-            this.btnExit.UseVisualStyleBackColor = true;
-            // 
-            // btnEnter
-            // 
-            this.btnEnter.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEnter.Location = new System.Drawing.Point(64, 42);
-            this.btnEnter.Name = "btnEnter";
-            this.btnEnter.Size = new System.Drawing.Size(75, 23);
-            this.btnEnter.TabIndex = 2;
-            this.btnEnter.Text = "Save";
-            this.btnEnter.UseVisualStyleBackColor = true;
-            // 
             // Access
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -133,6 +134,7 @@ namespace CMPG_Group28_FinalProject
             this.Name = "Access";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Access";
+            this.Load += new System.EventHandler(this.Access_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
