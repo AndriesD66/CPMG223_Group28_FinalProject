@@ -60,5 +60,29 @@ namespace CMPG_Group28_FinalProject
             dgvClients.DataSource = dtbl;
             conn.Close();
         }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                conn = new SqlConnection(conStr);
+                conn.Open();
+                string sql = "Select * from Member";
+                string del = @"Delete from Member Where MemberID = " + Convert.ToInt32(tbDelete.Text.Trim()) + "";
+                adap = new SqlDataAdapter(sql, conn);
+                comm = new SqlCommand(del, conn);
+                int deleted = comm.ExecuteNonQuery();
+                adap = new SqlDataAdapter(sql, conn);
+                DataTable dtbl = new DataTable();
+                adap.Fill(dtbl);
+                dgvClients.DataSource = dtbl;
+                MessageBox.Show(deleted.ToString() + " item(s) have been deleted");
+                conn.Close();
+            }
+            catch (Exception ae)
+            {
+                MessageBox.Show(ae.ToString());
+            }
+        }
     }
 }

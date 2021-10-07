@@ -22,15 +22,15 @@ namespace CMPG_Group28_FinalProject
         SqlConnection conn;
         SqlCommand comm;
         SqlDataAdapter adap;
-        SqlDataReader read;
         DataSet ds;
+        SqlDataReader read;
         string MemberID;
 
         private void btnEnter_Click(object sender, EventArgs e)
         {
             try
             {
-                string sql = "Select * from Member Where MemberId = '" + tbEnter.Text.Trim() + "'";
+                string sql = "Select * from Member Where MemberID = '" + tbEnter.Text.Trim() + "'";
                 comm = new SqlCommand(sql, conn);
                 conn.Open();
                 read = comm.ExecuteReader();
@@ -57,6 +57,7 @@ namespace CMPG_Group28_FinalProject
                     tbEnter.Focus();
                 }
                 conn.Close();
+                read.Close();
             }
             catch(Exception ae)
             {
@@ -72,9 +73,10 @@ namespace CMPG_Group28_FinalProject
 
         private void btnExit_Click(object sender, EventArgs e)
         {
+
             try
             {
-                string sql = "Select * from Member Where MemberId = '" + tbEnter.Text.Trim() + "'";
+                string sql = "Select * from Member Where MemberID = '" + tbExit.Text.Trim() + "'";
                 comm = new SqlCommand(sql, conn);
                 conn.Open();
                 read = comm.ExecuteReader();
@@ -86,7 +88,7 @@ namespace CMPG_Group28_FinalProject
                     }
                 }
                 read.Close();
-                if (MemberID == tbEnter.Text)
+                if (MemberID == tbExit.Text)
                 {
                     MessageBox.Show("Member " + MemberID + " left the gym");
                     MemberID = "";
@@ -100,6 +102,7 @@ namespace CMPG_Group28_FinalProject
                     tbExit.Clear();
                     tbExit.Focus();
                 }
+                read.Close();
                 conn.Close();
             }
             catch (Exception ae)

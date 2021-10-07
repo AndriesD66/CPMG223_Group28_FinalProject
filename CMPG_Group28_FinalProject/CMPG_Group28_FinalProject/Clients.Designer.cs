@@ -32,24 +32,24 @@ namespace CMPG_Group28_FinalProject
             this.dgvClients = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.gbAddEdit = new System.Windows.Forms.GroupBox();
-            this.gbDelete = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.tbDelete = new System.Windows.Forms.TextBox();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.cbEdit = new System.Windows.Forms.CheckBox();
-            this.lblID = new System.Windows.Forms.Label();
-            this.tbID = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.tbName = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.tbSurname = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.tbEmail = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.tbBank = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.tbContact = new System.Windows.Forms.TextBox();
             this.cbAdmin = new System.Windows.Forms.CheckBox();
+            this.tbContact = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.tbBank = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.tbEmail = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.tbSurname = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.tbName = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.tbID = new System.Windows.Forms.TextBox();
+            this.lblID = new System.Windows.Forms.Label();
+            this.cbEdit = new System.Windows.Forms.CheckBox();
+            this.gbDelete = new System.Windows.Forms.GroupBox();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.tbDelete = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClients)).BeginInit();
             this.gbAddEdit.SuspendLayout();
             this.gbDelete.SuspendLayout();
@@ -97,45 +97,118 @@ namespace CMPG_Group28_FinalProject
             this.gbAddEdit.TabStop = false;
             this.gbAddEdit.Text = "Add new client record or edit an existing record";
             // 
-            // gbDelete
+            // cbAdmin
             // 
-            this.gbDelete.Controls.Add(this.btnDelete);
-            this.gbDelete.Controls.Add(this.tbDelete);
-            this.gbDelete.Controls.Add(this.label2);
-            this.gbDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbDelete.Location = new System.Drawing.Point(859, 382);
-            this.gbDelete.Name = "gbDelete";
-            this.gbDelete.Size = new System.Drawing.Size(262, 108);
-            this.gbDelete.TabIndex = 3;
-            this.gbDelete.TabStop = false;
-            this.gbDelete.Text = "Delete a record";
+            this.cbAdmin.AutoSize = true;
+            this.cbAdmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbAdmin.Location = new System.Drawing.Point(9, 114);
+            this.cbAdmin.Name = "cbAdmin";
+            this.cbAdmin.Size = new System.Drawing.Size(156, 17);
+            this.cbAdmin.TabIndex = 13;
+            this.cbAdmin.Text = "This user is an administrator";
+            this.cbAdmin.UseVisualStyleBackColor = true;
             // 
-            // label2
+            // tbContact
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(7, 33);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 13);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Client ID: ";
+            this.tbContact.Location = new System.Drawing.Point(606, 71);
+            this.tbContact.Name = "tbContact";
+            this.tbContact.Size = new System.Drawing.Size(100, 22);
+            this.tbContact.TabIndex = 12;
             // 
-            // tbDelete
+            // label7
             // 
-            this.tbDelete.Location = new System.Drawing.Point(66, 24);
-            this.tbDelete.Name = "tbDelete";
-            this.tbDelete.Size = new System.Drawing.Size(100, 22);
-            this.tbDelete.TabIndex = 1;
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(509, 78);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(90, 13);
+            this.label7.TabIndex = 11;
+            this.label7.Text = "Contact Number: ";
             // 
-            // btnDelete
+            // tbBank
             // 
-            this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Location = new System.Drawing.Point(66, 62);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(100, 23);
-            this.btnDelete.TabIndex = 2;
-            this.btnDelete.Text = "Delete Record";
-            this.btnDelete.UseVisualStyleBackColor = true;
+            this.tbBank.Location = new System.Drawing.Point(350, 69);
+            this.tbBank.Name = "tbBank";
+            this.tbBank.Size = new System.Drawing.Size(100, 22);
+            this.tbBank.TabIndex = 10;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(229, 78);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(118, 13);
+            this.label6.TabIndex = 9;
+            this.label6.Text = "Bank Account Number:";
+            // 
+            // tbEmail
+            // 
+            this.tbEmail.Location = new System.Drawing.Point(65, 71);
+            this.tbEmail.Name = "tbEmail";
+            this.tbEmail.Size = new System.Drawing.Size(100, 22);
+            this.tbEmail.TabIndex = 8;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(9, 79);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(35, 13);
+            this.label5.TabIndex = 7;
+            this.label5.Text = "Email:";
+            // 
+            // tbSurname
+            // 
+            this.tbSurname.Location = new System.Drawing.Point(468, 41);
+            this.tbSurname.Name = "tbSurname";
+            this.tbSurname.Size = new System.Drawing.Size(100, 22);
+            this.tbSurname.TabIndex = 6;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(413, 46);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(52, 13);
+            this.label4.TabIndex = 5;
+            this.label4.Text = "Surname:";
+            // 
+            // tbName
+            // 
+            this.tbName.Location = new System.Drawing.Point(270, 40);
+            this.tbName.Name = "tbName";
+            this.tbName.Size = new System.Drawing.Size(100, 22);
+            this.tbName.TabIndex = 4;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(226, 46);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(38, 13);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Name:";
+            // 
+            // tbID
+            // 
+            this.tbID.Location = new System.Drawing.Point(65, 41);
+            this.tbID.Name = "tbID";
+            this.tbID.Size = new System.Drawing.Size(100, 22);
+            this.tbID.TabIndex = 2;
+            // 
+            // lblID
+            // 
+            this.lblID.AutoSize = true;
+            this.lblID.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblID.Location = new System.Drawing.Point(6, 45);
+            this.lblID.Name = "lblID";
+            this.lblID.Size = new System.Drawing.Size(53, 13);
+            this.lblID.TabIndex = 1;
+            this.lblID.Text = "Client ID: ";
             // 
             // cbEdit
             // 
@@ -149,118 +222,46 @@ namespace CMPG_Group28_FinalProject
             this.cbEdit.UseVisualStyleBackColor = true;
             this.cbEdit.CheckedChanged += new System.EventHandler(this.cbEdit_CheckedChanged);
             // 
-            // lblID
+            // gbDelete
             // 
-            this.lblID.AutoSize = true;
-            this.lblID.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblID.Location = new System.Drawing.Point(6, 45);
-            this.lblID.Name = "lblID";
-            this.lblID.Size = new System.Drawing.Size(53, 13);
-            this.lblID.TabIndex = 1;
-            this.lblID.Text = "Client ID: ";
+            this.gbDelete.Controls.Add(this.btnDelete);
+            this.gbDelete.Controls.Add(this.tbDelete);
+            this.gbDelete.Controls.Add(this.label2);
+            this.gbDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbDelete.Location = new System.Drawing.Point(859, 382);
+            this.gbDelete.Name = "gbDelete";
+            this.gbDelete.Size = new System.Drawing.Size(262, 108);
+            this.gbDelete.TabIndex = 3;
+            this.gbDelete.TabStop = false;
+            this.gbDelete.Text = "Delete a record";
             // 
-            // tbID
+            // btnDelete
             // 
-            this.tbID.Location = new System.Drawing.Point(65, 41);
-            this.tbID.Name = "tbID";
-            this.tbID.Size = new System.Drawing.Size(100, 22);
-            this.tbID.TabIndex = 2;
+            this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.Location = new System.Drawing.Point(66, 62);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(100, 23);
+            this.btnDelete.TabIndex = 2;
+            this.btnDelete.Text = "Delete Record";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
-            // label3
+            // tbDelete
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(226, 46);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(38, 13);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Name:";
+            this.tbDelete.Location = new System.Drawing.Point(66, 24);
+            this.tbDelete.Name = "tbDelete";
+            this.tbDelete.Size = new System.Drawing.Size(100, 22);
+            this.tbDelete.TabIndex = 1;
             // 
-            // tbName
+            // label2
             // 
-            this.tbName.Location = new System.Drawing.Point(270, 40);
-            this.tbName.Name = "tbName";
-            this.tbName.Size = new System.Drawing.Size(100, 22);
-            this.tbName.TabIndex = 4;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(413, 46);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(52, 13);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "Surname:";
-            // 
-            // tbSurname
-            // 
-            this.tbSurname.Location = new System.Drawing.Point(468, 41);
-            this.tbSurname.Name = "tbSurname";
-            this.tbSurname.Size = new System.Drawing.Size(100, 22);
-            this.tbSurname.TabIndex = 6;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(9, 79);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(35, 13);
-            this.label5.TabIndex = 7;
-            this.label5.Text = "Email:";
-            // 
-            // tbEmail
-            // 
-            this.tbEmail.Location = new System.Drawing.Point(65, 71);
-            this.tbEmail.Name = "tbEmail";
-            this.tbEmail.Size = new System.Drawing.Size(100, 22);
-            this.tbEmail.TabIndex = 8;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(229, 78);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(118, 13);
-            this.label6.TabIndex = 9;
-            this.label6.Text = "Bank Account Number:";
-            // 
-            // tbBank
-            // 
-            this.tbBank.Location = new System.Drawing.Point(350, 69);
-            this.tbBank.Name = "tbBank";
-            this.tbBank.Size = new System.Drawing.Size(100, 22);
-            this.tbBank.TabIndex = 10;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(509, 78);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(90, 13);
-            this.label7.TabIndex = 11;
-            this.label7.Text = "Contact Number: ";
-            // 
-            // tbContact
-            // 
-            this.tbContact.Location = new System.Drawing.Point(606, 71);
-            this.tbContact.Name = "tbContact";
-            this.tbContact.Size = new System.Drawing.Size(100, 22);
-            this.tbContact.TabIndex = 12;
-            // 
-            // cbAdmin
-            // 
-            this.cbAdmin.AutoSize = true;
-            this.cbAdmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbAdmin.Location = new System.Drawing.Point(9, 114);
-            this.cbAdmin.Name = "cbAdmin";
-            this.cbAdmin.Size = new System.Drawing.Size(156, 17);
-            this.cbAdmin.TabIndex = 13;
-            this.cbAdmin.Text = "This user is an administrator";
-            this.cbAdmin.UseVisualStyleBackColor = true;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(7, 33);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(53, 13);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Client ID: ";
             // 
             // Clients
             // 
