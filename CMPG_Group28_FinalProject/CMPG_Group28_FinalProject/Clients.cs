@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -16,6 +17,13 @@ namespace CMPG_Group28_FinalProject
         {
             InitializeComponent();
         }
+
+        string conStr = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\andre\OneDrive - NORTH-WEST UNIVERSITY\Documents\GitHub\CPMG223_Group28_FinalProject\CMPG_Group28_FinalProject\CMPG_Group28_FinalProject\GYM_DB.mdf;Integrated Security=True";
+        SqlConnection conn;
+        SqlCommand comm;
+        SqlDataAdapter adap;
+        SqlDataReader read;
+        DataSet ds;
 
         private void cbEdit_CheckedChanged(object sender, EventArgs e)
         {
@@ -43,6 +51,14 @@ namespace CMPG_Group28_FinalProject
                 lblID.Enabled = false;
                 tbID.Enabled = false;
             }
+            conn = new SqlConnection(conStr);
+            conn.Open();
+            string sql = "Select * from Member";
+            adap = new SqlDataAdapter(sql, conn);
+            DataTable dtbl = new DataTable();
+            adap.Fill(dtbl);
+            dgvClients.DataSource = dtbl;
+            conn.Close();
         }
     }
 }

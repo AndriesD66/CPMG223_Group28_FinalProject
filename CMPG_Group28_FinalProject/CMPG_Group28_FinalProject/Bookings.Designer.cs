@@ -39,9 +39,9 @@ namespace CMPG_Group28_FinalProject
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvClass = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.tbDelBooking = new System.Windows.Forms.TextBox();
             this.btnDelBooking = new System.Windows.Forms.Button();
+            this.tbDelBooking = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClass)).BeginInit();
@@ -157,24 +157,6 @@ namespace CMPG_Group28_FinalProject
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Delete a Class";
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(7, 24);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(66, 13);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Booking ID: ";
-            // 
-            // tbDelBooking
-            // 
-            this.tbDelBooking.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbDelBooking.Location = new System.Drawing.Point(79, 17);
-            this.tbDelBooking.Name = "tbDelBooking";
-            this.tbDelBooking.Size = new System.Drawing.Size(100, 20);
-            this.tbDelBooking.TabIndex = 1;
-            // 
             // btnDelBooking
             // 
             this.btnDelBooking.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -184,6 +166,24 @@ namespace CMPG_Group28_FinalProject
             this.btnDelBooking.TabIndex = 2;
             this.btnDelBooking.Text = "Delete class";
             this.btnDelBooking.UseVisualStyleBackColor = true;
+            // 
+            // tbDelBooking
+            // 
+            this.tbDelBooking.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbDelBooking.Location = new System.Drawing.Point(79, 17);
+            this.tbDelBooking.Name = "tbDelBooking";
+            this.tbDelBooking.Size = new System.Drawing.Size(100, 20);
+            this.tbDelBooking.TabIndex = 1;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(7, 24);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(66, 13);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Booking ID: ";
             // 
             // label5
             // 
@@ -207,6 +207,7 @@ namespace CMPG_Group28_FinalProject
             this.Name = "Bookings";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Bookings";
+            this.Load += new System.EventHandler(this.Bookings_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClass)).EndInit();
