@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace CMPG_Group28_FinalProject
 {
@@ -19,11 +20,13 @@ namespace CMPG_Group28_FinalProject
         }
 
         public static string clientID = "1234567890";
-        public static string adminPassword = "mIghTy4#";
+        public static string adminPassword = "";
         public static bool isAdmin = true;
         public static bool ValidLogin = false;
 
-        string conStr = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\andre\OneDrive - NORTH-WEST UNIVERSITY\Documents\GitHub\CPMG223_Group28_FinalProject\CMPG_Group28_FinalProject\CMPG_Group28_FinalProject\GYM_DB.mdf;Integrated Security=True";
+       
+    
+
         SqlConnection conn;
         SqlCommand comm;
         SqlDataAdapter adap;
@@ -48,6 +51,7 @@ namespace CMPG_Group28_FinalProject
                     frmHome.LoggedIn = ValidLogin;
                     this.Close();
                 }
+                
                 else
                 {
                     MessageBox.Show("Input a valid Admin password");
@@ -69,7 +73,7 @@ namespace CMPG_Group28_FinalProject
 
         private void Login_Load(object sender, EventArgs e)
         {
-            conn = new SqlConnection(conStr);
+            conn = new SqlConnection(Global.ConString);
             conn.Open();
             conn.Close();
         }

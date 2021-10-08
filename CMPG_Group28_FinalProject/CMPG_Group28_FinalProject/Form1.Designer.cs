@@ -35,10 +35,10 @@ namespace CMPG_Group28_FinalProject
             this.Exit = new System.Windows.Forms.ToolStripMenuItem();
             this.btnView = new System.Windows.Forms.Button();
             this.pnlHome = new System.Windows.Forms.Panel();
-            this.btnBook = new System.Windows.Forms.Button();
-            this.btnEnterExit = new System.Windows.Forms.Button();
-            this.btnPmnt = new System.Windows.Forms.Button();
             this.btnReport = new System.Windows.Forms.Button();
+            this.btnPmnt = new System.Windows.Forms.Button();
+            this.btnEnterExit = new System.Windows.Forms.Button();
+            this.btnBook = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.pnlHome.SuspendLayout();
             this.SuspendLayout();
@@ -52,26 +52,26 @@ namespace CMPG_Group28_FinalProject
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.MdiWindowListItem = this.Window;
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(800, 33);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // File
             // 
             this.File.Name = "File";
-            this.File.Size = new System.Drawing.Size(37, 20);
+            this.File.Size = new System.Drawing.Size(50, 29);
             this.File.Text = "&File";
             // 
             // Window
             // 
             this.Window.Name = "Window";
-            this.Window.Size = new System.Drawing.Size(63, 20);
+            this.Window.Size = new System.Drawing.Size(90, 29);
             this.Window.Text = "&Window";
             // 
             // Exit
             // 
             this.Exit.Name = "Exit";
-            this.Exit.Size = new System.Drawing.Size(38, 20);
+            this.Exit.Size = new System.Drawing.Size(51, 29);
             this.Exit.Text = "&Exit";
             // 
             // btnView
@@ -94,34 +94,23 @@ namespace CMPG_Group28_FinalProject
             this.pnlHome.Controls.Add(this.btnBook);
             this.pnlHome.Controls.Add(this.btnView);
             this.pnlHome.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlHome.Location = new System.Drawing.Point(0, 24);
+            this.pnlHome.Location = new System.Drawing.Point(0, 33);
             this.pnlHome.Name = "pnlHome";
-            this.pnlHome.Size = new System.Drawing.Size(800, 426);
+            this.pnlHome.Size = new System.Drawing.Size(800, 417);
             this.pnlHome.TabIndex = 5;
+            this.pnlHome.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlHome_Paint);
             // 
-            // btnBook
+            // btnReport
             // 
-            this.btnBook.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnBook.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBook.Location = new System.Drawing.Point(0, 44);
-            this.btnBook.Name = "btnBook";
-            this.btnBook.Size = new System.Drawing.Size(800, 44);
-            this.btnBook.TabIndex = 4;
-            this.btnBook.Text = "Book A Class";
-            this.btnBook.UseVisualStyleBackColor = true;
-            this.btnBook.Click += new System.EventHandler(this.btnBook_Click);
-            // 
-            // btnEnterExit
-            // 
-            this.btnEnterExit.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnEnterExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEnterExit.Location = new System.Drawing.Point(0, 88);
-            this.btnEnterExit.Name = "btnEnterExit";
-            this.btnEnterExit.Size = new System.Drawing.Size(800, 44);
-            this.btnEnterExit.TabIndex = 5;
-            this.btnEnterExit.Text = "Client access";
-            this.btnEnterExit.UseVisualStyleBackColor = true;
-            this.btnEnterExit.Click += new System.EventHandler(this.btnEnterExit_Click);
+            this.btnReport.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReport.Location = new System.Drawing.Point(0, 176);
+            this.btnReport.Name = "btnReport";
+            this.btnReport.Size = new System.Drawing.Size(800, 44);
+            this.btnReport.TabIndex = 7;
+            this.btnReport.Text = "Request Reports";
+            this.btnReport.UseVisualStyleBackColor = true;
+            this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
             // 
             // btnPmnt
             // 
@@ -135,17 +124,29 @@ namespace CMPG_Group28_FinalProject
             this.btnPmnt.UseVisualStyleBackColor = true;
             this.btnPmnt.Click += new System.EventHandler(this.btnPmnt_Click);
             // 
-            // btnReport
+            // btnEnterExit
             // 
-            this.btnReport.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReport.Location = new System.Drawing.Point(0, 176);
-            this.btnReport.Name = "btnReport";
-            this.btnReport.Size = new System.Drawing.Size(800, 44);
-            this.btnReport.TabIndex = 7;
-            this.btnReport.Text = "Request Reports";
-            this.btnReport.UseVisualStyleBackColor = true;
-            this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
+            this.btnEnterExit.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnEnterExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEnterExit.Location = new System.Drawing.Point(0, 88);
+            this.btnEnterExit.Name = "btnEnterExit";
+            this.btnEnterExit.Size = new System.Drawing.Size(800, 44);
+            this.btnEnterExit.TabIndex = 5;
+            this.btnEnterExit.Text = "Client access";
+            this.btnEnterExit.UseVisualStyleBackColor = true;
+            this.btnEnterExit.Click += new System.EventHandler(this.btnEnterExit_Click);
+            // 
+            // btnBook
+            // 
+            this.btnBook.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnBook.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBook.Location = new System.Drawing.Point(0, 44);
+            this.btnBook.Name = "btnBook";
+            this.btnBook.Size = new System.Drawing.Size(800, 44);
+            this.btnBook.TabIndex = 4;
+            this.btnBook.Text = "Book A Class";
+            this.btnBook.UseVisualStyleBackColor = true;
+            this.btnBook.Click += new System.EventHandler(this.btnBook_Click);
             // 
             // frmHome
             // 

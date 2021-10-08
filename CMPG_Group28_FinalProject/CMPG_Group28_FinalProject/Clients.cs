@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace CMPG_Group28_FinalProject
 {
     public partial class Clients : Form
@@ -18,7 +19,7 @@ namespace CMPG_Group28_FinalProject
             InitializeComponent();
         }
 
-        string conStr = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\andre\OneDrive - NORTH-WEST UNIVERSITY\Documents\GitHub\CPMG223_Group28_FinalProject\CMPG_Group28_FinalProject\CMPG_Group28_FinalProject\GYM_DB.mdf;Integrated Security=True";
+        //string conStr = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\andre\OneDrive - NORTH-WEST UNIVERSITY\Documents\GitHub\CPMG223_Group28_FinalProject\CMPG_Group28_FinalProject\CMPG_Group28_FinalProject\GYM_DB.mdf;Integrated Security=True";
         SqlConnection conn;
         SqlCommand comm;
         SqlDataAdapter adap;
@@ -51,7 +52,7 @@ namespace CMPG_Group28_FinalProject
                 lblID.Enabled = false;
                 tbID.Enabled = false;
             }
-            conn = new SqlConnection(conStr);
+            conn = new SqlConnection(Global.ConString);
             conn.Open();
             string sql = "Select * from Member";
             adap = new SqlDataAdapter(sql, conn);
@@ -65,7 +66,7 @@ namespace CMPG_Group28_FinalProject
         {
             try
             {
-                conn = new SqlConnection(conStr);
+                conn = new SqlConnection(Global.ConString);
                 conn.Open();
                 string sql = "Select * from Member";
                 string del = "Delete from Member Where MemberID = " + Convert.ToInt32(tbDelete.Text.Trim()) + "";

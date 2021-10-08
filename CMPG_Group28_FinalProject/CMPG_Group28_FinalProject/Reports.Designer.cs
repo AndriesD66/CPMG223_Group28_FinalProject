@@ -132,6 +132,7 @@ namespace CMPG_Group28_FinalProject
             this.Name = "Reports";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Reports";
+            this.Load += new System.EventHandler(this.Reports_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

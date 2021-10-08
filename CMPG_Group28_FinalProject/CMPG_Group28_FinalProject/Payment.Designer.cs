@@ -122,6 +122,7 @@ namespace CMPG_Group28_FinalProject
             this.Name = "Payment";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Payment";
+            this.Load += new System.EventHandler(this.Payment_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

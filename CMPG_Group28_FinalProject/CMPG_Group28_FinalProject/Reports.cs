@@ -16,5 +16,10 @@ namespace CMPG_Group28_FinalProject
         {
             InitializeComponent();
         }
+
+        private void Reports_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -101,5 +101,10 @@ namespace CMPG_Group28_FinalProject
             pnlHome.Visible = false;
             rpt.Show();
         }
+
+        private void pnlHome_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

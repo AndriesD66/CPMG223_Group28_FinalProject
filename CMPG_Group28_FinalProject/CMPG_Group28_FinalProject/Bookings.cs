@@ -19,7 +19,7 @@ namespace CMPG_Group28_FinalProject
         }
         string MemberID;
 
-        string conStr = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\andre\OneDrive - NORTH-WEST UNIVERSITY\Documents\GitHub\CPMG223_Group28_FinalProject\CMPG_Group28_FinalProject\CMPG_Group28_FinalProject\GYM_DB.mdf;Integrated Security=True";
+        //string conStr = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\andre\OneDrive - NORTH-WEST UNIVERSITY\Documents\GitHub\CPMG223_Group28_FinalProject\CMPG_Group28_FinalProject\CMPG_Group28_FinalProject\GYM_DB.mdf;Integrated Security=True";
         SqlConnection conn;
         SqlCommand comm;
         SqlDataAdapter adap;
@@ -28,7 +28,7 @@ namespace CMPG_Group28_FinalProject
 
         private void Bookings_Load(object sender, EventArgs e)
         {
-            conn = new SqlConnection(conStr);
+            conn = new SqlConnection(Global.ConString);
             conn.Open();
             string sql = "Select * from Booking";
             adap = new SqlDataAdapter(sql, conn);
@@ -42,7 +42,7 @@ namespace CMPG_Group28_FinalProject
         {
             try
             {
-                conn = new SqlConnection(conStr);
+                conn = new SqlConnection(Global.ConString);
                 conn.Open();
                 string sql = "Select * from Booking";
                 string del = "Delete from Booking Where BookingID = " + Convert.ToInt32(tbDelBooking.Text.Trim()) + "";

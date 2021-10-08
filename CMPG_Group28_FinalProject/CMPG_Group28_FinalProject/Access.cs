@@ -18,19 +18,31 @@ namespace CMPG_Group28_FinalProject
             InitializeComponent();
         }
 
-        string conStr = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\andre\OneDrive - NORTH-WEST UNIVERSITY\Documents\GitHub\CPMG223_Group28_FinalProject\CMPG_Group28_FinalProject\CMPG_Group28_FinalProject\GYM_DB.mdf;Integrated Security=True";
+        
+
+
         SqlConnection conn;
         SqlCommand comm;
         SqlDataAdapter adap;
-        DataSet ds;
         SqlDataReader read;
-        string MemberID;
+        DataSet ds;
+        int MemberID;
+        int EntryID;
+        int ExitID;
 
+        
         private void btnEnter_Click(object sender, EventArgs e)
         {
             try
             {
-                string sql = "Select * from Member Where MemberID = '" + tbEnter.Text.Trim() + "'";
+                if (String.IsNullOrWhiteSpace(tbEnter.Text))
+                {
+                    tbEnter.Focus();
+                    tbEnter.Clear();
+                    throw new Exception("Please enter a valid MemberId ");
+                }
+
+                string sql = "Select * from Member Where MemberId = '" + tbEnter.Text.Trim() + "'";
                 comm = new SqlCommand(sql, conn);
                 conn.Open();
                 read = comm.ExecuteReader();
@@ -38,45 +50,93 @@ namespace CMPG_Group28_FinalProject
                 {
                     while (read.Read())
                     {
-                        MemberID = Convert.ToString(read.GetValue(0));
+                        MemberID = int.Parse(Convert.ToString(read.GetValue(0)));
                     }
                 }
                 read.Close();
-                if (MemberID == tbEnter.Text)
+                if (MemberID == int.Parse(tbEnter.Text))
                 {
+                    string sqlSelectIndex = "Select Max(EntryID) FROM Entry";
+                    comm = new SqlCommand(sqlSelectIndex, conn);
+                    read = comm.ExecuteReader();
+                    if (read.HasRows)
+                    {
+                        while (read.Read())
+                        {
+                            EntryID = int.Parse(Convert.ToString(read.GetValue(0)));
+                        }
+                    }
+                    read.Close();
+
+                    try
+                    {
+                        //Insert of all the things needed to know when one logs into system
+
+
+
+
+                        string sqlInsertNewEntry = "INSERT INTO Entry(EntryID, MemberID, EntryTime, EntryDate ) VALUES(@EntryID, @MemberID, @Time, @Date)";
+
+                        comm = new SqlCommand(sqlInsertNewEntry, conn);
+
+                        comm.Parameters.AddWithValue("@EntryID", EntryID + 1);
+                        comm.Parameters.AddWithValue("@MemberID", MemberID);
+                        comm.Parameters.AddWithValue("@Time", DateTime.Now.ToShortTimeString());
+                        comm.Parameters.AddWithValue("@Date", DateTime.Today);
+
+
+
+                        comm.ExecuteNonQuery();
+                        MessageBox.Show("Added entry");
+                        conn.Close();
+                    }
+                    catch (SqlException error)
+                    {
+                        MessageBox.Show(error.Message);
+                    }
+
                     MessageBox.Show("Member " + MemberID + " entered the gym");
-                    MemberID = "";
-                    tbEnter.Clear();
-                    tbEnter.Focus();
                 }
                 else
                 {
-                    MessageBox.Show("Member not found");
-                    MemberID = "";
-                    tbEnter.Clear();
+                    MessageBox.Show("Member not found, try again");
                     tbEnter.Focus();
                 }
                 conn.Close();
-                read.Close();
             }
-            catch(Exception ae)
+            catch (Exception ae)
             {
-                MessageBox.Show(ae.ToString());
+                MessageBox.Show(ae.Message.ToString());
             }
         }
+
         private void Access_Load(object sender, EventArgs e)
         {
-            conn = new SqlConnection(conStr);
+            conn = new SqlConnection(Global.ConString);
             conn.Open();
             conn.Close();
         }
 
         private void btnExit_Click(object sender, EventArgs e)
         {
+            NewMethod();
+            conn.Close();
+        }
 
+        private void NewMethod()
+        {
             try
-            {
-                string sql = "Select * from Member Where MemberID = '" + tbExit.Text.Trim() + "'";
+            { 
+            
+                if(String.IsNullOrWhiteSpace(tbExit.Text))
+                {
+                    
+                    
+                    tbExit.Focus();
+                    tbExit.Clear();
+                    throw new Exception("Please enter a valid MemberId ");
+                }
+                string sql = "Select * from Member Where MemberId = '" + tbExit.Text.Trim() + "'";
                 comm = new SqlCommand(sql, conn);
                 conn.Open();
                 read = comm.ExecuteReader();
@@ -84,31 +144,77 @@ namespace CMPG_Group28_FinalProject
                 {
                     while (read.Read())
                     {
-                        MemberID = Convert.ToString(read.GetValue(0));
+                        MemberID = int.Parse(Convert.ToString(read.GetValue(0)));
                     }
                 }
                 read.Close();
-                if (MemberID == tbExit.Text)
+                if (MemberID == int.Parse(tbExit.Text))
                 {
-                    MessageBox.Show("Member " + MemberID + " left the gym");
-                    MemberID = "";
-                    tbExit.Clear();
-                    tbExit.Focus();
+                    string sqlSelectIndexExit = "Select Max(ExitID) FROM ExitGym";
+                    comm = new SqlCommand(sqlSelectIndexExit, conn);
+                    read = comm.ExecuteReader();
+                    if (read.HasRows)
+                    {
+                        while (read.Read())
+                        {
+                            if (!String.IsNullOrWhiteSpace(Convert.ToString(read.GetValue(0))))
+                            {
+                                MessageBox.Show(Convert.ToString(read.GetValue(0)));
+                                ExitID = int.Parse(Convert.ToString(read.GetValue(0)));
+                                
+
+                            }
+                            else
+                            {
+                                ExitID = 0;
+                            }
+                        }
+                    }
+                    read.Close();
+
+
+                    try
+                    {
+                        //Insert of all the things needed to know when one logs out of system
+
+
+
+
+                        string sqlInsertNewEntryE = "INSERT INTO ExitGym(ExitID, MemberID, ExitTime, ExitDate ) VALUES(@ExitID, @MemberID, @Time, @Date)";
+
+                        comm = new SqlCommand(sqlInsertNewEntryE, conn);
+
+                        comm.Parameters.AddWithValue("@ExitID", ExitID + 1);
+                        comm.Parameters.AddWithValue("@MemberID", MemberID);
+                        comm.Parameters.AddWithValue("@Time", DateTime.Now.ToShortTimeString());
+                        comm.Parameters.AddWithValue("@Date", DateTime.Today);
+
+
+
+                        comm.ExecuteNonQuery();
+                        MessageBox.Show("Added entry");
+                        conn.Close();
+                    }
+                    catch (SqlException error)
+                    {
+                        MessageBox.Show(error.Message);
+                    }
+
+                    MessageBox.Show("Member " + MemberID + " entered the gym");
                 }
                 else
                 {
-                    MessageBox.Show("Member not found");
-                    MemberID = "";
-                    tbExit.Clear();
+                    MessageBox.Show("Member not found, try again");
                     tbExit.Focus();
                 }
-                read.Close();
-                conn.Close();
+
             }
             catch (Exception ae)
             {
-                MessageBox.Show(ae.ToString());
+                MessageBox.Show(ae.Message.ToString());
+                conn.Close();
             }
         }
     }
 }
+
