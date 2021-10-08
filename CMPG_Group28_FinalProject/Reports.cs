@@ -26,6 +26,10 @@ namespace CMPG_Group28_FinalProject
         MessageBoxIcon info = MessageBoxIcon.Information;
         MessageBoxIcon warn = MessageBoxIcon.Warning;
         int NumBookings;
+        int attYoga;
+        int attPal;
+        int attCross;
+        int attSpin;
         double[] paymentsMonth = new double[31];
         double[] paymentsYear = new double[365];
         DateTime today = DateTime.Today;
@@ -56,11 +60,12 @@ namespace CMPG_Group28_FinalProject
                 comm = new SqlCommand(sql, conn);
                 read = comm.ExecuteReader();
                 if (read.HasRows)
-                {
+                { 
                     int c1 = 0;
                     while (read.Read())
                     {
                         paymentsMonth[c1] = Convert.ToDouble(read.GetValue(c1));
+                        read.NextResult();
                         c1++;
                     }
                 }
@@ -76,10 +81,64 @@ namespace CMPG_Group28_FinalProject
                     while (read.Read())
                     {
                         paymentsYear[c2] = Convert.ToDouble(read.GetValue(c2));
+                        read.NextResult();
                         c2++;
                     }
                 }
-
+                read.Close();
+                conn.Close();
+                conn.Open();
+                sql = "Select MemberID From Booking Where ClassType = 'Yoga'";
+                comm = new SqlCommand(sql, conn);
+                read = comm.ExecuteReader();
+                if (read.HasRows)
+                {
+                    while (read.Read())
+                    {
+                        attYoga = read.VisibleFieldCount;
+                    }
+                }
+                read.Close();
+                conn.Close();
+                conn.Open();
+                sql = "Select MemberID From Booking Where ClassType = 'Spin'";
+                comm = new SqlCommand(sql, conn);
+                read = comm.ExecuteReader();
+                if (read.HasRows)
+                {
+                    while (read.Read())
+                    {
+                        attSpin = read.VisibleFieldCount;
+                    }
+                }
+                read.Close();
+                conn.Close();
+                conn.Open();
+                sql = "Select MemberID From Booking Where ClassType = 'CrossFit'";
+                comm = new SqlCommand(sql, conn);
+                read = comm.ExecuteReader();
+                if (read.HasRows)
+                {
+                    int count = 0;
+                    while (read.Read())
+                    {
+                        attCross = read.VisibleFieldCount;
+                    }
+                }
+                read.Close();
+                conn.Close();
+                conn.Open();
+                sql = "Select MemberID From Booking Where ClassType = 'Palates'";
+                comm = new SqlCommand(sql, conn);
+                read = comm.ExecuteReader();
+                if (read.HasRows)
+                {
+                    while (read.Read())
+                    {
+                        attPal = read.VisibleFieldCount;
+                    }
+                }
+                read.Close();
                 conn.Close();
             }
             catch (Exception ae)
@@ -87,7 +146,6 @@ namespace CMPG_Group28_FinalProject
                 MessageBox.Show(ae.ToString(), "", btn, warn);
                 conn.Close();
             }
-            //read.Close();
         }
 
         private void btnGenerate_Click(object sender, EventArgs e)
@@ -98,11 +156,19 @@ namespace CMPG_Group28_FinalProject
             }
             else if (cmbRepType.SelectedIndex == 0)
             {
-                rtbShowReport.AppendText("\n Total Income from payments in the last year: " + paymentsYear.Sum().ToString(CultureInfo.CurrentCulture));
+                rtbShowReport.AppendText("\n Total Income from payments in the last year: " + paymentsYear.Sum().ToString("C2",CultureInfo.CurrentCulture));
             }
             else if (cmbRepType.SelectedIndex == 1)
             {
-                rtbShowReport.AppendText("\n Total Income from payments in the last month: "+paymentsMonth.Sum().ToString(CultureInfo.CurrentCulture));
+                rtbShowReport.AppendText("\n Total Income from payments in the last month: "+paymentsMonth.Sum().ToString("C2", CultureInfo.CurrentCulture));
+            }
+            else if (cmbRepType.SelectedIndex == 2)
+            {
+                rtbShowReport.AppendText("\n Number of attendees for each class type: ");
+                rtbShowReport.AppendText("\n Yoga: "+attYoga.ToString());
+                rtbShowReport.AppendText("\n Spin: " + attSpin.ToString());
+                rtbShowReport.AppendText("\n CrossFit: " + attCross.ToString());
+                rtbShowReport.AppendText("\n Palates: " + attPal.ToString());
             }
             else if (cmbRepType.SelectedIndex == 3)
             {
