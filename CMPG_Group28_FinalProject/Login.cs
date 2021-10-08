@@ -19,7 +19,6 @@ namespace CMPG_Group28_FinalProject
             InitializeComponent();
         }
 
-        public static string clientID = "1234567890";
         public static string adminPassword = "";
         public static bool isAdmin = true;
         public static bool ValidLogin = false;
@@ -54,7 +53,8 @@ namespace CMPG_Group28_FinalProject
                 
                 else
                 {
-                    MessageBox.Show("Input a valid Admin password");
+                    MessageBoxButtons btn = MessageBoxButtons.OK;
+                    MessageBox.Show("Input a valid Admin password", "",btn, MessageBoxIcon.Warning);
                     tbPassword.Clear();
                     tbPassword.Focus();
                 }
@@ -62,7 +62,8 @@ namespace CMPG_Group28_FinalProject
             }
             else
             {
-                MessageBox.Show("Input a valid Member ID ");
+                MessageBoxButtons btn = MessageBoxButtons.OK;
+                MessageBox.Show("Input a valid Member ID ", "", btn, MessageBoxIcon.Warning);
                 tbClientID.Clear();
                 tbPassword.Clear();
                 tbClientID.Focus();

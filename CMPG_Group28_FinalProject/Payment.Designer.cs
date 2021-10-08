@@ -105,12 +105,13 @@ namespace CMPG_Group28_FinalProject
             this.btnPay.TabIndex = 7;
             this.btnPay.Text = "Log Payment";
             this.btnPay.UseVisualStyleBackColor = true;
+            this.btnPay.Click += new System.EventHandler(this.btnPay_Click);
             // 
             // Payment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(791, 368);
+            this.ClientSize = new System.Drawing.Size(491, 224);
             this.Controls.Add(this.btnPay);
             this.Controls.Add(this.dtPay);
             this.Controls.Add(this.label4);

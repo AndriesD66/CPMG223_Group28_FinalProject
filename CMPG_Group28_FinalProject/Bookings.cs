@@ -25,6 +25,9 @@ namespace CMPG_Group28_FinalProject
         SqlDataAdapter adap;
         SqlDataReader read;
         DataSet ds;
+        MessageBoxButtons btn = MessageBoxButtons.OK;
+        MessageBoxIcon warn = MessageBoxIcon.Warning;
+        MessageBoxIcon info = MessageBoxIcon.Information;
 
         private void Bookings_Load(object sender, EventArgs e)
         {
@@ -53,12 +56,12 @@ namespace CMPG_Group28_FinalProject
                 DataTable dtbl = new DataTable();
                 adap.Fill(dtbl);
                 dgvClass.DataSource = dtbl;
-                MessageBox.Show(deleted.ToString() + " item(s) have been deleted");
+                MessageBox.Show(deleted.ToString() + " item(s) have been deleted", "", btn, info);
                 conn.Close();
             }
             catch (Exception ae)
             {
-                MessageBox.Show(ae.ToString());
+                MessageBox.Show(ae.Message.ToString(), "", btn, warn);
             }
         }
 
@@ -93,7 +96,7 @@ namespace CMPG_Group28_FinalProject
                     }
                     else
                     {
-                        MessageBox.Show("Please select what type of class you want to book");
+                        MessageBox.Show("Please select what type of class you want to book", "", btn, warn);
                         tbBooking.Clear();
                         tbBooking.Focus();
                     }
@@ -106,7 +109,6 @@ namespace CMPG_Group28_FinalProject
                         {
                             BookingID = Convert.ToInt32(read.GetValue(0));
                         }
-                        MessageBox.Show("Booking ID: " + BookingID.ToString());
                     }
                     read.Close();
                     BookingID++;
@@ -121,7 +123,7 @@ namespace CMPG_Group28_FinalProject
                 }
                 else
                 {
-                    MessageBox.Show("Member not found");
+                    MessageBox.Show("Member not found", "", btn, warn);
                     MemberID = "";
                     tbBooking.Clear();
                     tbBooking.Focus();
@@ -134,7 +136,7 @@ namespace CMPG_Group28_FinalProject
             }
             catch (Exception ae)
             {
-                MessageBox.Show(ae.ToString());
+                MessageBox.Show(ae.Message.ToString(),"", btn, warn);
             }
         }
     }

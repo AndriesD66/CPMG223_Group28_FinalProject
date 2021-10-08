@@ -29,8 +29,11 @@ namespace CMPG_Group28_FinalProject
         int MemberID;
         int EntryID;
         int ExitID;
+        MessageBoxButtons btn = MessageBoxButtons.OK;
+        MessageBoxIcon info = MessageBoxIcon.Information;
+        MessageBoxIcon warn = MessageBoxIcon.Warning;
 
-        
+
         private void btnEnter_Click(object sender, EventArgs e)
         {
             try
@@ -92,21 +95,21 @@ namespace CMPG_Group28_FinalProject
                     }
                     catch (SqlException error)
                     {
-                        MessageBox.Show(error.Message);
+                        MessageBox.Show(error.Message, "", btn, warn);
                     }
-
-                    MessageBox.Show("Member " + MemberID + " entered the gym");
+                    MessageBox.Show("Member " + MemberID + " entered the gym", "", btn, info);
                 }
                 else
                 {
-                    MessageBox.Show("Member not found, try again");
+                    MessageBox.Show("Member not found, try again", "", btn, warn);
                     tbEnter.Focus();
                 }
                 conn.Close();
             }
             catch (Exception ae)
             {
-                MessageBox.Show(ae.Message.ToString());
+                
+                MessageBox.Show(ae.Message.ToString(), "", btn, MessageBoxIcon.Warning);
             }
         }
 
@@ -159,7 +162,7 @@ namespace CMPG_Group28_FinalProject
                         {
                             if (!String.IsNullOrWhiteSpace(Convert.ToString(read.GetValue(0))))
                             {
-                                MessageBox.Show(Convert.ToString(read.GetValue(0)));
+                                MessageBox.Show(Convert.ToString(read.GetValue(0)),"", btn, info);
                                 ExitID = int.Parse(Convert.ToString(read.GetValue(0)));
                                 
 
@@ -192,7 +195,7 @@ namespace CMPG_Group28_FinalProject
 
 
                         comm.ExecuteNonQuery();
-                        MessageBox.Show("Added entry");
+                        MessageBox.Show("Added entry", "", btn, info);
                         conn.Close();
                     }
                     catch (SqlException error)
@@ -200,18 +203,18 @@ namespace CMPG_Group28_FinalProject
                         MessageBox.Show(error.Message);
                     }
 
-                    MessageBox.Show("Member " + MemberID + " entered the gym");
+                    MessageBox.Show("Member " + MemberID + " entered the gym", "", btn, info);
                 }
                 else
                 {
-                    MessageBox.Show("Member not found, try again");
+                    MessageBox.Show("Member not found, try again", "", btn, warn);
                     tbExit.Focus();
                 }
 
             }
             catch (Exception ae)
             {
-                MessageBox.Show(ae.Message.ToString());
+                MessageBox.Show(ae.Message.ToString(), "", btn, warn);
                 conn.Close();
             }
         }
