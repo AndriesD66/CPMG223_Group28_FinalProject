@@ -32,11 +32,8 @@ namespace CMPG_Group28_FinalProject
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.cmbRepType = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.tbRepName = new System.Windows.Forms.TextBox();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.btnGenerate = new System.Windows.Forms.Button();
-            this.cbShow = new System.Windows.Forms.CheckBox();
             this.rtbShowReport = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
@@ -64,7 +61,7 @@ namespace CMPG_Group28_FinalProject
             this.cmbRepType.FormattingEnabled = true;
             this.cmbRepType.Items.AddRange(new object[] {
             "Income in  the last year",
-            "Income in the last motnh",
+            "Income in the last month",
             "Class attendance summary",
             "Number of bookings in the last month"});
             this.cmbRepType.Location = new System.Drawing.Point(101, 38);
@@ -73,46 +70,21 @@ namespace CMPG_Group28_FinalProject
             this.cmbRepType.TabIndex = 2;
             this.cmbRepType.Text = "Choose a report type";
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(16, 71);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(52, 13);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Save as: ";
-            // 
-            // tbRepName
-            // 
-            this.tbRepName.Location = new System.Drawing.Point(101, 64);
-            this.tbRepName.Name = "tbRepName";
-            this.tbRepName.Size = new System.Drawing.Size(100, 20);
-            this.tbRepName.TabIndex = 4;
-            // 
             // btnGenerate
             // 
-            this.btnGenerate.Location = new System.Drawing.Point(16, 120);
+            this.btnGenerate.Location = new System.Drawing.Point(16, 65);
             this.btnGenerate.Name = "btnGenerate";
             this.btnGenerate.Size = new System.Drawing.Size(104, 23);
             this.btnGenerate.TabIndex = 5;
             this.btnGenerate.Text = "Generate report";
             this.btnGenerate.UseVisualStyleBackColor = true;
-            // 
-            // cbShow
-            // 
-            this.cbShow.AutoSize = true;
-            this.cbShow.Location = new System.Drawing.Point(19, 97);
-            this.cbShow.Name = "cbShow";
-            this.cbShow.Size = new System.Drawing.Size(83, 17);
-            this.cbShow.TabIndex = 6;
-            this.cbShow.Text = "Show report";
-            this.cbShow.UseVisualStyleBackColor = true;
+            this.btnGenerate.Click += new System.EventHandler(this.btnGenerate_Click);
             // 
             // rtbShowReport
             // 
-            this.rtbShowReport.Location = new System.Drawing.Point(16, 166);
+            this.rtbShowReport.Location = new System.Drawing.Point(16, 94);
             this.rtbShowReport.Name = "rtbShowReport";
-            this.rtbShowReport.Size = new System.Drawing.Size(760, 258);
+            this.rtbShowReport.Size = new System.Drawing.Size(760, 330);
             this.rtbShowReport.TabIndex = 7;
             this.rtbShowReport.Text = "";
             // 
@@ -122,10 +94,7 @@ namespace CMPG_Group28_FinalProject
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.rtbShowReport);
-            this.Controls.Add(this.cbShow);
             this.Controls.Add(this.btnGenerate);
-            this.Controls.Add(this.tbRepName);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.cmbRepType);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -143,11 +112,8 @@ namespace CMPG_Group28_FinalProject
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cmbRepType;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox tbRepName;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
         private System.Windows.Forms.Button btnGenerate;
-        private System.Windows.Forms.CheckBox cbShow;
         private System.Windows.Forms.RichTextBox rtbShowReport;
     }
 }

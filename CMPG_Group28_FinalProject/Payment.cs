@@ -35,20 +35,22 @@ namespace CMPG_Group28_FinalProject
             conn = new SqlConnection(Global.ConString);
             try
             {
+                conn.Open();
                 string sql = "Select * from Member Where Bank_Account_Number = '" + tbBank.Text.Trim() + "'";
                 comm = new SqlCommand(sql, conn);
-                conn.Open();
                 read = comm.ExecuteReader();
                 if (read.HasRows)
                 {
                     while (read.Read())
                     {
-                        BankAcc = Convert.ToString(read.GetValue(0));
-                        BankAcc.Trim();
+                        if (!String.IsNullOrWhiteSpace(Convert.ToString(read.GetValue(0))))
+                        {
+                            BankAcc = Convert.ToString(read.GetValue(0));
+                        }
                     }
                 }
                 read.Close();
-                if ((BankAcc == tbBank.Text) &&(tbAmount.Text != ""))
+                if ((BankAcc == tbBank.Text) && (tbAmount.Text != ""))
                 {
                     int PayID = 0;
                     BankAcc = tbBank.Text;
