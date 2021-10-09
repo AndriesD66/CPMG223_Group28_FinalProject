@@ -20,6 +20,7 @@ namespace CMPG_Group28_FinalProject
         SqlConnection conn;
         SqlCommand comm;
         SqlDataAdapter adap;
+        SqlTransaction transact;
         SqlDataReader read;
         DataSet ds;
         string BankAcc = "";
@@ -68,14 +69,24 @@ namespace CMPG_Group28_FinalProject
                     }
                     read.Close();
                     PayID++;
-                    string sqlPay = "Insert Into Payment(PaymentID, Bank_Account_Number, PaymentAmount, PaymentDate) Values (" + PayID + ", '" + BankAcc + "', " + Amount + ", '" + PayDate + "')";
+                    transact = conn.BeginTransaction("Add Payment");
+                    string sqlPay = "Insert Payment(PaymentID, Bank_Account_Number, PaymentAmount, PaymentDate) Values (" + PayID + ", '" + BankAcc + "', " + Amount + ", '" + PayDate + "')";
 
 
 
 
                     comm = new SqlCommand(sqlPay, conn);
+                    comm.Transaction = transact;
                     comm.ExecuteNonQuery();
                     MessageBox.Show("Payment has been logged", "", btn, info);
+                    transact.Commit();
+                    string updateSql = "Select * From Payment";
+                    adap = new SqlDataAdapter(updateSql, conn);
+                    adap = new SqlDataAdapter(updateSql, conn);
+                    DataTable dt = new DataTable();
+                    adap.Fill(dt);
+                    dgvPay.DataSource = dt;
+                    dt.AcceptChanges();
                 }
                 else if ((tbAmount.Text == "") || (BankAcc != tbBank.Text))
                 {
@@ -100,6 +111,11 @@ namespace CMPG_Group28_FinalProject
         {
             conn = new SqlConnection(Global.ConString);
             conn.Open();
+            string sql = "Select * From Payment";
+            adap = new SqlDataAdapter(sql, conn);
+            DataTable dt = new DataTable();
+            adap.Fill(dt);
+            dgvPay.DataSource = dt;
             conn.Close();
         }
     }

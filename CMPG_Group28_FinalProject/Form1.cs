@@ -83,13 +83,14 @@ namespace CMPG_Group28_FinalProject
 
         private void btnView_Click(object sender, EventArgs e)
         {
-            view.MdiParent = this;
-            pnlHome.Visible = false;
-            book.Visible = false;
-            acc.Visible = false;
-            pmnt.Visible = false;
-            rpt.Visible = false;
-            view.Show();
+                view.MdiParent = this;
+                pnlHome.Visible = false;
+                book.Visible = false;
+                acc.Visible = false;
+                pmnt.Visible = false;
+                rpt.Visible = false;
+                view.Show();
+            
         }
 
         private void btnBook_Click(object sender, EventArgs e)

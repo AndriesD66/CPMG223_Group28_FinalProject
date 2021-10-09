@@ -37,6 +37,8 @@ namespace CMPG_Group28_FinalProject
             this.label4 = new System.Windows.Forms.Label();
             this.dtPay = new System.Windows.Forms.DateTimePicker();
             this.btnPay = new System.Windows.Forms.Button();
+            this.dgvPay = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPay)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -107,11 +109,20 @@ namespace CMPG_Group28_FinalProject
             this.btnPay.UseVisualStyleBackColor = true;
             this.btnPay.Click += new System.EventHandler(this.btnPay_Click);
             // 
+            // dgvPay
+            // 
+            this.dgvPay.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPay.Location = new System.Drawing.Point(4, 173);
+            this.dgvPay.Name = "dgvPay";
+            this.dgvPay.Size = new System.Drawing.Size(662, 244);
+            this.dgvPay.TabIndex = 8;
+            // 
             // Payment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(491, 224);
+            this.ClientSize = new System.Drawing.Size(678, 429);
+            this.Controls.Add(this.dgvPay);
             this.Controls.Add(this.btnPay);
             this.Controls.Add(this.dtPay);
             this.Controls.Add(this.label4);
@@ -124,6 +135,7 @@ namespace CMPG_Group28_FinalProject
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Payment";
             this.Load += new System.EventHandler(this.Payment_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPay)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -139,5 +151,6 @@ namespace CMPG_Group28_FinalProject
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DateTimePicker dtPay;
         private System.Windows.Forms.Button btnPay;
+        private System.Windows.Forms.DataGridView dgvPay;
     }
 }
