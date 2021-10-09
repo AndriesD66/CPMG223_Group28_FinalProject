@@ -45,7 +45,7 @@ namespace CMPG_Group28_FinalProject
                     {
                         if (!String.IsNullOrWhiteSpace(Convert.ToString(read.GetValue(0))))
                         {
-                            BankAcc = Convert.ToString(read.GetValue(0));
+                            BankAcc = read["Bank_Account_Number"].ToString();
                         }
                     }
                 }
@@ -63,7 +63,7 @@ namespace CMPG_Group28_FinalProject
                     {
                         while (read.Read())
                         {
-                            PayID = Convert.ToInt32(read.GetValue(0));
+                            PayID = Convert.ToInt32(read["PaymentID"].ToString());
                         }
                     }
                     read.Close();
