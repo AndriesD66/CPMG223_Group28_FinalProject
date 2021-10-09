@@ -30,15 +30,15 @@ namespace CMPG_Group28_FinalProject
         int attPal;
         int attCross;
         int attSpin;
-        double[] paymentsMonth = new double[31];
-        double[] paymentsYear = new double[365];
+        double paymentsMonth;
+        double paymentsYear;
         DateTime today = DateTime.Today;
         DateTime monthAgo = DateTime.Today.AddMonths(-1);
         DateTime yearAgo = DateTime.Today.AddYears(-1);
 
         private void Reports_Load(object sender, EventArgs e)
         {
-            DataSet book, enter, pay;
+            rtbShowReport.AppendText("Reports will be show here \n");
             conn = new SqlConnection(Global.ConString);
             conn.Open();
             try
@@ -61,12 +61,12 @@ namespace CMPG_Group28_FinalProject
                 read = comm.ExecuteReader();
                 if (read.HasRows)
                 { 
-                    int c1 = 0;
+                    //int c1 = 0;
                     while (read.Read())
                     {
-                        paymentsMonth[c1] = Convert.ToDouble(read.GetValue(c1));
-                        read.NextResult();
-                        c1++;
+                        paymentsMonth += Convert.ToDouble(read["PaymentAmount"]);
+                        /*read.NextResult();
+                        c1++;*/
                     }
                 }
                 read.Close();
@@ -77,12 +77,12 @@ namespace CMPG_Group28_FinalProject
                 read = comm.ExecuteReader();
                 if (read.HasRows)
                 {
-                    int c2 = 0;
+                    //int c2 = 0;
                     while (read.Read())
                     {
-                        paymentsYear[c2] = Convert.ToDouble(read.GetValue(c2));
-                        read.NextResult();
-                        c2++;
+                        paymentsYear += Convert.ToDouble(read["PaymentAmount"]);
+                        /*read.NextResult();
+                        c2++;*/
                     }
                 }
                 read.Close();
@@ -93,10 +93,13 @@ namespace CMPG_Group28_FinalProject
                 read = comm.ExecuteReader();
                 if (read.HasRows)
                 {
+                    int temp = 0;
                     while (read.Read())
                     {
-                        attYoga = read.VisibleFieldCount;
+                        temp += Convert.ToInt32(read["MemberID"].ToString());
+                        attYoga++;
                     }
+                    
                 }
                 read.Close();
                 conn.Close();
@@ -106,9 +109,11 @@ namespace CMPG_Group28_FinalProject
                 read = comm.ExecuteReader();
                 if (read.HasRows)
                 {
+                    int temp = 0;
                     while (read.Read())
                     {
-                        attSpin = read.VisibleFieldCount;
+                        temp += Convert.ToInt32(read["MemberID"].ToString());
+                        attSpin++;
                     }
                 }
                 read.Close();
@@ -119,10 +124,11 @@ namespace CMPG_Group28_FinalProject
                 read = comm.ExecuteReader();
                 if (read.HasRows)
                 {
-                    int count = 0;
+                    int temp = 0;
                     while (read.Read())
                     {
-                        attCross = read.VisibleFieldCount;
+                        temp += Convert.ToInt32(read["MemberID"].ToString());
+                        attCross++;
                     }
                 }
                 read.Close();
@@ -133,9 +139,11 @@ namespace CMPG_Group28_FinalProject
                 read = comm.ExecuteReader();
                 if (read.HasRows)
                 {
+                    int temp = 0;
                     while (read.Read())
                     {
-                        attPal = read.VisibleFieldCount;
+                        temp += Convert.ToInt32(read["MemberID"].ToString());
+                        attPal++;
                     }
                 }
                 read.Close();
@@ -156,23 +164,23 @@ namespace CMPG_Group28_FinalProject
             }
             else if (cmbRepType.SelectedIndex == 0)
             {
-                rtbShowReport.AppendText("\n Total Income from payments in the last year: " + paymentsYear.Sum().ToString("C2",CultureInfo.CurrentCulture));
+                rtbShowReport.AppendText("\nTotal Income from payments in the last year: " + paymentsYear.ToString("C2",CultureInfo.CurrentCulture));
             }
             else if (cmbRepType.SelectedIndex == 1)
             {
-                rtbShowReport.AppendText("\n Total Income from payments in the last month: "+paymentsMonth.Sum().ToString("C2", CultureInfo.CurrentCulture));
+                rtbShowReport.AppendText("\nTotal Income from payments in the last month: "+paymentsMonth.ToString("C2", CultureInfo.CurrentCulture));
             }
             else if (cmbRepType.SelectedIndex == 2)
             {
-                rtbShowReport.AppendText("\n Number of attendees for each class type: ");
-                rtbShowReport.AppendText("\n Yoga: "+attYoga.ToString());
-                rtbShowReport.AppendText("\n Spin: " + attSpin.ToString());
-                rtbShowReport.AppendText("\n CrossFit: " + attCross.ToString());
-                rtbShowReport.AppendText("\n Palates: " + attPal.ToString());
+                rtbShowReport.AppendText("\nNumber of attendees for each class type: ");
+                rtbShowReport.AppendText("\n        -Yoga: "+attYoga.ToString());
+                rtbShowReport.AppendText("\n        -Spin: " + attSpin.ToString());
+                rtbShowReport.AppendText("\n        -CrossFit: " + attCross.ToString());
+                rtbShowReport.AppendText("\n        -Palates: " + attPal.ToString());
             }
             else if (cmbRepType.SelectedIndex == 3)
             {
-                rtbShowReport.AppendText("\n Number of bookings in the last month: " + NumBookings);
+                rtbShowReport.AppendText("\nNumber of bookings in the last month: " + NumBookings);
             }
         }
     }
