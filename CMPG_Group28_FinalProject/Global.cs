@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Data.SqlClient;
 
 namespace CMPG_Group28_FinalProject
 {
@@ -14,5 +15,12 @@ namespace CMPG_Group28_FinalProject
         static string directory = Directory.GetCurrentDirectory();
 
         public static string ConString => $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={directory}\GYM_DB.mdf;Integrated Security = True";
+
+
+
+
+        
+
     }
+
 }

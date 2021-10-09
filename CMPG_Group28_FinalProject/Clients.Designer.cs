@@ -50,6 +50,7 @@ namespace CMPG_Group28_FinalProject
             this.btnDelete = new System.Windows.Forms.Button();
             this.tbDelete = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.btAddEdit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClients)).BeginInit();
             this.gbAddEdit.SuspendLayout();
             this.gbDelete.SuspendLayout();
@@ -75,6 +76,7 @@ namespace CMPG_Group28_FinalProject
             // 
             // gbAddEdit
             // 
+            this.gbAddEdit.Controls.Add(this.btAddEdit);
             this.gbAddEdit.Controls.Add(this.cbAdmin);
             this.gbAddEdit.Controls.Add(this.tbContact);
             this.gbAddEdit.Controls.Add(this.label7);
@@ -107,6 +109,7 @@ namespace CMPG_Group28_FinalProject
             this.cbAdmin.TabIndex = 13;
             this.cbAdmin.Text = "This user is an administrator";
             this.cbAdmin.UseVisualStyleBackColor = true;
+            this.cbAdmin.CheckedChanged += new System.EventHandler(this.cbAdmin_CheckedChanged);
             // 
             // tbContact
             // 
@@ -199,6 +202,7 @@ namespace CMPG_Group28_FinalProject
             this.tbID.Name = "tbID";
             this.tbID.Size = new System.Drawing.Size(100, 22);
             this.tbID.TabIndex = 2;
+            this.tbID.TextChanged += new System.EventHandler(this.tbID_TextChanged);
             // 
             // lblID
             // 
@@ -263,6 +267,16 @@ namespace CMPG_Group28_FinalProject
             this.label2.TabIndex = 0;
             this.label2.Text = "Client ID: ";
             // 
+            // btAddEdit
+            // 
+            this.btAddEdit.Location = new System.Drawing.Point(631, 108);
+            this.btAddEdit.Name = "btAddEdit";
+            this.btAddEdit.Size = new System.Drawing.Size(113, 28);
+            this.btAddEdit.TabIndex = 14;
+            this.btAddEdit.Text = "Add Record";
+            this.btAddEdit.UseVisualStyleBackColor = true;
+            this.btAddEdit.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Clients
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -309,5 +323,6 @@ namespace CMPG_Group28_FinalProject
         private System.Windows.Forms.TextBox tbEmail;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.CheckBox cbAdmin;
+        private System.Windows.Forms.Button btAddEdit;
     }
 }

@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
+using System.Data;
 
 namespace CMPG_Group28_FinalProject
 {
@@ -23,6 +25,16 @@ namespace CMPG_Group28_FinalProject
             Access acc = new Access();
             Payment pmnt = new Payment();
             Reports rpt = new Reports();
+
+
+
+
+        SqlConnection conn;
+        SqlCommand comm;
+        SqlDataAdapter adap;
+        SqlDataReader read;
+        DataSet ds;
+
         private void frmHome_Load(object sender, EventArgs e)
         {
             
@@ -106,5 +118,27 @@ namespace CMPG_Group28_FinalProject
         {
 
         }
+
+        private void Exit_Click(object sender, EventArgs e)
+        {
+            SQLcommit();
+            
+            Application.Exit();
+        }
+
+
+        private void SQLcommit()
+        {
+            conn = new SqlConnection(Global.ConString);
+            conn.Open();
+
+            string sql = "Commit * FROM Member";
+
+            comm = new SqlCommand(sql, conn);
+           
+            conn.Close();
+        }
+
+
     }
 }

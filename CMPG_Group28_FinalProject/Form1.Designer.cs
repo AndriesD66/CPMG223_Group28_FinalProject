@@ -73,6 +73,7 @@ namespace CMPG_Group28_FinalProject
             this.Exit.Name = "Exit";
             this.Exit.Size = new System.Drawing.Size(51, 29);
             this.Exit.Text = "&Exit";
+            this.Exit.Click += new System.EventHandler(this.Exit_Click);
             // 
             // btnView
             // 
