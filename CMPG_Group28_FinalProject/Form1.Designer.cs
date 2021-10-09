@@ -31,6 +31,11 @@ namespace CMPG_Group28_FinalProject
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.File = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewUpdateOrDeleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bookAClassToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.clientAccessToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.logAPaymentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.requestReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Window = new System.Windows.Forms.ToolStripMenuItem();
             this.Exit = new System.Windows.Forms.ToolStripMenuItem();
             this.btnView = new System.Windows.Forms.Button();
@@ -58,9 +63,51 @@ namespace CMPG_Group28_FinalProject
             // 
             // File
             // 
+            this.File.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.viewUpdateOrDeleteToolStripMenuItem,
+            this.bookAClassToolStripMenuItem,
+            this.clientAccessToolStripMenuItem,
+            this.logAPaymentToolStripMenuItem,
+            this.requestReportsToolStripMenuItem});
             this.File.Name = "File";
             this.File.Size = new System.Drawing.Size(50, 29);
             this.File.Text = "&File";
+
+            // 
+            // viewUpdateOrDeleteToolStripMenuItem
+            // 
+            this.viewUpdateOrDeleteToolStripMenuItem.Name = "viewUpdateOrDeleteToolStripMenuItem";
+            this.viewUpdateOrDeleteToolStripMenuItem.Size = new System.Drawing.Size(265, 30);
+            this.viewUpdateOrDeleteToolStripMenuItem.Text = "View, Update or Delete";
+            this.viewUpdateOrDeleteToolStripMenuItem.Click += new System.EventHandler(this.viewUpdateOrDeleteToolStripMenuItem_Click);
+            // 
+            // bookAClassToolStripMenuItem
+            // 
+            this.bookAClassToolStripMenuItem.Name = "bookAClassToolStripMenuItem";
+            this.bookAClassToolStripMenuItem.Size = new System.Drawing.Size(265, 30);
+            this.bookAClassToolStripMenuItem.Text = "Book A Class";
+            this.bookAClassToolStripMenuItem.Click += new System.EventHandler(this.bookAClassToolStripMenuItem_Click);
+            // 
+            // clientAccessToolStripMenuItem
+            // 
+            this.clientAccessToolStripMenuItem.Name = "clientAccessToolStripMenuItem";
+            this.clientAccessToolStripMenuItem.Size = new System.Drawing.Size(265, 30);
+            this.clientAccessToolStripMenuItem.Text = "Client Access";
+            this.clientAccessToolStripMenuItem.Click += new System.EventHandler(this.clientAccessToolStripMenuItem_Click);
+            // 
+            // logAPaymentToolStripMenuItem
+            // 
+            this.logAPaymentToolStripMenuItem.Name = "logAPaymentToolStripMenuItem";
+            this.logAPaymentToolStripMenuItem.Size = new System.Drawing.Size(265, 30);
+            this.logAPaymentToolStripMenuItem.Text = "Log a Payment";
+            this.logAPaymentToolStripMenuItem.Click += new System.EventHandler(this.logAPaymentToolStripMenuItem_Click);
+            // 
+            // requestReportsToolStripMenuItem
+            // 
+            this.requestReportsToolStripMenuItem.Name = "requestReportsToolStripMenuItem";
+            this.requestReportsToolStripMenuItem.Size = new System.Drawing.Size(265, 30);
+            this.requestReportsToolStripMenuItem.Text = "Request Reports";
+            this.requestReportsToolStripMenuItem.Click += new System.EventHandler(this.requestReportsToolStripMenuItem_Click);
             // 
             // Window
             // 
@@ -182,6 +229,11 @@ namespace CMPG_Group28_FinalProject
         private System.Windows.Forms.Button btnEnterExit;
         private System.Windows.Forms.Button btnPmnt;
         private System.Windows.Forms.Button btnReport;
+        private System.Windows.Forms.ToolStripMenuItem viewUpdateOrDeleteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem bookAClassToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem clientAccessToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem logAPaymentToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem requestReportsToolStripMenuItem;
     }
 }
 

@@ -37,9 +37,10 @@ namespace CMPG_Group28_FinalProject
 
         private void frmHome_Load(object sender, EventArgs e)
         {
-            
+
             if (!LoggedIn)
             {
+                menuStrip1.Enabled = false;
                 pnlHome.Visible = false; ;
                 newLogForm.MdiParent = this;
                 newLogForm.Show();
@@ -56,6 +57,7 @@ namespace CMPG_Group28_FinalProject
             if (LoggedIn)
             {
                 pnlHome.Visible = true;
+                menuStrip1.Enabled = true;
             }
         }
         private void view_FormClosed(object sender, FormClosedEventArgs e)
@@ -83,6 +85,10 @@ namespace CMPG_Group28_FinalProject
         {
             view.MdiParent = this;
             pnlHome.Visible = false;
+            book.Visible = false;
+            acc.Visible = false;
+            pmnt.Visible = false;
+            rpt.Visible = false;
             view.Show();
         }
 
@@ -90,6 +96,10 @@ namespace CMPG_Group28_FinalProject
         {
             book.MdiParent = this;
             pnlHome.Visible = false;
+            view.Visible = false;
+            acc.Visible = false;
+            pmnt.Visible = false;
+            rpt.Visible = false;
             book.Show();
         }
 
@@ -97,6 +107,10 @@ namespace CMPG_Group28_FinalProject
         {
             acc.MdiParent = this;
             pnlHome.Visible = false;
+            book.Visible = false;
+            view.Visible = false;
+            pmnt.Visible = false;
+            rpt.Visible = false;
             acc.Show();
         }
 
@@ -104,6 +118,10 @@ namespace CMPG_Group28_FinalProject
         {
             pmnt.MdiParent = this;
             pnlHome.Visible = false;
+            book.Visible = false;
+            acc.Visible = false;
+            view.Visible = false;
+            rpt.Visible = false;
             pmnt.Show();
         }
 
@@ -111,6 +129,10 @@ namespace CMPG_Group28_FinalProject
         {
             rpt.MdiParent = this;
             pnlHome.Visible = false;
+            book.Visible = false;
+            acc.Visible = false;
+            pmnt.Visible = false;
+            view.Visible = false;
             rpt.Show();
         }
 
@@ -137,7 +159,47 @@ namespace CMPG_Group28_FinalProject
             comm = new SqlCommand(sql, conn);
            
             conn.Close();
+
+
+            
+
         }
+
+        
+
+        private void viewUpdateOrDeleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            btnView_Click(sender, e);
+            
+        }
+
+        private void bookAClassToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            btnBook_Click(sender, e);
+
+
+        }
+
+        private void clientAccessToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            btnEnterExit_Click(sender, e);
+
+        }
+
+        private void logAPaymentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            btnPmnt_Click(sender, e);
+            
+        }
+
+        private void requestReportsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            btnReport_Click(sender, e);
+        }
+
+
+
 
 
     }

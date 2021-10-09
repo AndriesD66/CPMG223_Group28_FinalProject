@@ -68,11 +68,11 @@ namespace CMPG_Group28_FinalProject
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(19, 73);
+            this.label3.Location = new System.Drawing.Point(19, 69);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(93, 13);
+            this.label3.Size = new System.Drawing.Size(122, 13);
             this.label3.TabIndex = 3;
-            this.label3.Text = "Payment Amount: ";
+            this.label3.Text = "Payment Amount:        R";
             // 
             // tbAmount
             // 

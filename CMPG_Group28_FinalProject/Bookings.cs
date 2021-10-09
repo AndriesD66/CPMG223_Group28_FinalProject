@@ -31,14 +31,21 @@ namespace CMPG_Group28_FinalProject
 
         private void Bookings_Load(object sender, EventArgs e)
         {
-            conn = new SqlConnection(Global.ConString);
-            conn.Open();
-            string sql = "Select * from Booking";
-            adap = new SqlDataAdapter(sql, conn);
-            DataTable dtbl = new DataTable();
-            adap.Fill(dtbl);
-            dgvClass.DataSource = dtbl;
-            conn.Close();
+            try
+            {
+                conn = new SqlConnection(Global.ConString);
+                conn.Open();
+                string sql = "Select * from Booking";
+                adap = new SqlDataAdapter(sql, conn);
+                DataTable dtbl = new DataTable();
+                adap.Fill(dtbl);
+                dgvClass.DataSource = dtbl;
+                conn.Close();
+            }
+            catch (Exception ae)
+            {
+                MessageBox.Show(ae.Message.ToString(), "", btn, warn);
+            }
         }
 
         private void btnDelBooking_Click(object sender, EventArgs e)
@@ -58,6 +65,7 @@ namespace CMPG_Group28_FinalProject
                 dgvClass.DataSource = dtbl;
                 MessageBox.Show(deleted.ToString() + " item(s) have been deleted", "", btn, info);
                 conn.Close();
+                Bookings_Load(sender, e);
             }
             catch (Exception ae)
             {
@@ -138,6 +146,8 @@ namespace CMPG_Group28_FinalProject
             {
                 MessageBox.Show(ae.Message.ToString(),"", btn, warn);
             }
+            Bookings_Load(sender, e);
+
         }
     }
 }

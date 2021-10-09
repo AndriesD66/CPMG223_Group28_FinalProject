@@ -56,8 +56,8 @@ namespace CMPG_Group28_FinalProject
                     BankAcc = tbBank.Text;
                     Amount = Convert.ToDouble(tbAmount.Text);
                     PayDate = dtPay.Value.Date;
-                    sql = "Select Top 1 PaymentID From Payment Order By PaymentID Desc";
-                    comm = new SqlCommand(sql, conn);
+                    string sql1 = "Select Top 1 PaymentID From Payment Order By PaymentID Desc";
+                    comm = new SqlCommand(sql1, conn);
                     read = comm.ExecuteReader();
                     if (read.HasRows)
                     {
@@ -68,8 +68,12 @@ namespace CMPG_Group28_FinalProject
                     }
                     read.Close();
                     PayID++;
-                    sql = "Insert Payment(PaymentID, Bank_Account_Number, PaymentAmount, PaymentDate) Values (" + PayID + ", '" + BankAcc + "', " + Amount + ", '" + PayDate + "')";
-                    comm = new SqlCommand(sql, conn);
+                    string sqlPay = "Insert Into Payment(PaymentID, Bank_Account_Number, PaymentAmount, PaymentDate) Values (" + PayID + ", '" + BankAcc + "', " + Amount + ", '" + PayDate + "')";
+
+
+
+
+                    comm = new SqlCommand(sqlPay, conn);
                     comm.ExecuteNonQuery();
                     MessageBox.Show("Payment has been logged", "", btn, info);
                 }
@@ -87,6 +91,8 @@ namespace CMPG_Group28_FinalProject
             catch (Exception ae)
             {
                 MessageBox.Show(ae.Message.ToString(), "", btn, warn);
+                conn.Close();
+
             }
         }
 
