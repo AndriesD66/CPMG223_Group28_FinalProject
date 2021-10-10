@@ -29,6 +29,7 @@ namespace CMPG_Group28_FinalProject
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Bookings));
             this.label1 = new System.Windows.Forms.Label();
             this.tbBooking = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -155,6 +156,7 @@ namespace CMPG_Group28_FinalProject
             this.Controls.Add(this.label5);
             this.Controls.Add(this.dgvClass);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Bookings";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Bookings";

@@ -29,6 +29,7 @@ namespace CMPG_Group28_FinalProject
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Payment));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.tbBank = new System.Windows.Forms.TextBox();
@@ -131,6 +132,7 @@ namespace CMPG_Group28_FinalProject
             this.Controls.Add(this.tbBank);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Payment";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Payment";

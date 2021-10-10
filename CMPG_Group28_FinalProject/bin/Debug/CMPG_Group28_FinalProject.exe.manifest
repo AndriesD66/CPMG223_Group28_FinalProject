@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CMPG_Group28_FinalProject.exe" size="261088">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CMPG_Group28_FinalProject.exe" size="1573344">
       <assemblyIdentity name="CMPG_Group28_FinalProject" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>wf9HubdDYoc5hTMBokqoY4MYMjL/y7jOc3WuYi2x9AE=</dsig:DigestValue>
+        <dsig:DigestValue>G0UzhKsNb/ZwkourE2yPK1lbMmPljWbzIh8iVwcH8m0=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

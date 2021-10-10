@@ -29,9 +29,11 @@ namespace CMPG_Group28_FinalProject
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Clients));
             this.dgvClients = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.gbAddEdit = new System.Windows.Forms.GroupBox();
+            this.btAddEdit = new System.Windows.Forms.Button();
             this.cbAdmin = new System.Windows.Forms.CheckBox();
             this.tbContact = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -50,7 +52,6 @@ namespace CMPG_Group28_FinalProject
             this.btnDelete = new System.Windows.Forms.Button();
             this.tbDelete = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.btAddEdit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClients)).BeginInit();
             this.gbAddEdit.SuspendLayout();
             this.gbDelete.SuspendLayout();
@@ -98,6 +99,16 @@ namespace CMPG_Group28_FinalProject
             this.gbAddEdit.TabIndex = 2;
             this.gbAddEdit.TabStop = false;
             this.gbAddEdit.Text = "Add new client record or edit an existing record";
+            // 
+            // btAddEdit
+            // 
+            this.btAddEdit.Location = new System.Drawing.Point(631, 108);
+            this.btAddEdit.Name = "btAddEdit";
+            this.btAddEdit.Size = new System.Drawing.Size(113, 28);
+            this.btAddEdit.TabIndex = 14;
+            this.btAddEdit.Text = "Add Record";
+            this.btAddEdit.UseVisualStyleBackColor = true;
+            this.btAddEdit.Click += new System.EventHandler(this.button1_Click);
             // 
             // cbAdmin
             // 
@@ -267,16 +278,6 @@ namespace CMPG_Group28_FinalProject
             this.label2.TabIndex = 0;
             this.label2.Text = "Client ID: ";
             // 
-            // btAddEdit
-            // 
-            this.btAddEdit.Location = new System.Drawing.Point(631, 108);
-            this.btAddEdit.Name = "btAddEdit";
-            this.btAddEdit.Size = new System.Drawing.Size(113, 28);
-            this.btAddEdit.TabIndex = 14;
-            this.btAddEdit.Text = "Add Record";
-            this.btAddEdit.UseVisualStyleBackColor = true;
-            this.btAddEdit.Click += new System.EventHandler(this.button1_Click);
-            // 
             // Clients
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -286,6 +287,7 @@ namespace CMPG_Group28_FinalProject
             this.Controls.Add(this.gbAddEdit);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvClients);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Clients";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Clients";

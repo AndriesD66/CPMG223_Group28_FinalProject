@@ -29,6 +29,7 @@ namespace CMPG_Group28_FinalProject
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Classes));
             this.gbDelete = new System.Windows.Forms.GroupBox();
             this.btnDelete = new System.Windows.Forms.Button();
             this.tbDelete = new System.Windows.Forms.TextBox();
@@ -329,6 +330,7 @@ namespace CMPG_Group28_FinalProject
             this.Controls.Add(this.gbAddEdit);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvClasses);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Classes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Classes";

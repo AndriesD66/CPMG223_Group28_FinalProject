@@ -29,7 +29,10 @@ namespace CMPG_Group28_FinalProject
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Access));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cmbClassType = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.btnEnter = new System.Windows.Forms.Button();
             this.tbEnter = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -37,8 +40,6 @@ namespace CMPG_Group28_FinalProject
             this.btnExit = new System.Windows.Forms.Button();
             this.tbExit = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.cmbClassType = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -57,6 +58,32 @@ namespace CMPG_Group28_FinalProject
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Client enters";
+            // 
+            // cmbClassType
+            // 
+            this.cmbClassType.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbClassType.FormattingEnabled = true;
+            this.cmbClassType.Items.AddRange(new object[] {
+            "None",
+            "Yoga",
+            "Palates",
+            "CrossFit",
+            "Spin"});
+            this.cmbClassType.Location = new System.Drawing.Point(81, 41);
+            this.cmbClassType.Name = "cmbClassType";
+            this.cmbClassType.Size = new System.Drawing.Size(121, 21);
+            this.cmbClassType.TabIndex = 4;
+            this.cmbClassType.Text = "Choose a class";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(10, 52);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(65, 13);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Class Type: ";
             // 
             // btnEnter
             // 
@@ -129,32 +156,6 @@ namespace CMPG_Group28_FinalProject
             this.label2.TabIndex = 0;
             this.label2.Text = "Client ID: ";
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(10, 52);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(65, 13);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Class Type: ";
-            // 
-            // cmbClassType
-            // 
-            this.cmbClassType.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbClassType.FormattingEnabled = true;
-            this.cmbClassType.Items.AddRange(new object[] {
-            "None",
-            "Yoga",
-            "Palates",
-            "CrossFit",
-            "Spin"});
-            this.cmbClassType.Location = new System.Drawing.Point(81, 41);
-            this.cmbClassType.Name = "cmbClassType";
-            this.cmbClassType.Size = new System.Drawing.Size(121, 21);
-            this.cmbClassType.TabIndex = 4;
-            this.cmbClassType.Text = "Choose a class";
-            // 
             // Access
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -162,6 +163,7 @@ namespace CMPG_Group28_FinalProject
             this.ClientSize = new System.Drawing.Size(439, 172);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Access";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Access";
