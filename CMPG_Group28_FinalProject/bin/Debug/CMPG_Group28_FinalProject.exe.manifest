@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CMPG_Group28_FinalProject.exe" size="268256">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CMPG_Group28_FinalProject.exe" size="2350048">
       <assemblyIdentity name="CMPG_Group28_FinalProject" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>l00TiZL9uTkfgbasebA6qICZVvasjHI5ddZ/1m/GtP4=</dsig:DigestValue>
+        <dsig:DigestValue>yXt7ltHnxqtPiqBEuQWnEbT4Ve89sWbba5PfM3msZ84=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -69,7 +69,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>s4RNAtPOx+prNVw8PBUA8WSs+v3Z9qD5z9m7aJWl2ig=</dsig:DigestValue>
+      <dsig:DigestValue>Dgf6do9s+X3JIEx3duNFow4nOSllsgpBhqCemSPLHVg=</dsig:DigestValue>
     </hash>
   </file>
   <file name="GYM_DB_log.ldf" size="8388608" writeableType="applicationData">
@@ -78,7 +78,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>rn0ARFdDCyzsfh3TXCx7M6Lh6SRxNGTtejq3Z3ugRU4=</dsig:DigestValue>
+      <dsig:DigestValue>AcJ8lqOAFVDoZfQ65aF/q0QphbWS4rCPvjY4E7kjMqA=</dsig:DigestValue>
     </hash>
   </file>
   <file name="mIghTy logo black orignal.ico" size="186974">

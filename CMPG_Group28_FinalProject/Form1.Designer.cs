@@ -29,6 +29,7 @@ namespace CMPG_Group28_FinalProject
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmHome));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.File = new System.Windows.Forms.ToolStripMenuItem();
             this.viewUpdateOrDeleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -36,16 +37,16 @@ namespace CMPG_Group28_FinalProject
             this.clientAccessToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logAPaymentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.requestReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.EditClassesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Window = new System.Windows.Forms.ToolStripMenuItem();
             this.Exit = new System.Windows.Forms.ToolStripMenuItem();
             this.btnView = new System.Windows.Forms.Button();
             this.pnlHome = new System.Windows.Forms.Panel();
+            this.btnClasses = new System.Windows.Forms.Button();
             this.btnReport = new System.Windows.Forms.Button();
             this.btnPmnt = new System.Windows.Forms.Button();
             this.btnEnterExit = new System.Windows.Forms.Button();
             this.btnBook = new System.Windows.Forms.Button();
-            this.btnClasses = new System.Windows.Forms.Button();
-            this.EditClassesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.pnlHome.SuspendLayout();
             this.SuspendLayout();
@@ -111,6 +112,13 @@ namespace CMPG_Group28_FinalProject
             this.requestReportsToolStripMenuItem.Text = "Request Reports";
             this.requestReportsToolStripMenuItem.Click += new System.EventHandler(this.requestReportsToolStripMenuItem_Click);
             // 
+            // EditClassesToolStripMenuItem
+            // 
+            this.EditClassesToolStripMenuItem.Name = "EditClassesToolStripMenuItem";
+            this.EditClassesToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.EditClassesToolStripMenuItem.Text = "Edit A Class";
+            this.EditClassesToolStripMenuItem.Click += new System.EventHandler(this.EditClassesToolStripMenuItem_Click);
+            // 
             // Window
             // 
             this.Window.Name = "Window";
@@ -150,6 +158,18 @@ namespace CMPG_Group28_FinalProject
             this.pnlHome.Size = new System.Drawing.Size(800, 426);
             this.pnlHome.TabIndex = 5;
             this.pnlHome.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlHome_Paint);
+            // 
+            // btnClasses
+            // 
+            this.btnClasses.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnClasses.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClasses.Location = new System.Drawing.Point(0, 220);
+            this.btnClasses.Name = "btnClasses";
+            this.btnClasses.Size = new System.Drawing.Size(800, 44);
+            this.btnClasses.TabIndex = 8;
+            this.btnClasses.Text = "Maintain Classes";
+            this.btnClasses.UseVisualStyleBackColor = true;
+            this.btnClasses.Click += new System.EventHandler(this.btnClasses_Click);
             // 
             // btnReport
             // 
@@ -199,25 +219,6 @@ namespace CMPG_Group28_FinalProject
             this.btnBook.UseVisualStyleBackColor = true;
             this.btnBook.Click += new System.EventHandler(this.btnBook_Click);
             // 
-            // btnClasses
-            // 
-            this.btnClasses.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnClasses.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClasses.Location = new System.Drawing.Point(0, 220);
-            this.btnClasses.Name = "btnClasses";
-            this.btnClasses.Size = new System.Drawing.Size(800, 44);
-            this.btnClasses.TabIndex = 8;
-            this.btnClasses.Text = "Maintain Classes";
-            this.btnClasses.UseVisualStyleBackColor = true;
-            this.btnClasses.Click += new System.EventHandler(this.btnClasses_Click);
-            // 
-            // EditClassesToolStripMenuItem
-            // 
-            this.EditClassesToolStripMenuItem.Name = "EditClassesToolStripMenuItem";
-            this.EditClassesToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
-            this.EditClassesToolStripMenuItem.Text = "Edit A Class";
-            this.EditClassesToolStripMenuItem.Click += new System.EventHandler(this.EditClassesToolStripMenuItem_Click);
-            // 
             // frmHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -225,6 +226,7 @@ namespace CMPG_Group28_FinalProject
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.pnlHome);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmHome";

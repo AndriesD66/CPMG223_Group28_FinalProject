@@ -17,17 +17,9 @@ namespace CMPG_Group28_FinalProject
         {
             InitializeComponent();
         }
-
-
-
-
         SqlConnection conn = new SqlConnection(Global.ConString);
-
-  
         SqlCommand comm;
-  
         SqlDataReader read;
-
         int MemberID;
         int EntryID;
         int ExitID;
@@ -78,20 +70,12 @@ namespace CMPG_Group28_FinalProject
                     try
                     {
                         //Insert of all the things needed to know when one logs into system
-
-
-
-
                         string sqlInsertNewEntry = "INSERT INTO Entry(EntryID, MemberID, EntryTime, EntryDate ) VALUES(@EntryID, @MemberID, @Time, @Date)";
-
                         comm = new SqlCommand(sqlInsertNewEntry, conn);
-
                         comm.Parameters.AddWithValue("@EntryID", EntryID + 1);
                         comm.Parameters.AddWithValue("@MemberID", MemberID);
                         comm.Parameters.AddWithValue("@Time", DateTime.Now.ToShortTimeString());
                         comm.Parameters.AddWithValue("@Date", DateTime.Today);
-
-
 
                         comm.ExecuteNonQuery();
                         MessageBox.Show("Added entry");
@@ -115,7 +99,6 @@ namespace CMPG_Group28_FinalProject
             }
             catch (Exception ae)
             {
-                
                 MessageBox.Show(ae.Message.ToString(), "", btn, MessageBoxIcon.Warning);
             }
         }
@@ -136,7 +119,6 @@ namespace CMPG_Group28_FinalProject
         {
             try
             { 
-            
                 if(String.IsNullOrWhiteSpace(tbExit.Text))
                 {
                     
@@ -180,26 +162,15 @@ namespace CMPG_Group28_FinalProject
                         }
                     }
                     read.Close();
-
-
                     try
                     {
                         //Insert of all the things needed to know when one logs out of system
-
-
-
-
                         string sqlInsertNewEntryE = "INSERT INTO ExitGym(ExitID, MemberID, ExitTime, ExitDate ) VALUES(@ExitID, @MemberID, @Time, @Date)";
-
                         comm = new SqlCommand(sqlInsertNewEntryE, conn);
-
                         comm.Parameters.AddWithValue("@ExitID", ExitID + 1);
                         comm.Parameters.AddWithValue("@MemberID", MemberID);
                         comm.Parameters.AddWithValue("@Time", DateTime.Now.ToShortTimeString());
                         comm.Parameters.AddWithValue("@Date", DateTime.Today);
-
-
-
                         comm.ExecuteNonQuery();
                         MessageBox.Show("Added entry", "", btn, info);
                         conn.Close();
@@ -233,9 +204,6 @@ namespace CMPG_Group28_FinalProject
                 tbExit.Enabled = false;
                 tbEnter.Text = frmHome.membeID.ToString();
                 tbEnter.Enabled = false;
-
-               
-
             }
         }
 

@@ -29,6 +29,7 @@ namespace CMPG_Group28_FinalProject
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Payment));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.tbBank = new System.Windows.Forms.TextBox();
@@ -38,7 +39,9 @@ namespace CMPG_Group28_FinalProject
             this.dtPay = new System.Windows.Forms.DateTimePicker();
             this.btnPay = new System.Windows.Forms.Button();
             this.dgvPay = new System.Windows.Forms.DataGridView();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPay)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -117,11 +120,22 @@ namespace CMPG_Group28_FinalProject
             this.dgvPay.Size = new System.Drawing.Size(662, 244);
             this.dgvPay.TabIndex = 8;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(396, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(255, 167);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 9;
+            this.pictureBox1.TabStop = false;
+            // 
             // Payment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(678, 429);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.dgvPay);
             this.Controls.Add(this.btnPay);
             this.Controls.Add(this.dtPay);
@@ -131,11 +145,13 @@ namespace CMPG_Group28_FinalProject
             this.Controls.Add(this.tbBank);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Payment";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Payment";
             this.Load += new System.EventHandler(this.Payment_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPay)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -152,5 +168,6 @@ namespace CMPG_Group28_FinalProject
         private System.Windows.Forms.DateTimePicker dtPay;
         private System.Windows.Forms.Button btnPay;
         private System.Windows.Forms.DataGridView dgvPay;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

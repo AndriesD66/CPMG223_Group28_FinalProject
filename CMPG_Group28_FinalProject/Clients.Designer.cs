@@ -29,9 +29,11 @@ namespace CMPG_Group28_FinalProject
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Clients));
             this.dgvClients = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.gbAddEdit = new System.Windows.Forms.GroupBox();
+            this.btAddEdit = new System.Windows.Forms.Button();
             this.cbAdmin = new System.Windows.Forms.CheckBox();
             this.tbContact = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -50,10 +52,11 @@ namespace CMPG_Group28_FinalProject
             this.btnDelete = new System.Windows.Forms.Button();
             this.tbDelete = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.btAddEdit = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClients)).BeginInit();
             this.gbAddEdit.SuspendLayout();
             this.gbDelete.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvClients
@@ -61,7 +64,7 @@ namespace CMPG_Group28_FinalProject
             this.dgvClients.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvClients.Location = new System.Drawing.Point(12, 33);
             this.dgvClients.Name = "dgvClients";
-            this.dgvClients.Size = new System.Drawing.Size(1109, 334);
+            this.dgvClients.Size = new System.Drawing.Size(744, 334);
             this.dgvClients.TabIndex = 0;
             // 
             // label1
@@ -98,6 +101,16 @@ namespace CMPG_Group28_FinalProject
             this.gbAddEdit.TabIndex = 2;
             this.gbAddEdit.TabStop = false;
             this.gbAddEdit.Text = "Add new client record or edit an existing record";
+            // 
+            // btAddEdit
+            // 
+            this.btAddEdit.Location = new System.Drawing.Point(631, 108);
+            this.btAddEdit.Name = "btAddEdit";
+            this.btAddEdit.Size = new System.Drawing.Size(113, 28);
+            this.btAddEdit.TabIndex = 14;
+            this.btAddEdit.Text = "Add Record";
+            this.btAddEdit.UseVisualStyleBackColor = true;
+            this.btAddEdit.Click += new System.EventHandler(this.button1_Click);
             // 
             // cbAdmin
             // 
@@ -267,25 +280,27 @@ namespace CMPG_Group28_FinalProject
             this.label2.TabIndex = 0;
             this.label2.Text = "Client ID: ";
             // 
-            // btAddEdit
+            // pictureBox1
             // 
-            this.btAddEdit.Location = new System.Drawing.Point(631, 108);
-            this.btAddEdit.Name = "btAddEdit";
-            this.btAddEdit.Size = new System.Drawing.Size(113, 28);
-            this.btAddEdit.TabIndex = 14;
-            this.btAddEdit.Text = "Add Record";
-            this.btAddEdit.UseVisualStyleBackColor = true;
-            this.btAddEdit.Click += new System.EventHandler(this.button1_Click);
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(762, 48);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(374, 319);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
             // 
             // Clients
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1133, 587);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.gbDelete);
             this.Controls.Add(this.gbAddEdit);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvClients);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Clients";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Clients";
@@ -295,6 +310,7 @@ namespace CMPG_Group28_FinalProject
             this.gbAddEdit.PerformLayout();
             this.gbDelete.ResumeLayout(false);
             this.gbDelete.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -324,5 +340,6 @@ namespace CMPG_Group28_FinalProject
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.CheckBox cbAdmin;
         private System.Windows.Forms.Button btAddEdit;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
