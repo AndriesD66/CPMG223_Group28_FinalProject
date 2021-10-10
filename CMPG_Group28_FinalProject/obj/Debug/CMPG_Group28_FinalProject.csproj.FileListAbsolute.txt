@@ -75,3 +75,8 @@ C:\Users\plain\Documents\GitHub\CPMG223_Group28_FinalProject\CMPG_Group28_FinalP
 C:\Users\plain\Documents\GitHub\CPMG223_Group28_FinalProject\CMPG_Group28_FinalProject\obj\Debug\CMPG_Group28_FinalProject.application
 C:\Users\plain\Documents\GitHub\CPMG223_Group28_FinalProject\CMPG_Group28_FinalProject\obj\Debug\CMPG_Group28_FinalProject.csprojAssemblyReference.cache
 C:\Users\plain\Documents\GitHub\CPMG223_Group28_FinalProject\CMPG_Group28_FinalProject\obj\Debug\CMPG_Group28_FinalProject.Classes.resources
+C:\Users\andre\OneDrive - NORTH-WEST UNIVERSITY\Documents\GitHub\CPMG223_Group28_FinalProject\CMPG_Group28_FinalProject\bin\Debug\CMPG_Group28_FinalProject.exe.manifest
+C:\Users\andre\OneDrive - NORTH-WEST UNIVERSITY\Documents\GitHub\CPMG223_Group28_FinalProject\CMPG_Group28_FinalProject\bin\Debug\CMPG_Group28_FinalProject.application
+C:\Users\andre\OneDrive - NORTH-WEST UNIVERSITY\Documents\GitHub\CPMG223_Group28_FinalProject\CMPG_Group28_FinalProject\obj\Debug\CMPG_Group28_FinalProject.Classes.resources
+C:\Users\andre\OneDrive - NORTH-WEST UNIVERSITY\Documents\GitHub\CPMG223_Group28_FinalProject\CMPG_Group28_FinalProject\obj\Debug\CMPG_Group28_FinalProject.exe.manifest
+C:\Users\andre\OneDrive - NORTH-WEST UNIVERSITY\Documents\GitHub\CPMG223_Group28_FinalProject\CMPG_Group28_FinalProject\obj\Debug\CMPG_Group28_FinalProject.application
