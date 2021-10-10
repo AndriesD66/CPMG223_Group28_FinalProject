@@ -37,19 +37,23 @@ namespace CMPG_Group28_FinalProject
             this.btnExit = new System.Windows.Forms.Button();
             this.tbExit = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.cmbClassType = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cmbClassType);
+            this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.btnEnter);
             this.groupBox1.Controls.Add(this.tbEnter);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(194, 89);
+            this.groupBox1.Size = new System.Drawing.Size(215, 115);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Client enters";
@@ -57,7 +61,7 @@ namespace CMPG_Group28_FinalProject
             // btnEnter
             // 
             this.btnEnter.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEnter.Location = new System.Drawing.Point(64, 42);
+            this.btnEnter.Location = new System.Drawing.Point(64, 86);
             this.btnEnter.Name = "btnEnter";
             this.btnEnter.Size = new System.Drawing.Size(75, 23);
             this.btnEnter.TabIndex = 2;
@@ -125,6 +129,32 @@ namespace CMPG_Group28_FinalProject
             this.label2.TabIndex = 0;
             this.label2.Text = "Client ID: ";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(10, 52);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(65, 13);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Class Type: ";
+            // 
+            // cmbClassType
+            // 
+            this.cmbClassType.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbClassType.FormattingEnabled = true;
+            this.cmbClassType.Items.AddRange(new object[] {
+            "None",
+            "Yoga",
+            "Palates",
+            "CrossFit",
+            "Spin"});
+            this.cmbClassType.Location = new System.Drawing.Point(81, 41);
+            this.cmbClassType.Name = "cmbClassType";
+            this.cmbClassType.Size = new System.Drawing.Size(121, 21);
+            this.cmbClassType.TabIndex = 4;
+            this.cmbClassType.Text = "Choose a class";
+            // 
             // Access
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -154,5 +184,7 @@ namespace CMPG_Group28_FinalProject
         private System.Windows.Forms.TextBox tbExit;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnEnter;
+        private System.Windows.Forms.ComboBox cmbClassType;
+        private System.Windows.Forms.Label label3;
     }
 }
