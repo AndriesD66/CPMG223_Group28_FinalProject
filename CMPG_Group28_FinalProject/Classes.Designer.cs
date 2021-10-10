@@ -50,10 +50,10 @@ namespace CMPG_Group28_FinalProject
             this.dgvClasses = new System.Windows.Forms.DataGridView();
             this.label8 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.tbClassType = new System.Windows.Forms.TextBox();
-            this.btnAdd = new System.Windows.Forms.Button();
             this.btnDelClass = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.tbClassType = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.gbDelete.SuspendLayout();
             this.gbAddEdit.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClasses)).BeginInit();
@@ -217,6 +217,7 @@ namespace CMPG_Group28_FinalProject
             this.tbID.Name = "tbID";
             this.tbID.Size = new System.Drawing.Size(100, 22);
             this.tbID.TabIndex = 2;
+            this.tbID.TextChanged += new System.EventHandler(this.tbID_TextChanged);
             // 
             // lblID
             // 
@@ -238,6 +239,7 @@ namespace CMPG_Group28_FinalProject
             this.cbEdit.TabIndex = 0;
             this.cbEdit.Text = "Edit an existing record";
             this.cbEdit.UseVisualStyleBackColor = true;
+            this.cbEdit.CheckedChanged += new System.EventHandler(this.cbEdit_CheckedChanged);
             // 
             // label1
             // 
@@ -280,21 +282,15 @@ namespace CMPG_Group28_FinalProject
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Add or delete a class type";
             // 
-            // label7
+            // btnDelClass
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(12, 20);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(65, 13);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "Class Type: ";
-            // 
-            // tbClassType
-            // 
-            this.tbClassType.Location = new System.Drawing.Point(84, 12);
-            this.tbClassType.Name = "tbClassType";
-            this.tbClassType.Size = new System.Drawing.Size(100, 20);
-            this.tbClassType.TabIndex = 1;
+            this.btnDelClass.Location = new System.Drawing.Point(126, 46);
+            this.btnDelClass.Name = "btnDelClass";
+            this.btnDelClass.Size = new System.Drawing.Size(75, 23);
+            this.btnDelClass.TabIndex = 3;
+            this.btnDelClass.Text = "Delete";
+            this.btnDelClass.UseVisualStyleBackColor = true;
+            this.btnDelClass.Click += new System.EventHandler(this.btnDelClass_Click);
             // 
             // btnAdd
             // 
@@ -306,15 +302,21 @@ namespace CMPG_Group28_FinalProject
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // btnDelClass
+            // tbClassType
             // 
-            this.btnDelClass.Location = new System.Drawing.Point(126, 46);
-            this.btnDelClass.Name = "btnDelClass";
-            this.btnDelClass.Size = new System.Drawing.Size(75, 23);
-            this.btnDelClass.TabIndex = 3;
-            this.btnDelClass.Text = "Delete";
-            this.btnDelClass.UseVisualStyleBackColor = true;
-            this.btnDelClass.Click += new System.EventHandler(this.btnDelClass_Click);
+            this.tbClassType.Location = new System.Drawing.Point(84, 12);
+            this.tbClassType.Name = "tbClassType";
+            this.tbClassType.Size = new System.Drawing.Size(100, 20);
+            this.tbClassType.TabIndex = 1;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(12, 20);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(65, 13);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "Class Type: ";
             // 
             // Classes
             // 

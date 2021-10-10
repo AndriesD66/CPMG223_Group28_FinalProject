@@ -30,6 +30,9 @@ namespace CMPG_Group28_FinalProject
         DateTime clsTime;
         string clsDesc;
         int clsAtt = 0;
+        public int oldMemID;
+        string lastProcessed;
+
 
         private void Classes_Load(object sender, EventArgs e)
         {
@@ -47,27 +50,11 @@ namespace CMPG_Group28_FinalProject
             }
             updateDG();
         }
-        private void cbEdit_CheckedChanged(object sender, EventArgs e)
-        {
-            if (cbEdit.Checked)
-            {
-                btAddEdit.Text = "Edit Record";
-                lblID.Enabled = true;
-                tbID.Enabled = true;
-
-            }
-            else if (!cbEdit.Checked)
-            {
-                btAddEdit.Text = "Add Record";
-                lblID.Enabled = false;
-                tbID.Enabled = false;
-                tbID.Clear();
-            }
-        }
-        string lastProcessed;
+      
+        
         private void updateDG()
         {
-
+            conn.Close();
 
             try
             {
@@ -160,8 +147,10 @@ namespace CMPG_Group28_FinalProject
         {
             try
             {
+                int.TryParse(tbID.Text, out oldMemID);
                 if (btAddEdit.Text == "Add Record")
                 {
+                   
                     tbErrorTests();
 
 
@@ -230,6 +219,9 @@ namespace CMPG_Group28_FinalProject
                 }
                 else if (btAddEdit.Text == "Edit Record")
                 {
+
+
+
                     tbErrorTests();
 
                     if (MessageBox.Show("Are yo sure you want to edit class ?", "Edited Class", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) == DialogResult.OK)
@@ -239,14 +231,33 @@ namespace CMPG_Group28_FinalProject
 
                         if (!int.TryParse(lastProcessed, out oldClsID)) { tbID.Clear(); tbID.Focus(); throw new Exception("Insure that you have entered the correct Class ID"); }
 
-                        string updateCls = "UPDATE Member SET ClassType = @Type, ClassTime = @Time, ClassDate = @Date, Description = @Desc, Attendants = @Att WHERE ClassID='" + oldClsID + "'";
+                        string updateCls = "UPDATE ClassType SET ClassType = @Type, ClassTime = @Time, ClassDate = @Date, Description = @Desc WHERE ClassID = '" + oldClsID + "'";
 
                         comm = new SqlCommand(updateCls, conn);
+
+
+
+                        if (cmbClass.SelectedIndex != -1)
+                        {
+                            ClassType = cmbClass.GetItemText(cmbClass.SelectedItem);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Please select what type of class you want to book", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                        clsTime = Convert.ToDateTime(tbClassTime.Text);
+                        clsDesc = tbDesc.Text;
+                        clsDate = dtClassDate.Value.Date;
+
+
+
+
                         comm.Parameters.AddWithValue("@Type", ClassType);
                         comm.Parameters.AddWithValue("@Time", clsTime);
                         comm.Parameters.AddWithValue("@Date", clsDate);
                         comm.Parameters.AddWithValue("@Desc", clsDesc);
-                        comm.Parameters.AddWithValue("@Att", clsAtt);
+
+                        comm.ExecuteNonQuery();
                         MessageBox.Show("Succesfully edited Class!");
                     }
                     else if (MessageBox.Show("Are yo sure you want to enter Class ?", "Cancelled  Class Edit", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) == DialogResult.Cancel)
@@ -281,7 +292,8 @@ namespace CMPG_Group28_FinalProject
             //Errorhandling van textbox variables
 
             if (String.IsNullOrWhiteSpace(tbClassTime.Text)) { tbClassTime.Focus(); tbClassTime.Clear(); throw new Exception("Please enter a valid Class Time "); }
-            else if (String.IsNullOrWhiteSpace(tbDesc.Text)) { tbDesc.Focus(); tbDesc.Clear(); throw new Exception("Please enter a valid Class Description"); }
+            if (String.IsNullOrWhiteSpace(tbDesc.Text)) { tbDesc.Focus(); tbDesc.Clear(); throw new Exception("Please enter a valid Class Description"); }
+            
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -310,6 +322,117 @@ namespace CMPG_Group28_FinalProject
             {
                 MessageBox.Show("Please enter the type of class you want to delete!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        private void cbEdit_CheckedChanged_1(object sender, EventArgs e)
+        {
+        }
+
+        private void cbEdit_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbEdit.Checked)
+            {
+                btAddEdit.Text = "Edit Record";
+                lblID.Enabled = true;
+                tbID.Enabled = true;
+
+            }
+            else if (!cbEdit.Checked)
+            {
+                btAddEdit.Text = "Add Record";
+                lblID.Enabled = false;
+                tbID.Enabled = false;
+                tbID.Clear();
+            }
+
+        }
+
+        private async void tbID_TextChanged(object sender, EventArgs e)
+        {
+
+            //conn = new SqlConnection(Global.ConString);
+            conn.Close();
+            conn.Open();
+            if (int.TryParse(tbID.Text, out oldMemID)) { }
+
+            // clear last processed text if user deleted all text
+            if (string.IsNullOrEmpty(tbID.Text)) lastProcessed = null;
+            // this inner method checks if user is still typing
+            async Task<bool> UserKeepsTyping()
+            {
+                string txt = tbID.Text;   // remember text
+                await Task.Delay(500);        // wait some
+                return txt != tbID.Text;  // return that text chaged or not
+            }
+            if (await UserKeepsTyping() || tbID.Text == lastProcessed) return;
+            // save the text you process, and do your stuff
+            lastProcessed = tbID.Text;
+            // Checks if the member id is a integer
+            conn.Close();
+
+            try
+            {
+                conn.Open();
+                string fetchMember = "Select * FROM ClassType WHERE ClassID Like '" + oldMemID + "'";
+
+                comm = new SqlCommand(fetchMember, conn);
+
+                read = comm.ExecuteReader();
+                if (read.HasRows)
+                {
+                    while (read.Read())
+                    {
+                        cmbClass.SelectedItem = Convert.ToString(read.GetValue(1));
+                        
+                        tbClassTime.Text = Convert.ToString(read.GetValue(2));
+                        dtClassDate.Text = Convert.ToString(read.GetValue(3));
+                        tbDesc.Text = Convert.ToString(read.GetValue(4));
+                        
+                    }
+                }
+                read.Close();
+                conn.Close();
+            }
+            catch (SqlException ae)
+            {
+                if (MessageBox.Show(ae.Message.ToString(), "ERROR!!", MessageBoxButtons.OK, MessageBoxIcon.Error) == DialogResult.OK) { conn.Close(); }
+            }
+
+
+            try
+            {
+                conn.Open();
+                string sql = "SELECT * FROM ClassType WHERE ClassID Like '" + oldMemID + "'";
+                comm = new SqlCommand(sql, conn);
+                ds = new DataSet();
+                adap = new SqlDataAdapter();
+
+                adap.SelectCommand = comm;
+                adap.Fill(ds, "SourceTable");
+
+                dgvClasses.DataSource = ds;
+                dgvClasses.DataMember = "SourceTable";
+                conn.Close();
+            }
+            catch (SqlException error)
+            {
+                if (MessageBox.Show(error.Message.ToString(), "ERROR!!", MessageBoxButtons.OK, MessageBoxIcon.Error) == DialogResult.OK) { conn.Close(); }
+            }
+
+
+
+            if (String.IsNullOrEmpty(tbID.Text))
+            {
+                updateDG();
+                tbID.Clear();
+                cmbClass.SelectedIndex= -1;
+
+                tbClassTime.Clear();
+                dtClassDate.Value = DateTime.Today;
+                tbDesc.Clear();
+            }
+            conn.Close();
+
         }
     }
 }
