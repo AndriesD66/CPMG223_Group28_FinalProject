@@ -430,7 +430,6 @@ namespace CMPG_Group28_FinalProject
         private void tbErrorTests()
         {
 
-
             //Errorhandling van textbox variables
 
             if (String.IsNullOrWhiteSpace(tbName.Text)) { tbName.Focus(); tbName.Clear(); throw new Exception("Please enter a valid Name "); }
@@ -440,17 +439,15 @@ namespace CMPG_Group28_FinalProject
             else if (String.IsNullOrWhiteSpace(tbBank.Text)) { tbBank.Focus(); tbBank.Clear(); throw new Exception("Please enter a valid Bank Number "); }
             else if (String.IsNullOrWhiteSpace(tbContact.Text)) { tbContact.Focus(); tbContact.Clear(); throw new Exception("Please enter a valid Contact Number "); }
             else if (tbContact.Text.Length != 10) { tbContact.Focus(); tbContact.Clear(); throw new Exception("Please enter a valid Contact Number that is 10 numbers "); }
-
-
-
         }
 
-
-       
-
+    
 
 
 
-    }
+
+
+
+}
 
 }

@@ -18,7 +18,10 @@ namespace CMPG_Group28_FinalProject
         {
             InitializeComponent();
         }
-            public static bool LoggedIn=false;
+            public static bool LoggedIn =false;
+        public static bool LoggedInAdmin = false;
+        public static int membeID;
+
         Login newLogForm;
         Clients view;
         Bookings book;
@@ -53,6 +56,17 @@ namespace CMPG_Group28_FinalProject
         private void newLogForm_FromClosed(object sender, FormClosedEventArgs e)
         {
             if (LoggedIn)
+            {
+                pnlHome.Visible = true;
+                menuStrip1.Enabled = true;
+                btnView.Enabled = false;
+                btnReport.Enabled = false;
+                btnClasses.Enabled = false;
+
+
+                
+            }
+            if(LoggedInAdmin)
             {
                 pnlHome.Visible = true;
                 menuStrip1.Enabled = true;

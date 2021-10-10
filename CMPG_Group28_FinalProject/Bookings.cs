@@ -33,8 +33,9 @@ namespace CMPG_Group28_FinalProject
 
         private void Bookings_Load(object sender, EventArgs e)
         {
-            UpdateDG();
+            
             populateCB();
+            CheckAdmin();
         }
 
       
@@ -45,6 +46,7 @@ namespace CMPG_Group28_FinalProject
             string ClassType = "";
             DateTime bookDate;
             DateTime bookTime;
+            CheckAdmin();
             try
             {
                 string sql = "Select * from Member Where MemberID = '" + tbBooking.Text.Trim() + "'";
@@ -116,7 +118,14 @@ namespace CMPG_Group28_FinalProject
                 MessageBox.Show(ae.ToString(),"", btn, warn);
                 conn.Close();
             }
-            UpdateDG();
+            if (frmHome.LoggedIn)
+            {
+                UpdateDGNonAdmin();
+            }
+            else
+            {
+                UpdateDG();
+            }
 
         }
 
@@ -212,7 +221,31 @@ namespace CMPG_Group28_FinalProject
             conn.Close();
         }
 
+        public void CheckAdmin()
+        {
+            conn.Close();
+             if(frmHome.LoggedIn)
+            {
+                tbBooking.Text = frmHome.membeID.ToString();
+                tbBooking.Enabled = false;
+                UpdateDGNonAdmin();
+            }
+            else
+            {
+                UpdateDG();
+            }
+        }
 
+        private void UpdateDGNonAdmin()
+        {
+            conn.Open();
+            string getDG = "Select * From Booking Where MemberId = '" + frmHome.membeID.ToString() + "'";
+            adap = new SqlDataAdapter(getDG, conn);
+            DataTable dt = new DataTable();
+            adap.Fill(dt);
+            dgvClass.DataSource = dt;
+            conn.Close();
+        }
 
         private void cmbClass_SelectedIndexChanged(object sender, EventArgs e)
         {

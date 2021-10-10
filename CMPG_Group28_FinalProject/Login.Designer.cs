@@ -60,6 +60,7 @@ namespace CMPG_Group28_FinalProject
             this.tbClientID.Name = "tbClientID";
             this.tbClientID.Size = new System.Drawing.Size(100, 20);
             this.tbClientID.TabIndex = 2;
+            this.tbClientID.TextChanged += new System.EventHandler(this.tbClientID_TextChanged);
             // 
             // tbPassword
             // 
@@ -92,7 +93,6 @@ namespace CMPG_Group28_FinalProject
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
-
             this.ResumeLayout(false);
             this.PerformLayout();
 

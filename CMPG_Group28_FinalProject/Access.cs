@@ -117,9 +117,7 @@ namespace CMPG_Group28_FinalProject
 
         private void Access_Load(object sender, EventArgs e)
         {
-            conn = new SqlConnection(Global.ConString);
-            conn.Open();
-            conn.Close();
+            CheckAdmin();
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -221,7 +219,19 @@ namespace CMPG_Group28_FinalProject
             }
         }
 
-      
+        public void CheckAdmin()
+        {
+            if (frmHome.LoggedIn)
+            {
+                tbExit.Text = frmHome.membeID.ToString();
+                tbExit.Enabled = false;
+                tbEnter.Text = frmHome.membeID.ToString();
+                tbEnter.Enabled = false;
+
+               
+
+            }
+        }
     }
 }
 

@@ -33,6 +33,7 @@ namespace CMPG_Group28_FinalProject
 
         private void btnPay_Click(object sender, EventArgs e)
         {
+            checkAdmin();
             try
             {
                 conn.Open();
@@ -126,13 +127,21 @@ namespace CMPG_Group28_FinalProject
                 conn.Close();
 
             }
-            UpdateDG();
+            if(frmHome.LoggedIn)
+            {
+                UpdateDGNonAdmin();
+            }
+            else
+            {
+                UpdateDG();
+            }
         }
 
         private void Payment_Load(object sender, EventArgs e)
         {
             
-            UpdateDG();
+            
+            checkAdmin();
         }
 
         private void UpdateDG()
@@ -144,6 +153,64 @@ namespace CMPG_Group28_FinalProject
             adap.Fill(dt);
             dgvPay.DataSource = dt;
             conn.Close();
+        }
+
+        private void UpdateDGNonAdmin()
+        {
+            conn.Close();
+            conn.Open();
+            string getDG = "Select * From Payment Where Bank_Account_Number = '" + BankAcc + "'";
+            adap = new SqlDataAdapter(getDG, conn);
+            DataTable dt = new DataTable();
+            adap.Fill(dt);
+            dgvPay.DataSource = dt;
+
+
+           
+            conn.Close();
+        }
+
+        public void checkAdmin()
+        {
+            try
+            {
+                if (frmHome.LoggedIn)
+                {
+                    conn.Open();
+                    string memId = frmHome.membeID.ToString();
+                    string getBankNum = "Select Bank_Account_Number From Member Where MemberID = '" + memId + "'";
+                    comm = new SqlCommand(getBankNum, conn);
+                    read = comm.ExecuteReader();
+                    if (read.HasRows)
+                    {
+                        while (read.Read())
+                        {
+                            if (!String.IsNullOrWhiteSpace(Convert.ToString(read.GetValue(0))))
+                            {
+                                BankAcc = Convert.ToString(read.GetValue(0));
+                            }
+                        }
+                    }
+                    read.Close();
+
+                    tbBank.Text = BankAcc;
+                    tbBank.Enabled = false;
+                    UpdateDGNonAdmin();
+                    conn.Close();
+                }
+                else
+                {
+                    UpdateDG();
+                }
+            }
+            catch (SqlException ae)
+            {
+                MessageBox.Show(ae.ToString(), "", btn, warn);
+                conn.Close();
+
+            }
+
+
         }
     }
 }
