@@ -50,44 +50,62 @@ namespace CMPG_Group28_FinalProject
                     }
                 }
                 read.Close();
-                if ((BankAcc == tbBank.Text) && (tbAmount.Text != ""))
+
+                if ((BankAcc != tbBank.Text.Trim() || String.IsNullOrWhiteSpace(tbBank.Text.Trim()) )) throw new Exception("Enter a valid bank account number!"); 
+                if (String.IsNullOrWhiteSpace(tbAmount.Text.Trim()) || !(double.Parse(tbAmount.Text.Trim()) >= 100.00)) { throw new Exception("Enter a valid ammount that is exceeding a R100 !"); }
+
+                string message = "Are you sure you want to make payment for bank account num :" + tbBank.Text.ToString() + " for the amount of R " + tbAmount.Text.ToString() + "?";
+                if (MessageBox.Show(message.ToString(), "Payment", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    int PayID = 0;
-                    BankAcc = tbBank.Text;
-                    Amount = Convert.ToDouble(tbAmount.Text);
-                    PayDate = dtPay.Value.Date;
-                    string sql1 = "Select Top 1 PaymentID From Payment Order By PaymentID Desc";
-                    comm = new SqlCommand(sql1, conn);
-                    read = comm.ExecuteReader();
-                    if (read.HasRows)
+
+                 
+
+
+                    if ((BankAcc == tbBank.Text) && (tbAmount.Text != ""))
                     {
-                        while (read.Read())
+                        int PayID = 0;
+                        BankAcc = tbBank.Text;
+                        Amount = Convert.ToDouble(tbAmount.Text);
+                        PayDate = dtPay.Value.Date;
+                        string sql1 = "Select Top 1 PaymentID From Payment Order By PaymentID Desc";
+                        comm = new SqlCommand(sql1, conn);
+                        read = comm.ExecuteReader();
+                        if (read.HasRows)
                         {
-                            PayID = Convert.ToInt32(read["PaymentID"].ToString());
+                            while (read.Read())
+                            {
+                                PayID = Convert.ToInt32(read["PaymentID"].ToString());
+                            }
                         }
+                        read.Close();
+                        PayID++;
+                        transact = conn.BeginTransaction("Add Payment");
+                        string sqlPay = "Insert Payment(PaymentID, Bank_Account_Number, PaymentAmount, PaymentDate) Values (" + PayID + ", '" + BankAcc + "', " + Amount + ", '" + PayDate + "')";
+
+
+
+
+                        comm = new SqlCommand(sqlPay, conn);
+                        comm.Transaction = transact;
+                        comm.ExecuteNonQuery();
+                        MessageBox.Show("Payment has been logged", "", btn, info);
+                        transact.Commit();
+                        string updateSql = "Select * From Payment";
+                        adap = new SqlDataAdapter(updateSql, conn);
+                        adap = new SqlDataAdapter(updateSql, conn);
+                        DataTable dt = new DataTable();
+                        adap.Fill(dt);
+                        dgvPay.DataSource = dt;
+                        dt.AcceptChanges();
                     }
-                    read.Close();
-                    PayID++;
-                    transact = conn.BeginTransaction("Add Payment");
-                    string sqlPay = "Insert Payment(PaymentID, Bank_Account_Number, PaymentAmount, PaymentDate) Values (" + PayID + ", '" + BankAcc + "', " + Amount + ", '" + PayDate + "')";
+                
 
 
 
 
-                    comm = new SqlCommand(sqlPay, conn);
-                    comm.Transaction = transact;
-                    comm.ExecuteNonQuery();
-                    MessageBox.Show("Payment has been logged", "", btn, info);
-                    transact.Commit();
-                    string updateSql = "Select * From Payment";
-                    adap = new SqlDataAdapter(updateSql, conn);
-                    adap = new SqlDataAdapter(updateSql, conn);
-                    DataTable dt = new DataTable();
-                    adap.Fill(dt);
-                    dgvPay.DataSource = dt;
-                    dt.AcceptChanges();
+
                 }
-                else if ((tbAmount.Text == "") || (BankAcc != tbBank.Text))
+                else if ((tbAmount.Text == "") && (BankAcc != tbBank.Text))
                 {
                     MessageBox.Show("Please enter a valid amount and Bank Account Number", "", btn, warn);
                     tbBank.Clear();
@@ -97,6 +115,10 @@ namespace CMPG_Group28_FinalProject
                     Amount = 0.00;
                 }
                 conn.Close();
+
+
+
+
             }
             catch (Exception ae)
             {

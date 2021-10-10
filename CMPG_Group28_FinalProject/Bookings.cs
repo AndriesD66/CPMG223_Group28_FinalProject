@@ -29,48 +29,15 @@ namespace CMPG_Group28_FinalProject
         MessageBoxButtons btn = MessageBoxButtons.OK;
         MessageBoxIcon warn = MessageBoxIcon.Warning;
         MessageBoxIcon info = MessageBoxIcon.Information;
+        private string ClassType;
 
         private void Bookings_Load(object sender, EventArgs e)
         {
-            try
-            {
-                conn.Open();
-                string sql = "Select * from Booking";
-                adap = new SqlDataAdapter(sql, conn);
-                DataTable dtbl = new DataTable();
-                adap.Fill(dtbl);
-                dgvClass.DataSource = dtbl;
-                conn.Close();
-            }
-            catch (Exception ae)
-            {
-                MessageBox.Show(ae.Message.ToString(), "", btn, warn);
-            }
+            UpdateDG();
+            populateCB();
         }
 
-        private void btnDelBooking_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                conn.Open();
-                string sql = "Select * from Booking";
-                string del = "Delete from Booking Where BookingID = " + Convert.ToInt32(tbDelBooking.Text.Trim()) + "";
-                adap = new SqlDataAdapter(sql, conn);
-                comm = new SqlCommand(del, conn);
-                int deleted = comm.ExecuteNonQuery();
-                adap = new SqlDataAdapter(sql, conn);
-                DataTable dtbl = new DataTable();
-                adap.Fill(dtbl);
-                dgvClass.DataSource = dtbl;
-                MessageBox.Show(deleted.ToString() + " item(s) have been deleted", "", btn, info);
-                conn.Close();
-                Bookings_Load(sender, e);
-            }
-            catch (Exception ae)
-            {
-                MessageBox.Show(ae.Message.ToString(), "", btn, warn);
-            }
-        }
+      
 
         private void btnBook_Click(object sender, EventArgs e)
         {
@@ -106,6 +73,7 @@ namespace CMPG_Group28_FinalProject
                         MessageBox.Show("Please select what type of class you want to book", "", btn, warn);
                         tbBooking.Clear();
                         tbBooking.Focus();
+                        conn.Close();
                     }
                     sql = "Select Top 1 BookingID From Booking Order By BookingID Desc";
                     comm = new SqlCommand(sql, conn);
@@ -136,16 +104,118 @@ namespace CMPG_Group28_FinalProject
                     tbBooking.Focus();
                 }
                 MemberID = "";
+                conn.Close();
                 tbBooking.Clear();
                 tbBooking.Focus();
-                conn.Close();
+                
                 read.Close();
+                conn.Close();
             }
             catch (Exception ae)
             {
-                MessageBox.Show(ae.Message.ToString(),"", btn, warn);
+                MessageBox.Show(ae.ToString(),"", btn, warn);
+                conn.Close();
             }
-            Bookings_Load(sender, e);
+            UpdateDG();
+
+        }
+
+
+
+        private void UpdateDG()
+        {
+            conn.Close();
+            try
+            {
+                conn.Open();
+                string sql = "Select * from Booking";
+                adap = new SqlDataAdapter(sql, conn);
+                DataTable dtbl = new DataTable();
+                adap.Fill(dtbl);
+                dgvClass.DataSource = dtbl;
+                conn.Close();
+            }
+            catch (Exception ae)
+            {
+                MessageBox.Show(ae.ToString(), "", btn, warn);
+                conn.Close();
+            }
+           
+        }
+
+        private void tbBooking_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                conn.Open();
+
+                string sqlShowMem = "Select * From Booking Where MemberID ='" + tbBooking.Text.Trim() + "'";
+                adap = new SqlDataAdapter(sqlShowMem, conn);
+                DataTable dtbl = new DataTable();
+                adap.Fill(dtbl);
+                dgvClass.DataSource = dtbl;
+                
+                if (String.IsNullOrWhiteSpace(tbBooking.Text))
+                {
+                    UpdateDG();
+                }
+                conn.Close();
+            }
+            catch (SqlException ae)
+            {
+                MessageBox.Show(ae.ToString(), "", btn, warn);
+                conn.Close();
+            }
+
+
+        }
+
+        private void populateCB()
+        {
+            try
+            {
+                conn.Open();
+
+                string updateCB = "Select ClassType From ClassType";
+                comm = new SqlCommand(updateCB, conn);
+                read = comm.ExecuteReader();
+                if (read.HasRows)
+                {
+                    while (read.Read())
+                    {
+                        if(!String.IsNullOrWhiteSpace(Convert.ToString(read.GetValue(0))))
+                        {
+                            ClassType = Convert.ToString(read.GetValue(0));
+                            if(!cmbClass.Items.Contains(ClassType))
+                            {
+                                cmbClass.Items.Add(ClassType);
+                            }
+                           
+                        }
+                        else
+                        {
+                            ClassType = "Empty";
+                            
+                        }
+                    }
+                }
+                read.Close();
+
+
+                
+            }
+            catch (SqlException ae)
+            {
+                MessageBox.Show(ae.ToString(), "", btn, warn);
+                conn.Close();
+            }
+            conn.Close();
+        }
+
+
+
+        private void cmbClass_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
         }
     }

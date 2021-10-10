@@ -38,14 +38,9 @@ namespace CMPG_Group28_FinalProject
             this.btnBook = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvClass = new System.Windows.Forms.DataGridView();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btnDelBooking = new System.Windows.Forms.Button();
-            this.tbDelBooking = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClass)).BeginInit();
-            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -65,6 +60,7 @@ namespace CMPG_Group28_FinalProject
             this.tbBooking.Name = "tbBooking";
             this.tbBooking.Size = new System.Drawing.Size(100, 20);
             this.tbBooking.TabIndex = 1;
+            this.tbBooking.TextChanged += new System.EventHandler(this.tbBooking_TextChanged);
             // 
             // label2
             // 
@@ -80,16 +76,12 @@ namespace CMPG_Group28_FinalProject
             // 
             this.cmbClass.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbClass.FormattingEnabled = true;
-            this.cmbClass.Items.AddRange(new object[] {
-            "Yoga",
-            "Palates",
-            "CrossFit",
-            "Spin"});
             this.cmbClass.Location = new System.Drawing.Point(81, 44);
             this.cmbClass.Name = "cmbClass";
             this.cmbClass.Size = new System.Drawing.Size(132, 21);
             this.cmbClass.TabIndex = 3;
             this.cmbClass.Text = "Pick a class";
+            this.cmbClass.SelectedIndexChanged += new System.EventHandler(this.cmbClass_SelectedIndexChanged);
             // 
             // dtClass
             // 
@@ -145,48 +137,6 @@ namespace CMPG_Group28_FinalProject
             this.dgvClass.Size = new System.Drawing.Size(776, 240);
             this.dgvClass.TabIndex = 8;
             // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.btnDelBooking);
-            this.groupBox2.Controls.Add(this.tbDelBooking);
-            this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(374, 275);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(200, 102);
-            this.groupBox2.TabIndex = 9;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Delete a Class";
-            // 
-            // btnDelBooking
-            // 
-            this.btnDelBooking.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelBooking.Location = new System.Drawing.Point(79, 67);
-            this.btnDelBooking.Name = "btnDelBooking";
-            this.btnDelBooking.Size = new System.Drawing.Size(75, 23);
-            this.btnDelBooking.TabIndex = 2;
-            this.btnDelBooking.Text = "Delete class";
-            this.btnDelBooking.UseVisualStyleBackColor = true;
-            this.btnDelBooking.Click += new System.EventHandler(this.btnDelBooking_Click);
-            // 
-            // tbDelBooking
-            // 
-            this.tbDelBooking.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbDelBooking.Location = new System.Drawing.Point(79, 17);
-            this.tbDelBooking.Name = "tbDelBooking";
-            this.tbDelBooking.Size = new System.Drawing.Size(100, 20);
-            this.tbDelBooking.TabIndex = 1;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(7, 24);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(66, 13);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Booking ID: ";
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -203,7 +153,6 @@ namespace CMPG_Group28_FinalProject
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.dgvClass);
             this.Controls.Add(this.groupBox1);
             this.Name = "Bookings";
@@ -213,8 +162,6 @@ namespace CMPG_Group28_FinalProject
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClass)).EndInit();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -231,10 +178,6 @@ namespace CMPG_Group28_FinalProject
         private System.Windows.Forms.Button btnBook;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dgvClass;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button btnDelBooking;
-        private System.Windows.Forms.TextBox tbDelBooking;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
     }
 }
