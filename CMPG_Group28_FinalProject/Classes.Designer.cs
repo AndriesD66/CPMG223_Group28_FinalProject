@@ -55,10 +55,12 @@ namespace CMPG_Group28_FinalProject
             this.btnAdd = new System.Windows.Forms.Button();
             this.tbClassType = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.gbDelete.SuspendLayout();
             this.gbAddEdit.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClasses)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // gbDelete
@@ -257,7 +259,7 @@ namespace CMPG_Group28_FinalProject
             this.dgvClasses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvClasses.Location = new System.Drawing.Point(12, 37);
             this.dgvClasses.Name = "dgvClasses";
-            this.dgvClasses.Size = new System.Drawing.Size(1109, 334);
+            this.dgvClasses.Size = new System.Drawing.Size(649, 334);
             this.dgvClasses.TabIndex = 4;
             // 
             // label8
@@ -319,11 +321,22 @@ namespace CMPG_Group28_FinalProject
             this.label7.TabIndex = 0;
             this.label7.Text = "Class Type: ";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(667, 92);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(453, 227);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 10;
+            this.pictureBox1.TabStop = false;
+            // 
             // Classes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1133, 636);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.gbDelete);
@@ -342,6 +355,7 @@ namespace CMPG_Group28_FinalProject
             ((System.ComponentModel.ISupportInitialize)(this.dgvClasses)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -374,5 +388,6 @@ namespace CMPG_Group28_FinalProject
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.TextBox tbClassType;
         private System.Windows.Forms.Button btnDelClass;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
