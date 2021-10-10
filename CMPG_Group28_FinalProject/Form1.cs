@@ -25,6 +25,7 @@ namespace CMPG_Group28_FinalProject
         Access acc;
         Payment pmnt;
         Reports rpt;
+        Classes cls;
 
 
 
@@ -91,6 +92,10 @@ namespace CMPG_Group28_FinalProject
           
             view.ShowDialog();
 
+        }
+        private void cls_FormClosed(object sender, EventArgs e)
+        {
+            pnlHome.Visible = true;
         }
 
         private void btnBook_Click(object sender, EventArgs e)
@@ -177,9 +182,16 @@ namespace CMPG_Group28_FinalProject
             btnReport_Click(sender, e);
         }
 
+        private void btnClasses_Click(object sender, EventArgs e)
+        {
+            cls = new Classes();
+            cls.FormClosed += new FormClosedEventHandler(cls_FormClosed);
+            cls.ShowDialog();
+        }
 
-
-
-
+        private void EditClassesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            btnClasses_Click(sender, e);
+        }
     }
 }
