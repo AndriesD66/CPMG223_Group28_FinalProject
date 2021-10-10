@@ -18,10 +18,7 @@ namespace CMPG_Group28_FinalProject
             InitializeComponent();
         }
         string MemberID;
-
-        //string conStr = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\andre\OneDrive - NORTH-WEST UNIVERSITY\Documents\GitHub\CPMG223_Group28_FinalProject\CMPG_Group28_FinalProject\CMPG_Group28_FinalProject\GYM_DB.mdf;Integrated Security=True";
         SqlConnection conn = new SqlConnection(Global.ConString);
-
         SqlCommand comm;
         SqlDataAdapter adap;
         SqlDataReader read;
@@ -33,7 +30,6 @@ namespace CMPG_Group28_FinalProject
 
         private void Bookings_Load(object sender, EventArgs e)
         {
-            
             populateCB();
             CheckAdmin();
         }
@@ -109,7 +105,6 @@ namespace CMPG_Group28_FinalProject
                 conn.Close();
                 tbBooking.Clear();
                 tbBooking.Focus();
-                
                 read.Close();
                 conn.Close();
             }
@@ -126,7 +121,6 @@ namespace CMPG_Group28_FinalProject
             {
                 UpdateDG();
             }
-
         }
 
 
@@ -149,7 +143,6 @@ namespace CMPG_Group28_FinalProject
                 MessageBox.Show(ae.ToString(), "", btn, warn);
                 conn.Close();
             }
-           
         }
 
         private void tbBooking_TextChanged(object sender, EventArgs e)
@@ -157,13 +150,11 @@ namespace CMPG_Group28_FinalProject
             try
             {
                 conn.Open();
-
                 string sqlShowMem = "Select * From Booking Where MemberID ='" + tbBooking.Text.Trim() + "'";
                 adap = new SqlDataAdapter(sqlShowMem, conn);
                 DataTable dtbl = new DataTable();
                 adap.Fill(dtbl);
                 dgvClass.DataSource = dtbl;
-                
                 if (String.IsNullOrWhiteSpace(tbBooking.Text))
                 {
                     UpdateDG();
@@ -175,8 +166,6 @@ namespace CMPG_Group28_FinalProject
                 MessageBox.Show(ae.ToString(), "", btn, warn);
                 conn.Close();
             }
-
-
         }
 
         private void populateCB()
@@ -199,7 +188,6 @@ namespace CMPG_Group28_FinalProject
                             {
                                 cmbClass.Items.Add(ClassType);
                             }
-                           
                         }
                         else
                         {
@@ -209,9 +197,6 @@ namespace CMPG_Group28_FinalProject
                     }
                 }
                 read.Close();
-
-
-                
             }
             catch (SqlException ae)
             {

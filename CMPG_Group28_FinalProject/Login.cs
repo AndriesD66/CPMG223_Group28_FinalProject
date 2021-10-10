@@ -18,19 +18,13 @@ namespace CMPG_Group28_FinalProject
         {
             InitializeComponent();
         }
-
-        public static string adminPassword = "";
+        public static string adminPassword = "mIghTy4#";
         public static bool isAdmin = true;
         public static bool ValidLogin = false;
         public static bool ValidLoginAdmin = false;
-
         public int oldMemID;
         public string lastProcessed;
         public string memberName;
-
-
-
-
         SqlConnection conn = new SqlConnection(Global.ConString);
         SqlCommand comm;
         SqlDataAdapter adap;
@@ -48,10 +42,8 @@ namespace CMPG_Group28_FinalProject
                 tbClientID.Focus();
             }
             string sql = "Select * from Member Where MemberId = '" + tbClientID.Text.Trim() + "'";
-
             adap = new SqlDataAdapter(sql, conn);
             DataTable dtbl = new DataTable();
-
             adap.Fill(dtbl);
             if (dtbl.Rows.Count == 1)
             {
@@ -70,22 +62,15 @@ namespace CMPG_Group28_FinalProject
                     this.Close();
                     MessageBox.Show("Welcome Client " + memberName);
                 }
-                
-               
-
             }
-           
-
             conn.Close();
         }
 
         private async void tbClientID_TextChanged(object sender, EventArgs e)
         {
-           
             conn.Close();
             conn.Open();
             if (int.TryParse(tbClientID.Text, out oldMemID)) { }
-
             // clear last processed text if user deleted all text
             if (string.IsNullOrEmpty(tbClientID.Text)) lastProcessed = null;
             // this inner method checks if user is still typing
@@ -100,26 +85,20 @@ namespace CMPG_Group28_FinalProject
             lastProcessed = tbClientID.Text;
             // Checks if the member id is a integer
             conn.Close();
-
             try
             {
                 conn.Open();
                 string checkMember = "Select IsAdmin FROM Member WHERE MemberID Like '" + oldMemID + "'";
-
                 comm = new SqlCommand(checkMember, conn);
-
                 read = comm.ExecuteReader();
                 if (read.HasRows)
                 {
                     while (read.Read())
                     {
-                        
-
                         if(!Boolean.Parse(Convert.ToString(read.GetValue(0))))
                         {
                             tbPassword.Hide();
                             label2.Hide();
-                            
                             MessageBox.Show("You are not an Admin", "Admin", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                             isAdmin = false;
                         }
@@ -146,10 +125,6 @@ namespace CMPG_Group28_FinalProject
             {
                 if (MessageBox.Show(ae.Message.ToString(), "ERROR!!", MessageBoxButtons.OK, MessageBoxIcon.Error) == DialogResult.OK) { conn.Close(); }
             }
-
-            
-
-
         }
 
         public void getName()
@@ -159,9 +134,7 @@ namespace CMPG_Group28_FinalProject
             {
                 conn.Open();
                 string checkMember = "Select Name FROM Member WHERE MemberID Like '" + oldMemID + "'";
-
                 comm = new SqlCommand(checkMember, conn);
-
                 read = comm.ExecuteReader();
                 if (read.HasRows)
                 {
@@ -169,8 +142,6 @@ namespace CMPG_Group28_FinalProject
                     {
                         memberName = Convert.ToString(read.GetValue(0));
                     }
-
-
                 }
                 read.Close();
                 conn.Close();
@@ -180,7 +151,6 @@ namespace CMPG_Group28_FinalProject
                 if (MessageBox.Show(ae.Message.ToString(), "ERROR!!", MessageBoxButtons.OK, MessageBoxIcon.Error) == DialogResult.OK) { conn.Close(); }
             }
         }
-
     }
     
 }

@@ -30,15 +30,8 @@ namespace CMPG_Group28_FinalProject
         Reports rpt;
         Classes cls;
 
-
-
-
-       
- 
-
         private void frmHome_Load(object sender, EventArgs e)
         {
-
             if (!LoggedIn)
             {
                 newLogForm = new Login();
@@ -48,10 +41,6 @@ namespace CMPG_Group28_FinalProject
                 newLogForm.Show();
             }
             newLogForm.FormClosed += new FormClosedEventHandler(newLogForm_FromClosed);
-           
-            
-            
-            
         }
         private void newLogForm_FromClosed(object sender, FormClosedEventArgs e)
         {
@@ -62,9 +51,6 @@ namespace CMPG_Group28_FinalProject
                 btnView.Enabled = false;
                 btnReport.Enabled = false;
                 btnClasses.Enabled = false;
-
-
-                
             }
             if(LoggedInAdmin)
             {
@@ -99,13 +85,8 @@ namespace CMPG_Group28_FinalProject
             {
                 view = new Clients();
                 view.FormClosed += new FormClosedEventHandler(view_FormClosed);
-
             }
-           
-           
-          
             view.ShowDialog();
-
         }
         private void cls_FormClosed(object sender, EventArgs e)
         {
@@ -116,16 +97,13 @@ namespace CMPG_Group28_FinalProject
         {
             book = new Bookings();
             book.FormClosed += new FormClosedEventHandler(book_FormClosed);
-
             book.ShowDialog();
         }
 
         private void btnEnterExit_Click(object sender, EventArgs e)
         {
-
             acc = new Access();
             acc.FormClosed += new FormClosedEventHandler(acc_FormClosed);
-
             acc.ShowDialog();
         }
 
@@ -133,20 +111,15 @@ namespace CMPG_Group28_FinalProject
         {
             pmnt = new Payment();
             pmnt.FormClosed += new FormClosedEventHandler(pmnt_FormClosed);
-
             pmnt.ShowDialog();
         }
 
         private void btnReport_Click(object sender, EventArgs e)
         {
             rpt = new Reports();
-
             rpt.FormClosed += new FormClosedEventHandler(rpt_FormClosed);
-
             rpt.ShowDialog();
             rpt.Focus();
-           
-
         }
 
         private void pnlHome_Paint(object sender, PaintEventArgs e)
@@ -156,8 +129,6 @@ namespace CMPG_Group28_FinalProject
 
         private void Exit_Click(object sender, EventArgs e)
         {
-           
-            
             Application.Exit();
         }
 
@@ -167,28 +138,22 @@ namespace CMPG_Group28_FinalProject
 
         private void viewUpdateOrDeleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
             btnView_Click(sender, e);
-            
         }
 
         private void bookAClassToolStripMenuItem_Click(object sender, EventArgs e)
         {
             btnBook_Click(sender, e);
-
-
         }
 
         private void clientAccessToolStripMenuItem_Click(object sender, EventArgs e)
         {
             btnEnterExit_Click(sender, e);
-
         }
 
         private void logAPaymentToolStripMenuItem_Click(object sender, EventArgs e)
         {
             btnPmnt_Click(sender, e);
-            
         }
 
         private void requestReportsToolStripMenuItem_Click(object sender, EventArgs e)

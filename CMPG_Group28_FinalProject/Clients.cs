@@ -21,16 +21,11 @@ namespace CMPG_Group28_FinalProject
         {
             InitializeComponent();
         }
-
-
-        //string conStr = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\andre\OneDrive - NORTH-WEST UNIVERSITY\Documents\GitHub\CPMG223_Group28_FinalProject\CMPG_Group28_FinalProject\CMPG_Group28_FinalProject\GYM_DB.mdf;Integrated Security=True";
-        
         SqlConnection conn = new SqlConnection(Global.ConString);
         SqlCommand comm;
         SqlDataAdapter adap;
         SqlDataReader read;
         DataSet ds;
-
         bool checkAdmin = false;
         public int newMemID;
         public int oldMemID;
@@ -48,7 +43,6 @@ namespace CMPG_Group28_FinalProject
                 btAddEdit.Text = "Edit Record";
                 lblID.Enabled = true;
                 tbID.Enabled = true;
-
             }
             else if (!cbEdit.Checked)
             {
@@ -63,31 +57,23 @@ namespace CMPG_Group28_FinalProject
         {
             if (cbEdit.Checked)
             {
-
                 lblID.Enabled = true;
                 tbID.Enabled = true;
             }
             else if (!cbEdit.Checked)
             {
-
                 lblID.Enabled = false;
                 tbID.Enabled = false;
             }
             updateDG();
-           
-           
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
             try
             {
-               
-                
                 if (String.IsNullOrWhiteSpace(tbDelete.Text))
                 {
-
-
                     tbDelete.Focus();
                     tbDelete.Clear();
                     throw new Exception("Please enter a valid MemberId ");
@@ -108,17 +94,11 @@ namespace CMPG_Group28_FinalProject
                 {
 
                 }
-               
-                
                 string del = "Delete from Member Where MemberID = " + Convert.ToInt32(tbDelete.Text.Trim()) + "";
                 adap = new SqlDataAdapter();
                 comm = new SqlCommand(del, conn);
                 adap.DeleteCommand = comm;
-                
-
-
                 //Maak dat jy seker maak die value is die een wat jy wil delete
-
                 if (MessageBox.Show("Are you sure you want to delete member " + tbDelete.Text.Trim() , "Delete", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) == DialogResult.OK) { adap.DeleteCommand.ExecuteNonQuery(); updateDG(); }
                 else 
                 {
@@ -130,11 +110,7 @@ namespace CMPG_Group28_FinalProject
                     tbBank.Clear();
                     tbContact.Clear();
                     cbAdmin.Checked = false;
-
-
-
                 }
-
                 conn.Close();
                 updateDG();
             }
@@ -152,13 +128,10 @@ namespace CMPG_Group28_FinalProject
                 if (btAddEdit.Text == "Add Record")
                 {
                     tbErrorTests();
-
-
                     if (MessageBox.Show("Are you sure you want to enter member ?", "Adding Member", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) == DialogResult.OK)
                     {
                         conn.Open();
                         MessageBox.Show("Added new Member!");
-
                         string memID = "Select Max(MemberID) FROM Member";
                         comm = new SqlCommand(memID, conn);
                         read = comm.ExecuteReader();
@@ -170,8 +143,6 @@ namespace CMPG_Group28_FinalProject
                                 {
                                     // MessageBox.Show(Convert.ToString(read.GetValue(0)));
                                     newMemID = int.Parse(Convert.ToString(read.GetValue(0)));
-
-
                                 }
                                 else
                                 {
@@ -180,18 +151,13 @@ namespace CMPG_Group28_FinalProject
                             }
                         }
                         read.Close();
-
                         name = tbName.Text;
                         surname = tbSurname.Text;
                         email = tbEmail.Text;
                         BankNum = tbBank.Text;
                         cNumber = tbContact.Text;
-
-                        
-                       
                         string add = "INSERT INTO Member(MemberID, Name, Surname, Email, Bank_Account_Number, ContactNumber, IsAdmin) VALUES (@ID, @Name, @Surname, @Email, @BankNum, @Contact, @Admin) ";
                         comm = new SqlCommand(add, conn);
-
                         comm.Parameters.AddWithValue("@ID", newMemID+1);
                         comm.Parameters.AddWithValue("@Name", name);
                         comm.Parameters.AddWithValue("@Surname", surname);
@@ -199,17 +165,7 @@ namespace CMPG_Group28_FinalProject
                         comm.Parameters.AddWithValue("@BankNum", BankNum);
                         comm.Parameters.AddWithValue("@Contact", cNumber);
                         comm.Parameters.AddWithValue("@Admin", checkAdmin);
-
-
-
-
-
                         comm.ExecuteNonQuery(); 
-                        
-
-
-
-
                     }
                     else if (MessageBox.Show("Are yo sure you want to enter member ?", "Adding Member", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) == DialogResult.Cancel)
                     {
@@ -219,9 +175,6 @@ namespace CMPG_Group28_FinalProject
                         tbEmail.Clear();
                         tbBank.Clear();
                         tbContact.Clear();
-
-
-
                     }
                     conn.Close();
                     updateDG();
@@ -233,13 +186,9 @@ namespace CMPG_Group28_FinalProject
 
                     if (MessageBox.Show("Are yo sure you want to edit member ?", "Edited Member", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) == DialogResult.OK) 
                     {
-
                         conn.Open();
-
                         if (!int.TryParse(lastProcessed, out oldMemID)) {tbID.Clear(); tbID.Focus(); throw new Exception("Insure that you have entered the correct Member ID");  }
-
                         string updateMem = "UPDATE Member SET Name = @Name, Surname = @Surname, Email = @Email, Bank_Account_Number = @BankNum, ContactNumber = @Contact, IsAdmin = @Admin  WHERE MemberID='" + oldMemID + "'";
-
                         comm = new SqlCommand(updateMem, conn);
                         comm.Parameters.AddWithValue("@Name", tbName.Text);
                         comm.Parameters.AddWithValue("@Surname", tbSurname.Text);
@@ -247,18 +196,8 @@ namespace CMPG_Group28_FinalProject
                         comm.Parameters.AddWithValue("@BankNum", tbBank.Text);
                         comm.Parameters.AddWithValue("@Contact", tbContact.Text);
                         comm.Parameters.AddWithValue("@Admin", checkAdmin);
-
                         comm.ExecuteNonQuery();
-
-
-
-
                         MessageBox.Show("Succesfully edited Member!");
-
-
-
-
-                       
                     }
                     else if (MessageBox.Show("Are yo sure you want to enter member ?", "Cancled  Member Edit", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) == DialogResult.Cancel)
                     {
@@ -270,9 +209,6 @@ namespace CMPG_Group28_FinalProject
                         tbBank.Clear();
                         tbContact.Clear();
                         cbAdmin.Checked = false;
-
-
-
                     }
                     conn.Close();
                     updateDG();
@@ -281,31 +217,22 @@ namespace CMPG_Group28_FinalProject
             }
             catch (Exception ae)
             {
-
                 MessageBox.Show(ae.Message.ToString(), "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 conn.Close();
             }
-
-
-
-
         }
 
 
         private void updateDG()
         {
-           
-            
             try
             {
-                
                 conn.Open();
                 string sql = "Select * from Member";
                 adap = new SqlDataAdapter(sql, conn);
                 DataTable dtbl = new DataTable();
                 adap.Fill(dtbl);
                 dgvClients.DataSource = dtbl;
-                
                 conn.Close();
             }
             catch(SqlException error)
@@ -320,9 +247,6 @@ namespace CMPG_Group28_FinalProject
             tbBank.Clear();
             tbContact.Clear();
             cbAdmin.Checked = false;
-
-           
-
             conn.Close();
         }
 
@@ -343,7 +267,6 @@ namespace CMPG_Group28_FinalProject
             //conn = new SqlConnection(Global.ConString);
             conn.Open();
             if(int.TryParse(tbID.Text, out oldMemID)) { }
-
             // clear last processed text if user deleted all text
             if (string.IsNullOrEmpty(tbID.Text)) lastProcessed = null;
             // this inner method checks if user is still typing
@@ -358,14 +281,11 @@ namespace CMPG_Group28_FinalProject
             lastProcessed = tbID.Text;
             // Checks if the member id is a integer
             conn.Close();
-
             try
             {
                 conn.Open();
                 string fetchMember = "Select * FROM Member WHERE MemberID Like '" + oldMemID + "'";
-
                 comm = new SqlCommand(fetchMember, conn);
-
                 read = comm.ExecuteReader();
                 if (read.HasRows)
                 {
@@ -397,10 +317,8 @@ namespace CMPG_Group28_FinalProject
                 comm = new SqlCommand(sql, conn);
                 ds = new DataSet();
                 adap = new SqlDataAdapter();
-
                 adap.SelectCommand = comm;
                 adap.Fill(ds, "SourceTable");
-
                 dgvClients.DataSource = ds;
                 dgvClients.DataMember = "SourceTable";
                 conn.Close();
@@ -409,9 +327,6 @@ namespace CMPG_Group28_FinalProject
             {
                 if (MessageBox.Show(error.Message.ToString(), "ERROR!!", MessageBoxButtons.OK, MessageBoxIcon.Error) == DialogResult.OK) { conn.Close(); }
             }
-
-
-           
             if(String.IsNullOrEmpty(tbID.Text))
             {
                 updateDG();
@@ -423,15 +338,11 @@ namespace CMPG_Group28_FinalProject
                 tbContact.Clear();
                 cbAdmin.Checked = false;
             }
-           
-
         }
 
         private void tbErrorTests()
         {
-
             //Errorhandling van textbox variables
-
             if (String.IsNullOrWhiteSpace(tbName.Text)) { tbName.Focus(); tbName.Clear(); throw new Exception("Please enter a valid Name "); }
             else if (String.IsNullOrWhiteSpace(tbSurname.Text)) { tbSurname.Focus(); tbSurname.Clear(); throw new Exception("Please enter a valid Surname "); }
             else if (String.IsNullOrWhiteSpace(tbEmail.Text)) { tbEmail.Focus(); tbEmail.Clear(); throw new Exception("Please enter a valid Email "); }

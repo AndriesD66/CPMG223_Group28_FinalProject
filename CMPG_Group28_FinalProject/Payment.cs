@@ -30,7 +30,6 @@ namespace CMPG_Group28_FinalProject
         MessageBoxIcon warn = MessageBoxIcon.Warning;
         MessageBoxIcon info = MessageBoxIcon.Information;
 
-
         private void btnPay_Click(object sender, EventArgs e)
         {
             checkAdmin();
@@ -51,17 +50,11 @@ namespace CMPG_Group28_FinalProject
                     }
                 }
                 read.Close();
-
                 if ((BankAcc != tbBank.Text.Trim() || String.IsNullOrWhiteSpace(tbBank.Text.Trim()) )) throw new Exception("Enter a valid bank account number!"); 
                 if (String.IsNullOrWhiteSpace(tbAmount.Text.Trim()) || !(double.Parse(tbAmount.Text.Trim()) >= 100.00)) { throw new Exception("Enter a valid ammount that is exceeding a R100 !"); }
-
                 string message = "Are you sure you want to make payment for bank account num :" + tbBank.Text.ToString() + " for the amount of R " + tbAmount.Text.ToString() + "?";
                 if (MessageBox.Show(message.ToString(), "Payment", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-
-                 
-
-
                     if ((BankAcc == tbBank.Text) && (tbAmount.Text != ""))
                     {
                         int PayID = 0;
@@ -82,10 +75,6 @@ namespace CMPG_Group28_FinalProject
                         PayID++;
                         transact = conn.BeginTransaction("Add Payment");
                         string sqlPay = "Insert Payment(PaymentID, Bank_Account_Number, PaymentAmount, PaymentDate) Values (" + PayID + ", '" + BankAcc + "', " + Amount + ", '" + PayDate + "')";
-
-
-
-
                         comm = new SqlCommand(sqlPay, conn);
                         comm.Transaction = transact;
                         comm.ExecuteNonQuery();
@@ -99,12 +88,6 @@ namespace CMPG_Group28_FinalProject
                         dgvPay.DataSource = dt;
                         dt.AcceptChanges();
                     }
-                
-
-
-
-
-
                 }
                 else if ((tbAmount.Text == "") && (BankAcc != tbBank.Text))
                 {
@@ -116,16 +99,11 @@ namespace CMPG_Group28_FinalProject
                     Amount = 0.00;
                 }
                 conn.Close();
-
-
-
-
             }
             catch (Exception ae)
             {
                 MessageBox.Show(ae.Message.ToString(), "", btn, warn);
                 conn.Close();
-
             }
             if(frmHome.LoggedIn)
             {
@@ -139,8 +117,6 @@ namespace CMPG_Group28_FinalProject
 
         private void Payment_Load(object sender, EventArgs e)
         {
-            
-            
             checkAdmin();
         }
 
@@ -164,9 +140,6 @@ namespace CMPG_Group28_FinalProject
             DataTable dt = new DataTable();
             adap.Fill(dt);
             dgvPay.DataSource = dt;
-
-
-           
             conn.Close();
         }
 
@@ -207,10 +180,7 @@ namespace CMPG_Group28_FinalProject
             {
                 MessageBox.Show(ae.ToString(), "", btn, warn);
                 conn.Close();
-
             }
-
-
         }
     }
 }

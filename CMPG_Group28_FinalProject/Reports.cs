@@ -98,7 +98,6 @@ namespace CMPG_Group28_FinalProject
                         temp += Convert.ToInt32(read["MemberID"].ToString());
                         attYoga++;
                     }
-                    
                 }
                 read.Close();
                 conn.Close();

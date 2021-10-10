@@ -38,7 +38,6 @@ namespace CMPG_Group28_FinalProject
         {
             if (cbEdit.Checked)
             {
-
                 lblID.Enabled = true;
                 tbID.Enabled = true;
             }
@@ -58,14 +57,12 @@ namespace CMPG_Group28_FinalProject
 
             try
             {
-
                 conn.Open();
                 string classSql = "Select * from ClassType";
                 adap = new SqlDataAdapter(classSql, conn);
                 DataTable dtbl = new DataTable();
                 adap.Fill(dtbl);
                 dgvClasses.DataSource = dtbl;
-
                 conn.Close();
             }
             catch (SqlException error)
@@ -85,12 +82,8 @@ namespace CMPG_Group28_FinalProject
         {
             try
             {
-
-
                 if (String.IsNullOrWhiteSpace(tbDelete.Text))
                 {
-
-
                     tbDelete.Focus();
                     tbDelete.Clear();
                     throw new Exception("Please enter a valid ClassId ");
@@ -111,15 +104,10 @@ namespace CMPG_Group28_FinalProject
                 {
 
                 }
-
-
                 string del = "Delete from ClassType Where ClassID = " + Convert.ToInt32(tbDelete.Text.Trim()) + "";
                 adap = new SqlDataAdapter();
                 comm = new SqlCommand(del, conn);
                 adap.DeleteCommand = comm;
-
-
-
                 //Maak dat jy seker maak die value is die een wat jy wil delete
 
                 if (MessageBox.Show("Are you sure you want to delete class " + tbDelete.Text.Trim(), "Delete", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) == DialogResult.OK) { adap.DeleteCommand.ExecuteNonQuery(); updateDG(); }
@@ -150,15 +138,11 @@ namespace CMPG_Group28_FinalProject
                 int.TryParse(tbID.Text, out oldMemID);
                 if (btAddEdit.Text == "Add Record")
                 {
-                   
                     tbErrorTests();
-
-
                     if (MessageBox.Show("Are you sure you want to enter Class ?", "Adding Member", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) == DialogResult.OK)
                     {
                         conn.Open();
                         MessageBox.Show("Added new Class!");
-
                         string clsID = "Select Max(ClassID) FROM ClassType";
                         comm = new SqlCommand(clsID, conn);
                         read = comm.ExecuteReader();
@@ -170,8 +154,6 @@ namespace CMPG_Group28_FinalProject
                                 {
                                     // MessageBox.Show(Convert.ToString(read.GetValue(0)));
                                     newClsID = int.Parse(Convert.ToString(read.GetValue(0)));
-
-
                                 }
                                 else
                                 {
@@ -180,7 +162,6 @@ namespace CMPG_Group28_FinalProject
                             }
                         }
                         read.Close();
-
                         if (cmbClass.SelectedIndex != -1)
                         {
                             ClassType = cmbClass.GetItemText(cmbClass.SelectedItem);
@@ -192,10 +173,8 @@ namespace CMPG_Group28_FinalProject
                         clsDate = dtClassDate.Value.Date;
                         clsTime = Convert.ToDateTime(tbClassTime.Text);
                         clsDesc = tbDesc.Text;
-
                         string add = "INSERT INTO ClassType(ClassID, ClassType, ClassTime, ClassDate, Description, Attendants) VALUES (@ID, @Type, @Time, @Date, @Desc, @Att) ";
                         comm = new SqlCommand(add, conn);
-
                         comm.Parameters.AddWithValue("@ID", newClsID + 1);
                         comm.Parameters.AddWithValue("@Type", ClassType);
                         comm.Parameters.AddWithValue("@Time", clsTime);
@@ -219,24 +198,14 @@ namespace CMPG_Group28_FinalProject
                 }
                 else if (btAddEdit.Text == "Edit Record")
                 {
-
-
-
                     tbErrorTests();
 
                     if (MessageBox.Show("Are yo sure you want to edit class ?", "Edited Class", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) == DialogResult.OK)
                     {
-
                         conn.Open();
-
                         if (!int.TryParse(lastProcessed, out oldClsID)) { tbID.Clear(); tbID.Focus(); throw new Exception("Insure that you have entered the correct Class ID"); }
-
                         string updateCls = "UPDATE ClassType SET ClassType = @Type, ClassTime = @Time, ClassDate = @Date, Description = @Desc WHERE ClassID = '" + oldClsID + "'";
-
                         comm = new SqlCommand(updateCls, conn);
-
-
-
                         if (cmbClass.SelectedIndex != -1)
                         {
                             ClassType = cmbClass.GetItemText(cmbClass.SelectedItem);
@@ -248,15 +217,10 @@ namespace CMPG_Group28_FinalProject
                         clsTime = Convert.ToDateTime(tbClassTime.Text);
                         clsDesc = tbDesc.Text;
                         clsDate = dtClassDate.Value.Date;
-
-
-
-
                         comm.Parameters.AddWithValue("@Type", ClassType);
                         comm.Parameters.AddWithValue("@Time", clsTime);
                         comm.Parameters.AddWithValue("@Date", clsDate);
                         comm.Parameters.AddWithValue("@Desc", clsDesc);
-
                         comm.ExecuteNonQuery();
                         MessageBox.Show("Succesfully edited Class!");
                     }
@@ -269,9 +233,6 @@ namespace CMPG_Group28_FinalProject
                         dtClassDate.Value = DateTime.Today;
                         tbClassTime.Clear();
                         tbDesc.Clear();
-
-
-
                     }
                     conn.Close();
                     updateDG();
@@ -280,20 +241,15 @@ namespace CMPG_Group28_FinalProject
             }
             catch (Exception ae)
             {
-
                 MessageBox.Show(ae.Message.ToString(), "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 conn.Close();
             }
         }
         private void tbErrorTests()
         {
-
-
             //Errorhandling van textbox variables
-
             if (String.IsNullOrWhiteSpace(tbClassTime.Text)) { tbClassTime.Focus(); tbClassTime.Clear(); throw new Exception("Please enter a valid Class Time "); }
             if (String.IsNullOrWhiteSpace(tbDesc.Text)) { tbDesc.Focus(); tbDesc.Clear(); throw new Exception("Please enter a valid Class Description"); }
-            
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -324,10 +280,6 @@ namespace CMPG_Group28_FinalProject
             }
         }
 
-        private void cbEdit_CheckedChanged_1(object sender, EventArgs e)
-        {
-        }
-
         private void cbEdit_CheckedChanged(object sender, EventArgs e)
         {
             if (cbEdit.Checked)
@@ -344,17 +296,14 @@ namespace CMPG_Group28_FinalProject
                 tbID.Enabled = false;
                 tbID.Clear();
             }
-
         }
 
         private async void tbID_TextChanged(object sender, EventArgs e)
         {
-
             //conn = new SqlConnection(Global.ConString);
             conn.Close();
             conn.Open();
             if (int.TryParse(tbID.Text, out oldMemID)) { }
-
             // clear last processed text if user deleted all text
             if (string.IsNullOrEmpty(tbID.Text)) lastProcessed = null;
             // this inner method checks if user is still typing
@@ -369,14 +318,11 @@ namespace CMPG_Group28_FinalProject
             lastProcessed = tbID.Text;
             // Checks if the member id is a integer
             conn.Close();
-
             try
             {
                 conn.Open();
                 string fetchMember = "Select * FROM ClassType WHERE ClassID Like '" + oldMemID + "'";
-
                 comm = new SqlCommand(fetchMember, conn);
-
                 read = comm.ExecuteReader();
                 if (read.HasRows)
                 {
@@ -398,7 +344,6 @@ namespace CMPG_Group28_FinalProject
                 if (MessageBox.Show(ae.Message.ToString(), "ERROR!!", MessageBoxButtons.OK, MessageBoxIcon.Error) == DialogResult.OK) { conn.Close(); }
             }
 
-
             try
             {
                 conn.Open();
@@ -419,8 +364,6 @@ namespace CMPG_Group28_FinalProject
                 if (MessageBox.Show(error.Message.ToString(), "ERROR!!", MessageBoxButtons.OK, MessageBoxIcon.Error) == DialogResult.OK) { conn.Close(); }
             }
 
-
-
             if (String.IsNullOrEmpty(tbID.Text))
             {
                 updateDG();
@@ -432,7 +375,6 @@ namespace CMPG_Group28_FinalProject
                 tbDesc.Clear();
             }
             conn.Close();
-
         }
     }
 }
