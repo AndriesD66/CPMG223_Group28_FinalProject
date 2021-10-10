@@ -38,6 +38,7 @@ namespace CMPG_Group28_FinalProject
 
         private void btnLogIn_Click(object sender, EventArgs e)
         {
+            conn.Close();
             conn.Open();
             getName();
             if (String.IsNullOrWhiteSpace(tbClientID.Text))

@@ -31,6 +31,8 @@ namespace CMPG_Group28_FinalProject
         int MemberID;
         int EntryID;
         int ExitID;
+        public int attendants;
+        public string ClassType;
         MessageBoxButtons btn = MessageBoxButtons.OK;
         MessageBoxIcon info = MessageBoxIcon.Information;
         MessageBoxIcon warn = MessageBoxIcon.Warning;
@@ -107,6 +109,9 @@ namespace CMPG_Group28_FinalProject
                     tbEnter.Focus();
                 }
                 conn.Close();
+                if (cmbClass.SelectedIndex == -1) { throw new Exception("Please select a class in the combo box"); }
+                if (cmbClass.SelectedIndex >= 1) { addAttendance(cmbClass.SelectedItem.ToString()); }
+
             }
             catch (Exception ae)
             {
@@ -118,6 +123,7 @@ namespace CMPG_Group28_FinalProject
         private void Access_Load(object sender, EventArgs e)
         {
             CheckAdmin();
+            populateCB();
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -231,6 +237,84 @@ namespace CMPG_Group28_FinalProject
                
 
             }
+        }
+
+        private void cmbClassType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void populateCB()
+        {
+            try
+            {
+                conn.Open();
+
+                string updateCB = "Select ClassType From ClassType";
+                comm = new SqlCommand(updateCB, conn);
+                read = comm.ExecuteReader();
+                if (read.HasRows)
+                {
+                    while (read.Read())
+                    {
+                        if (!String.IsNullOrWhiteSpace(Convert.ToString(read.GetValue(0))))
+                        {
+                            ClassType = Convert.ToString(read.GetValue(0));
+                            if (!cmbClass.Items.Contains(ClassType))
+                            {
+                                cmbClass.Items.Add(ClassType);
+                            }
+
+                        }
+                        else
+                        {
+                            ClassType = "Empty";
+
+                        }
+                    }
+                }
+                read.Close();
+
+
+
+            }
+            catch (SqlException ae)
+            {
+                MessageBox.Show(ae.ToString(), "", btn, warn);
+                conn.Close();
+            }
+            conn.Close();
+        }
+
+        public void addAttendance(String Name)
+        {
+            conn.Open();
+
+            string getAttendance = "Select Attendants From Classtype Where ClassType = '" + Name + "'";
+            comm = new SqlCommand(getAttendance, conn);
+            read = comm.ExecuteReader();
+            if (read.HasRows)
+            {
+                while (read.Read())
+                {
+                   attendants = Convert.ToInt32(read.GetValue(0));
+
+                }
+            }
+            read.Close();
+
+            string addAttendance = "Update ClassType Set Attendants = @Attend Where ClassType = '" + Name + "'";
+
+
+            comm = new SqlCommand(addAttendance, conn);
+            comm.Parameters.AddWithValue("@Attend", attendants + 1 );
+
+            comm.ExecuteNonQuery();
+
+
+
+
+            conn.Close();
         }
     }
 }

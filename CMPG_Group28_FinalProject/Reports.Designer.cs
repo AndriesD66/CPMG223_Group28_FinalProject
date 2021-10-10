@@ -1,4 +1,7 @@
 ﻿
+using System.Drawing;
+using System.Windows.Forms;
+
 namespace CMPG_Group28_FinalProject
 {
     partial class Reports
@@ -35,6 +38,9 @@ namespace CMPG_Group28_FinalProject
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.btnGenerate = new System.Windows.Forms.Button();
             this.rtbShowReport = new System.Windows.Forms.RichTextBox();
+            this.btSave = new System.Windows.Forms.Button();
+            this.saveD = new System.Windows.Forms.SaveFileDialog();
+            this.cmbClass = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -50,11 +56,13 @@ namespace CMPG_Group28_FinalProject
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(16, 46);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(79, 13);
+            this.label2.Size = new System.Drawing.Size(115, 20);
             this.label2.TabIndex = 1;
             this.label2.Text = "Type of report: ";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // cmbRepType
             // 
@@ -64,17 +72,19 @@ namespace CMPG_Group28_FinalProject
             "Income in the last month",
             "Class attendance summary",
             "Number of bookings in the last month"});
-            this.cmbRepType.Location = new System.Drawing.Point(101, 38);
+            this.cmbRepType.Location = new System.Drawing.Point(137, 45);
             this.cmbRepType.Name = "cmbRepType";
             this.cmbRepType.Size = new System.Drawing.Size(170, 21);
             this.cmbRepType.TabIndex = 2;
             this.cmbRepType.Text = "Choose a report type";
+            this.cmbRepType.SelectedIndexChanged += new System.EventHandler(this.cmbRepType_SelectedIndexChanged);
             // 
             // btnGenerate
             // 
-            this.btnGenerate.Location = new System.Drawing.Point(16, 65);
+            this.btnGenerate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGenerate.Location = new System.Drawing.Point(16, 69);
             this.btnGenerate.Name = "btnGenerate";
-            this.btnGenerate.Size = new System.Drawing.Size(104, 23);
+            this.btnGenerate.Size = new System.Drawing.Size(255, 35);
             this.btnGenerate.TabIndex = 5;
             this.btnGenerate.Text = "Generate report";
             this.btnGenerate.UseVisualStyleBackColor = true;
@@ -82,17 +92,46 @@ namespace CMPG_Group28_FinalProject
             // 
             // rtbShowReport
             // 
-            this.rtbShowReport.Location = new System.Drawing.Point(16, 94);
+            this.rtbShowReport.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Bold);
+            this.rtbShowReport.Location = new System.Drawing.Point(16, 106);
             this.rtbShowReport.Name = "rtbShowReport";
-            this.rtbShowReport.Size = new System.Drawing.Size(760, 330);
+            this.rtbShowReport.ReadOnly = true;
+            this.rtbShowReport.Size = new System.Drawing.Size(1052, 584);
             this.rtbShowReport.TabIndex = 7;
-            this.rtbShowReport.Text = "";
+            this.rtbShowReport.Text = "mIghTy Gym";
+            // 
+            // btSave
+            // 
+            this.btSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btSave.Location = new System.Drawing.Point(787, 707);
+            this.btSave.Name = "btSave";
+            this.btSave.Size = new System.Drawing.Size(239, 62);
+            this.btSave.TabIndex = 8;
+            this.btSave.Text = "Save Report";
+            this.btSave.UseVisualStyleBackColor = true;
+            this.btSave.Click += new System.EventHandler(this.btSave_Click);
+            // 
+            // saveD
+            // 
+            this.saveD.FileOk += new System.ComponentModel.CancelEventHandler(this.saveFileDialog1_FileOk);
+            // 
+            // cmbClass
+            // 
+            this.cmbClass.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbClass.FormattingEnabled = true;
+            this.cmbClass.Location = new System.Drawing.Point(287, 730);
+            this.cmbClass.Name = "cmbClass";
+            this.cmbClass.Size = new System.Drawing.Size(132, 21);
+            this.cmbClass.TabIndex = 9;
+            this.cmbClass.Text = "Pick a class";
             // 
             // Reports
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1096, 1393);
+            this.Controls.Add(this.cmbClass);
+            this.Controls.Add(this.btSave);
             this.Controls.Add(this.rtbShowReport);
             this.Controls.Add(this.btnGenerate);
             this.Controls.Add(this.cmbRepType);
@@ -101,6 +140,7 @@ namespace CMPG_Group28_FinalProject
             this.Name = "Reports";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Reports";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Reports_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -115,5 +155,8 @@ namespace CMPG_Group28_FinalProject
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
         private System.Windows.Forms.Button btnGenerate;
         private System.Windows.Forms.RichTextBox rtbShowReport;
+        private Button btSave;
+        private SaveFileDialog saveD;
+        private ComboBox cmbClass;
     }
 }
