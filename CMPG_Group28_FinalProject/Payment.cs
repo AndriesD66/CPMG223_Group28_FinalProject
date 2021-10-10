@@ -17,7 +17,7 @@ namespace CMPG_Group28_FinalProject
         {
             InitializeComponent();
         }
-        SqlConnection conn;
+        SqlConnection conn = new SqlConnection(Global.ConString);
         SqlCommand comm;
         SqlDataAdapter adap;
         SqlTransaction transact;
@@ -33,7 +33,6 @@ namespace CMPG_Group28_FinalProject
 
         private void btnPay_Click(object sender, EventArgs e)
         {
-            conn = new SqlConnection(Global.ConString);
             try
             {
                 conn.Open();
@@ -105,11 +104,17 @@ namespace CMPG_Group28_FinalProject
                 conn.Close();
 
             }
+            UpdateDG();
         }
 
         private void Payment_Load(object sender, EventArgs e)
         {
-            conn = new SqlConnection(Global.ConString);
+            
+            UpdateDG();
+        }
+
+        private void UpdateDG()
+        {
             conn.Open();
             string sql = "Select * From Payment";
             adap = new SqlDataAdapter(sql, conn);

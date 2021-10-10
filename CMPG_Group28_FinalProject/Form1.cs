@@ -7,8 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
-using System.Data;
+
+
 
 namespace CMPG_Group28_FinalProject
 {
@@ -19,38 +19,35 @@ namespace CMPG_Group28_FinalProject
             InitializeComponent();
         }
             public static bool LoggedIn=false;
-            Login newLogForm = new Login();
-            Clients view = new Clients();
-            Bookings book = new Bookings();
-            Access acc = new Access();
-            Payment pmnt = new Payment();
-            Reports rpt = new Reports();
+        Login newLogForm;
+        Clients view;
+        Bookings book;
+        Access acc;
+        Payment pmnt;
+        Reports rpt;
 
 
 
 
-        SqlConnection conn;
-        SqlCommand comm;
-        SqlDataAdapter adap;
-        SqlDataReader read;
-        DataSet ds;
+       
+ 
 
         private void frmHome_Load(object sender, EventArgs e)
         {
 
             if (!LoggedIn)
             {
+                newLogForm = new Login();
                 menuStrip1.Enabled = false;
                 pnlHome.Visible = false; ;
                 newLogForm.MdiParent = this;
                 newLogForm.Show();
             }
             newLogForm.FormClosed += new FormClosedEventHandler(newLogForm_FromClosed);
-            view.FormClosed += new FormClosedEventHandler(view_FormClosed);
-            book.FormClosed += new FormClosedEventHandler(book_FormClosed);
-            acc.FormClosed += new FormClosedEventHandler(acc_FormClosed);
-            pmnt.FormClosed += new FormClosedEventHandler(pmnt_FormClosed);
-            rpt.FormClosed += new FormClosedEventHandler(rpt_FormClosed);
+           
+            
+            
+            
         }
         private void newLogForm_FromClosed(object sender, FormClosedEventArgs e)
         {
@@ -83,58 +80,54 @@ namespace CMPG_Group28_FinalProject
 
         private void btnView_Click(object sender, EventArgs e)
         {
-                view.MdiParent = this;
-                pnlHome.Visible = false;
-                book.Visible = false;
-                acc.Visible = false;
-                pmnt.Visible = false;
-                rpt.Visible = false;
-                view.Show();
-            
+            if(view == null || view.IsDisposed)
+            {
+                view = new Clients();
+                view.FormClosed += new FormClosedEventHandler(view_FormClosed);
+
+            }
+           
+           
+          
+            view.ShowDialog();
+
         }
 
         private void btnBook_Click(object sender, EventArgs e)
         {
-            book.MdiParent = this;
-            pnlHome.Visible = false;
-            view.Visible = false;
-            acc.Visible = false;
-            pmnt.Visible = false;
-            rpt.Visible = false;
-            book.Show();
+            book = new Bookings();
+            book.FormClosed += new FormClosedEventHandler(book_FormClosed);
+
+            book.ShowDialog();
         }
 
         private void btnEnterExit_Click(object sender, EventArgs e)
         {
-            acc.MdiParent = this;
-            pnlHome.Visible = false;
-            book.Visible = false;
-            view.Visible = false;
-            pmnt.Visible = false;
-            rpt.Visible = false;
-            acc.Show();
+
+            acc = new Access();
+            acc.FormClosed += new FormClosedEventHandler(acc_FormClosed);
+
+            acc.ShowDialog();
         }
 
         private void btnPmnt_Click(object sender, EventArgs e)
         {
-            pmnt.MdiParent = this;
-            pnlHome.Visible = false;
-            book.Visible = false;
-            acc.Visible = false;
-            view.Visible = false;
-            rpt.Visible = false;
-            pmnt.Show();
+            pmnt = new Payment();
+            pmnt.FormClosed += new FormClosedEventHandler(pmnt_FormClosed);
+
+            pmnt.ShowDialog();
         }
 
         private void btnReport_Click(object sender, EventArgs e)
         {
-            rpt.MdiParent = this;
-            pnlHome.Visible = false;
-            book.Visible = false;
-            acc.Visible = false;
-            pmnt.Visible = false;
-            view.Visible = false;
-            rpt.Show();
+            rpt = new Reports();
+
+            rpt.FormClosed += new FormClosedEventHandler(rpt_FormClosed);
+
+            rpt.ShowDialog();
+            rpt.Focus();
+           
+
         }
 
         private void pnlHome_Paint(object sender, PaintEventArgs e)
@@ -144,27 +137,12 @@ namespace CMPG_Group28_FinalProject
 
         private void Exit_Click(object sender, EventArgs e)
         {
-            SQLcommit();
+           
             
             Application.Exit();
         }
 
 
-        private void SQLcommit()
-        {
-            conn = new SqlConnection(Global.ConString);
-            conn.Open();
-
-            string sql = "Commit * FROM Member";
-
-            comm = new SqlCommand(sql, conn);
-           
-            conn.Close();
-
-
-            
-
-        }
 
         
 

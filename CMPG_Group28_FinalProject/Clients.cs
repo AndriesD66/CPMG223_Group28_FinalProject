@@ -22,9 +22,10 @@ namespace CMPG_Group28_FinalProject
             InitializeComponent();
         }
 
+
         //string conStr = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\andre\OneDrive - NORTH-WEST UNIVERSITY\Documents\GitHub\CPMG223_Group28_FinalProject\CMPG_Group28_FinalProject\CMPG_Group28_FinalProject\GYM_DB.mdf;Integrated Security=True";
         
-        SqlConnection conn;
+        SqlConnection conn = new SqlConnection(Global.ConString);
         SqlCommand comm;
         SqlDataAdapter adap;
         SqlDataReader read;
@@ -81,7 +82,7 @@ namespace CMPG_Group28_FinalProject
         {
             try
             {
-                //conn = new SqlConnection(Global.ConString);
+               
                 
                 if (String.IsNullOrWhiteSpace(tbDelete.Text))
                 {
@@ -155,7 +156,6 @@ namespace CMPG_Group28_FinalProject
 
                     if (MessageBox.Show("Are yo sure you want to enter member ?", "Adding Member", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) == DialogResult.OK)
                     {
-                        //conn = new SqlConnection(Global.ConString);
                         conn.Open();
                         MessageBox.Show("Added new Member!");
 
@@ -205,6 +205,7 @@ namespace CMPG_Group28_FinalProject
 
 
                         comm.ExecuteNonQuery(); 
+                        
 
 
 
@@ -233,7 +234,6 @@ namespace CMPG_Group28_FinalProject
                     if (MessageBox.Show("Are yo sure you want to edit member ?", "Edited Member", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) == DialogResult.OK) 
                     {
 
-                        //conn = new SqlConnection(Global.ConString);
                         conn.Open();
 
                         if (!int.TryParse(lastProcessed, out oldMemID)) {tbID.Clear(); tbID.Focus(); throw new Exception("Insure that you have entered the correct Member ID");  }
@@ -282,7 +282,7 @@ namespace CMPG_Group28_FinalProject
             catch (Exception ae)
             {
 
-                MessageBox.Show(ae.ToString(), "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ae.Message.ToString(), "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 conn.Close();
             }
 
@@ -294,7 +294,6 @@ namespace CMPG_Group28_FinalProject
 
         private void updateDG()
         {
-            conn = new SqlConnection(Global.ConString);
            
             
             try

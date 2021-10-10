@@ -23,14 +23,12 @@ namespace CMPG_Group28_FinalProject
         public static bool isAdmin = true;
         public static bool ValidLogin = false;
 
-       
-    
 
-        SqlConnection conn;
-        SqlCommand comm;
+
+
+        SqlConnection conn = new SqlConnection(Global.ConString);
+
         SqlDataAdapter adap;
-        SqlDataReader read;
-        DataSet ds;
 
         private void btnLogIn_Click(object sender, EventArgs e)
         {
@@ -72,11 +70,6 @@ namespace CMPG_Group28_FinalProject
             conn.Close();
         }
 
-        private void Login_Load(object sender, EventArgs e)
-        {
-            conn = new SqlConnection(Global.ConString);
-            conn.Open();
-            conn.Close();
-        }
+        
     }
 }

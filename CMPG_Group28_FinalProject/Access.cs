@@ -18,14 +18,16 @@ namespace CMPG_Group28_FinalProject
             InitializeComponent();
         }
 
-        
 
 
-        SqlConnection conn;
+
+        SqlConnection conn = new SqlConnection(Global.ConString);
+
+  
         SqlCommand comm;
-        SqlDataAdapter adap;
+  
         SqlDataReader read;
-        DataSet ds;
+
         int MemberID;
         int EntryID;
         int ExitID;
@@ -218,6 +220,8 @@ namespace CMPG_Group28_FinalProject
                 conn.Close();
             }
         }
+
+      
     }
 }
 

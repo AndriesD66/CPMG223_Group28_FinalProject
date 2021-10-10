@@ -17,9 +17,11 @@ namespace CMPG_Group28_FinalProject
         public static string ConString => $@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename={directory}\GYM_DB.mdf;Integrated Security = True";
 
 
+        //public static string ConString => @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\plain\Documents\GitHub\CPMG223_Group28_FinalProject\CMPG_Group28_FinalProject\bin\Debug\GYM_DB.mdf;Integrated Security = True; Connect Timeout = 30";
 
 
-        
+
+
 
     }
 

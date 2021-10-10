@@ -18,9 +18,8 @@ namespace CMPG_Group28_FinalProject
         {
             InitializeComponent();
         }
-        SqlConnection conn;
+        SqlConnection conn = new SqlConnection(Global.ConString);
         SqlCommand comm;
-        SqlDataAdapter adap;
         SqlDataReader read;
         MessageBoxButtons btn = MessageBoxButtons.OK;
         MessageBoxIcon info = MessageBoxIcon.Information;
@@ -39,7 +38,7 @@ namespace CMPG_Group28_FinalProject
         private void Reports_Load(object sender, EventArgs e)
         {
             rtbShowReport.AppendText("Reports will be show here \n");
-            conn = new SqlConnection(Global.ConString);
+
             conn.Open();
             try
             {
