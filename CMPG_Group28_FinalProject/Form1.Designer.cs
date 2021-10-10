@@ -44,6 +44,8 @@ namespace CMPG_Group28_FinalProject
             this.btnPmnt = new System.Windows.Forms.Button();
             this.btnEnterExit = new System.Windows.Forms.Button();
             this.btnBook = new System.Windows.Forms.Button();
+            this.btnClasses = new System.Windows.Forms.Button();
+            this.EditClassesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.pnlHome.SuspendLayout();
             this.SuspendLayout();
@@ -57,7 +59,7 @@ namespace CMPG_Group28_FinalProject
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.MdiWindowListItem = this.Window;
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 33);
+            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -68,57 +70,57 @@ namespace CMPG_Group28_FinalProject
             this.bookAClassToolStripMenuItem,
             this.clientAccessToolStripMenuItem,
             this.logAPaymentToolStripMenuItem,
-            this.requestReportsToolStripMenuItem});
+            this.requestReportsToolStripMenuItem,
+            this.EditClassesToolStripMenuItem});
             this.File.Name = "File";
-            this.File.Size = new System.Drawing.Size(50, 29);
+            this.File.Size = new System.Drawing.Size(37, 20);
             this.File.Text = "&File";
-
             // 
             // viewUpdateOrDeleteToolStripMenuItem
             // 
             this.viewUpdateOrDeleteToolStripMenuItem.Name = "viewUpdateOrDeleteToolStripMenuItem";
-            this.viewUpdateOrDeleteToolStripMenuItem.Size = new System.Drawing.Size(265, 30);
+            this.viewUpdateOrDeleteToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
             this.viewUpdateOrDeleteToolStripMenuItem.Text = "View, Update or Delete";
             this.viewUpdateOrDeleteToolStripMenuItem.Click += new System.EventHandler(this.viewUpdateOrDeleteToolStripMenuItem_Click);
             // 
             // bookAClassToolStripMenuItem
             // 
             this.bookAClassToolStripMenuItem.Name = "bookAClassToolStripMenuItem";
-            this.bookAClassToolStripMenuItem.Size = new System.Drawing.Size(265, 30);
+            this.bookAClassToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
             this.bookAClassToolStripMenuItem.Text = "Book A Class";
             this.bookAClassToolStripMenuItem.Click += new System.EventHandler(this.bookAClassToolStripMenuItem_Click);
             // 
             // clientAccessToolStripMenuItem
             // 
             this.clientAccessToolStripMenuItem.Name = "clientAccessToolStripMenuItem";
-            this.clientAccessToolStripMenuItem.Size = new System.Drawing.Size(265, 30);
+            this.clientAccessToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
             this.clientAccessToolStripMenuItem.Text = "Client Access";
             this.clientAccessToolStripMenuItem.Click += new System.EventHandler(this.clientAccessToolStripMenuItem_Click);
             // 
             // logAPaymentToolStripMenuItem
             // 
             this.logAPaymentToolStripMenuItem.Name = "logAPaymentToolStripMenuItem";
-            this.logAPaymentToolStripMenuItem.Size = new System.Drawing.Size(265, 30);
+            this.logAPaymentToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
             this.logAPaymentToolStripMenuItem.Text = "Log a Payment";
             this.logAPaymentToolStripMenuItem.Click += new System.EventHandler(this.logAPaymentToolStripMenuItem_Click);
             // 
             // requestReportsToolStripMenuItem
             // 
             this.requestReportsToolStripMenuItem.Name = "requestReportsToolStripMenuItem";
-            this.requestReportsToolStripMenuItem.Size = new System.Drawing.Size(265, 30);
+            this.requestReportsToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
             this.requestReportsToolStripMenuItem.Text = "Request Reports";
             this.requestReportsToolStripMenuItem.Click += new System.EventHandler(this.requestReportsToolStripMenuItem_Click);
             // 
             // Window
             // 
             this.Window.Name = "Window";
-            this.Window.Size = new System.Drawing.Size(90, 29);
+            this.Window.Size = new System.Drawing.Size(63, 20);
             this.Window.Text = "&Window";
             // 
             // Exit
             // 
             this.Exit.Name = "Exit";
-            this.Exit.Size = new System.Drawing.Size(51, 29);
+            this.Exit.Size = new System.Drawing.Size(38, 20);
             this.Exit.Text = "&Exit";
             this.Exit.Click += new System.EventHandler(this.Exit_Click);
             // 
@@ -136,15 +138,16 @@ namespace CMPG_Group28_FinalProject
             // 
             // pnlHome
             // 
+            this.pnlHome.Controls.Add(this.btnClasses);
             this.pnlHome.Controls.Add(this.btnReport);
             this.pnlHome.Controls.Add(this.btnPmnt);
             this.pnlHome.Controls.Add(this.btnEnterExit);
             this.pnlHome.Controls.Add(this.btnBook);
             this.pnlHome.Controls.Add(this.btnView);
             this.pnlHome.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlHome.Location = new System.Drawing.Point(0, 33);
+            this.pnlHome.Location = new System.Drawing.Point(0, 24);
             this.pnlHome.Name = "pnlHome";
-            this.pnlHome.Size = new System.Drawing.Size(800, 417);
+            this.pnlHome.Size = new System.Drawing.Size(800, 426);
             this.pnlHome.TabIndex = 5;
             this.pnlHome.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlHome_Paint);
             // 
@@ -196,6 +199,25 @@ namespace CMPG_Group28_FinalProject
             this.btnBook.UseVisualStyleBackColor = true;
             this.btnBook.Click += new System.EventHandler(this.btnBook_Click);
             // 
+            // btnClasses
+            // 
+            this.btnClasses.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnClasses.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClasses.Location = new System.Drawing.Point(0, 220);
+            this.btnClasses.Name = "btnClasses";
+            this.btnClasses.Size = new System.Drawing.Size(800, 44);
+            this.btnClasses.TabIndex = 8;
+            this.btnClasses.Text = "Maintain Classes";
+            this.btnClasses.UseVisualStyleBackColor = true;
+            this.btnClasses.Click += new System.EventHandler(this.btnClasses_Click);
+            // 
+            // EditClassesToolStripMenuItem
+            // 
+            this.EditClassesToolStripMenuItem.Name = "EditClassesToolStripMenuItem";
+            this.EditClassesToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.EditClassesToolStripMenuItem.Text = "Edit A Class";
+            this.EditClassesToolStripMenuItem.Click += new System.EventHandler(this.EditClassesToolStripMenuItem_Click);
+            // 
             // frmHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -234,6 +256,8 @@ namespace CMPG_Group28_FinalProject
         private System.Windows.Forms.ToolStripMenuItem clientAccessToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem logAPaymentToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem requestReportsToolStripMenuItem;
+        private System.Windows.Forms.Button btnClasses;
+        private System.Windows.Forms.ToolStripMenuItem EditClassesToolStripMenuItem;
     }
 }
 

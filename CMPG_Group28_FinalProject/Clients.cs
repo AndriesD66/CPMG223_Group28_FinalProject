@@ -154,7 +154,7 @@ namespace CMPG_Group28_FinalProject
                     tbErrorTests();
 
 
-                    if (MessageBox.Show("Are yo sure you want to enter member ?", "Adding Member", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) == DialogResult.OK)
+                    if (MessageBox.Show("Are you sure you want to enter member ?", "Adding Member", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) == DialogResult.OK)
                     {
                         conn.Open();
                         MessageBox.Show("Added new Member!");
