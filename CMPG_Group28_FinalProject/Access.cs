@@ -180,7 +180,7 @@ namespace CMPG_Group28_FinalProject
                         MessageBox.Show(error.Message);
                     }
 
-                    MessageBox.Show("Member " + MemberID + " entered the gym", "", btn, info);
+                    MessageBox.Show("Member " + MemberID + " exited the gym", "", btn, info);
                 }
                 else
                 {
@@ -283,6 +283,11 @@ namespace CMPG_Group28_FinalProject
 
 
             conn.Close();
+        }
+
+        private void cmbClass_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

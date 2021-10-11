@@ -63,13 +63,12 @@ namespace CMPG_Group28_FinalProject
             this.label2.Size = new System.Drawing.Size(115, 20);
             this.label2.TabIndex = 1;
             this.label2.Text = "Type of report: ";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // cmbRepType
             // 
             this.cmbRepType.FormattingEnabled = true;
             this.cmbRepType.Items.AddRange(new object[] {
-            "Income in  the last year",
+            "Income Summary",
             "Income in the last month",
             "Class attendance summary",
             "Number of bookings in the last month"});
@@ -111,10 +110,6 @@ namespace CMPG_Group28_FinalProject
             this.btSave.Text = "Save Report";
             this.btSave.UseVisualStyleBackColor = true;
             this.btSave.Click += new System.EventHandler(this.btSave_Click);
-            // 
-            // saveD
-            // 
-            this.saveD.FileOk += new System.ComponentModel.CancelEventHandler(this.saveFileDialog1_FileOk);
             // 
             // cmbClass
             // 

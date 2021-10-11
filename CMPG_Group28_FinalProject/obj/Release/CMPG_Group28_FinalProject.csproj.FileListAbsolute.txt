@@ -5,7 +5,6 @@ C:\Users\plain\Documents\GitHub\CPMG223_Group28_FinalProject\CMPG_Group28_FinalP
 C:\Users\plain\Documents\GitHub\CPMG223_Group28_FinalProject\CMPG_Group28_FinalProject\bin\Release\CMPG_Group28_FinalProject.application
 C:\Users\plain\Documents\GitHub\CPMG223_Group28_FinalProject\CMPG_Group28_FinalProject\bin\Release\CMPG_Group28_FinalProject.exe
 C:\Users\plain\Documents\GitHub\CPMG223_Group28_FinalProject\CMPG_Group28_FinalProject\bin\Release\CMPG_Group28_FinalProject.pdb
-C:\Users\plain\Documents\GitHub\CPMG223_Group28_FinalProject\CMPG_Group28_FinalProject\obj\Release\CMPG_Group28_FinalProject.csprojAssemblyReference.cache
 C:\Users\plain\Documents\GitHub\CPMG223_Group28_FinalProject\CMPG_Group28_FinalProject\obj\Release\CMPG_Group28_FinalProject.Access.resources
 C:\Users\plain\Documents\GitHub\CPMG223_Group28_FinalProject\CMPG_Group28_FinalProject\obj\Release\CMPG_Group28_FinalProject.Bookings.resources
 C:\Users\plain\Documents\GitHub\CPMG223_Group28_FinalProject\CMPG_Group28_FinalProject\obj\Release\CMPG_Group28_FinalProject.Clients.resources
@@ -20,3 +19,4 @@ C:\Users\plain\Documents\GitHub\CPMG223_Group28_FinalProject\CMPG_Group28_FinalP
 C:\Users\plain\Documents\GitHub\CPMG223_Group28_FinalProject\CMPG_Group28_FinalProject\obj\Release\CMPG_Group28_FinalProject.application
 C:\Users\plain\Documents\GitHub\CPMG223_Group28_FinalProject\CMPG_Group28_FinalProject\obj\Release\CMPG_Group28_FinalProject.exe
 C:\Users\plain\Documents\GitHub\CPMG223_Group28_FinalProject\CMPG_Group28_FinalProject\obj\Release\CMPG_Group28_FinalProject.pdb
+C:\Users\plain\Documents\GitHub\CPMG223_Group28_FinalProject\CMPG_Group28_FinalProject\obj\Release\CMPG_Group28_FinalProject.Classes.resources

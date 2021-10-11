@@ -18,7 +18,7 @@ namespace CMPG_Group28_FinalProject
         {
             InitializeComponent();
         }
-        public static string adminPassword = "mIghTy4#";
+        public static string adminPassword = "";
         public static bool isAdmin = true;
         public static bool ValidLogin = false;
         public static bool ValidLoginAdmin = false;
@@ -35,6 +35,8 @@ namespace CMPG_Group28_FinalProject
             conn.Close();
             conn.Open();
             getName();
+           
+            
             if (String.IsNullOrWhiteSpace(tbClientID.Text))
             {
                 MessageBoxButtons btn = MessageBoxButtons.OK;

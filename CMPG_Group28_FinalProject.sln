@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.31019.35
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CMPG_Group28_FinalProject", "CMPG_Group28_FinalProject\CMPG_Group28_FinalProject.csproj", "{C50B326B-E98D-44D1-9EB6-D74FF6343768}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "mIghTy GYM", "mIghTy GYM\mIghTy GYM.vdproj", "{98977BD9-3683-46A6-AB7A-9E5AD8A8927B}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "mIghTy", "mIghTy\mIghTy.vdproj", "{6226D002-0657-4EDC-8993-A8DF7397BB30}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,8 +17,8 @@ Global
 		{C50B326B-E98D-44D1-9EB6-D74FF6343768}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C50B326B-E98D-44D1-9EB6-D74FF6343768}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C50B326B-E98D-44D1-9EB6-D74FF6343768}.Release|Any CPU.Build.0 = Release|Any CPU
-		{98977BD9-3683-46A6-AB7A-9E5AD8A8927B}.Debug|Any CPU.ActiveCfg = Debug
-		{98977BD9-3683-46A6-AB7A-9E5AD8A8927B}.Release|Any CPU.ActiveCfg = Release
+		{6226D002-0657-4EDC-8993-A8DF7397BB30}.Debug|Any CPU.ActiveCfg = Debug
+		{6226D002-0657-4EDC-8993-A8DF7397BB30}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
